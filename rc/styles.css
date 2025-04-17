@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 230px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding: 15px;
+    height: 95vh; /* Altura total da tela */
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar h2 a{
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a h3 {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Estilo para o submenu */
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Esconde o submenu por padrão */
+}
+
+.submenu li {
+    margin: 0px; /* Remove a margem do submenu */
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-left: 260px; /* Espaço para a barra lateral */
+    padding: 20px;
+}

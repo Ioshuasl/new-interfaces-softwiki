@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registroNascimento.css">
+    <title>Registrar nascimento</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2><a href="../../../index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../index.html">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+
+        <h1>Novo Registro de Nascimento</h1>
+
+        <nav>
+            <div class="container-navbar">
+                <ul class="nav-links">
+                    <li><a href="../cadastrarRegistroNascimento/registroNascimento.html">Registro</a></li>
+                    <li><a href="../cadastroPais/cadastroPais.html">Dados dos Pais</a></li>
+                    <li><a href="../informacaoComplementar/informacaoComplementar.html">Informações Complementares</a>
+                    </li>
+                    <li><a href="../averbacao/averbacao.html">Averbação</a></li>
+                    <li><a href="">Pedido de Certidão</a></li>
+                    <li><a href="">Histórico</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div>
+
+            <div class="container">
+                <form id="registro-form">
+
+                    <div class="dados-controle-nascimento">
+                        <h3>Dados de controle do registro</h3>
+                        <div class="controle-registro-nascimento">
+                            <div class="input-controle-row">
+                                <label for="numero-registro">Nº do Registro:</label>
+                                <input type="text" name="numero-registro-nascimento" id="numero-registro-nascimento">
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="livro-nascimento">Livro:</label>
+                                <input type="text" name="livro-nascimento" id="livro-nascimento">
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="pagina-livro-nascimento">Página:</label>
+                                <input type="text" name="pagina-livro-nascimento" id="pagina-livro-nascimento">
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="termo-nascimento">Nº Termo:</label>
+                                <input type="text" name="termo-nascimento" id="termo-nascimento">
+                            </div>
+                        </div>
+                        <div class="btn-lavratura">
+                            <button type="button">Lavrar Registro</button>
+                        </div>
+                    </div>
+
+                    <h3>Dados da Criança</h3>
+                    <label for="nome-crianca">Nome completo da criança:</label>
+                    <input type="text" id="nome-crianca" name="nome-crianca" required>
+
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+
+                    <div class="data-hora-nascimento">
+                        <div class="data-hora-row">
+                            <label for="data-nascimento">Data de nascimento:</label>
+                            <input type="date" id="data-nascimento" name="data-nascimento" required>
+                        </div>
+                        <div class="data-hora-row">
+                            <label for="hora-nascimento">Hora de nascimento:</label>
+                            <input type="time" id="hora-nascimento" name="hora-nascimento">
+                        </div>
+                    </div>
+
+
+                    <label for="local-nascimento">Local de nascimento:</label>
+                    <input type="text" id="local-nascimento" name="local-nascimento" required>
+                    <input type="text" id="endereco-nascimento" name="endereco-nascimento"
+                        placeholder="Endereço (se fora de unidade de saúde)">
+                </form>
+            </div>
+
+            <div class="botoes">
+                <button type="button" onclick="window.history.back();">Cancelar</button>
+                <button type="submit"
+                    onclick="window.location.href = '../cadastroPais/cadastroPais.html'">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

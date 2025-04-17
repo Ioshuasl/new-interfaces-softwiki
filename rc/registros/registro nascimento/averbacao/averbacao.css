@@ -1,0 +1,374 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 230px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding: 15px;
+    height: 95vh; /* Altura total da tela */
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar h2 a{
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a h3 {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Estilo para o submenu */
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Esconde o submenu por padrão */
+}
+
+.submenu li {
+    margin: 0px; /* Remove a margem do submenu */
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    color: white;
+    padding: 15px 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    /* Cor ao passar o mouse */
+}
+
+.content {
+    margin-left: 260px;
+    /* Espaço para a barra lateral */
+    padding: 20px;
+}
+
+.content h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.container-navbar {
+    margin: auto;
+    background: white;
+    padding: 30px 30px 0px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 800;
+    /* Largura do contêiner */
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+input[type="file"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    /* Cor verde ao focar */
+    outline: none;
+    /* Remove o contorno padrão */
+}
+
+/* Estilos dos botões */
+.botoes button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    /* Azul */
+    transition: background-color 0.3s;
+}
+
+.botoes button:hover {
+    background-color: #0056b3;
+    /* Tom mais escuro ao passar o mouse */
+}
+
+.data-hora-nascimento {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.data-hora-row {
+    display: flex;
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    margin-bottom: 10px;
+}
+
+.input-nome-pais-pesquisar {
+    display: flex;
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.input-nome-pais-pesquisar input {
+    padding: 10px;
+    /* Espaçamento interno dos inputs */
+    border: 1px solid #ccc;
+    /* Borda dos inputs */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    margin-right: 0px;
+    /* Espaço entre os inputs */
+    flex: 1;
+    /* Faz com que os inputs ocupem o espaço disponível */
+}
+
+.input-nome-pais-pesquisar button {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.cpf-dataNascimento-documento-pais {
+    display: flex;
+    gap: 20px;
+}
+
+.cpf-pais {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.data-nascimento-pais {
+    display: flex;
+    flex-direction: column;
+}
+
+.documento-pais {
+    display: flex;
+    flex-direction: column;
+}
+
+.naturalidade-nacionalidade-pais {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.nacionalidade-pais {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.naturalidade-pais{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.cep {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.cep input {
+    padding: 10px;
+    /* Espaçamento interno dos inputs */
+    border: 1px solid #ccc;
+    /* Borda dos inputs */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    margin-right: 0px;
+    /* Espaço entre os inputs */
+    flex: 1;
+    /* Faz com que os inputs ocupem o espaço disponível */
+}
+
+.cep button {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.data-hora-row label {
+    margin-top: 0px;
+    margin-right: 10px;
+    /* Espaço entre o label e o input */
+    white-space: nowrap;
+    /* Impede que o texto do label quebre a linha */
+}
+
+.data-hora-row input {
+    padding: 10px;
+    /* Espaçamento interno dos inputs */
+    border: 1px solid #ccc;
+    /* Borda dos inputs */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    margin-right: 0px;
+    /* Espaço entre os inputs */
+    flex: 1;
+    /* Faz com que os inputs ocupem o espaço disponível */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espaçamento entre as linhas */
+}
+
+#numero {
+    flex: 1;
+    /* O input número ocupará o espaço disponível */
+    margin-right: 10px;
+    /* Espaço entre número e bairro */
+}
+
+#bairro {
+    flex: 2;
+    /* O input bairro será maior que o número */
+}
+
+.input-row-cidade {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espaçamento entre as linhas */
+}
+
+#cidade {
+    flex: 2;
+    /* O input cidade será maior que o estado */
+    margin-right: 10px;
+    /* Espaço entre cidade e estado */
+}
+
+#estado {
+    flex: 1;
+    /* O input estado ocupará o espaço disponível */
+}
+
+.botoes {
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.botoes button {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+/* Estilos para o upload de arquivo */
+input[type="file"] {
+    border: none;
+    /* Remove a borda padrão */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        /* Botões ocupam toda a largura em telas pequenas */
+        margin-top: 10px;
+    }
+}
