@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="certidao.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Averbação</title>
 </head>
 
@@ -92,13 +92,13 @@
 
             <div class="container">
                 <form id="registro-form">
-                    <h2>Certidão de Nascimento</h2>
-                    <label for="tipoAverbacao">Tipo de certidão:</label>
+                    <h3>Averbação</h3>
+                    <label for="tipoAverbacao">Tipo de Averbação:</label>
                     <select id="tipoAverbacao" name="tipoAverbacao" required>
-                        <option value="">Selecione um modelo de certidão</option>
-                        <option value="reconhecimentoPaternidade">Certidão de nascimento - 1ª via</option>
-                        <option value="reconhecimentoMaternidade">Certidão de nascimento - 2ª via</option>
-                        <option value="mudancaSobrenome">Assento de nascimento</option>
+                        <option value="">Selecione</option>
+                        <option value="reconhecimentoPaternidade">Reconhecimento de Paternidade</option>
+                        <option value="reconhecimentoMaternidade">Reconhecimento de Maternidade</option>
+                        <option value="mudancaSobrenome">Mudança de Sobrenome</option>
                         <option value="adocao">Adoção</option>
                         <option value="retificacaoDados">Retificação de Dados</option>
                         <option value="declaracaoNascimento">Declaração de Nascimento</option>
@@ -106,39 +106,17 @@
                         <option value="anulacaoRegistro">Anulação de Registro</option>
                     </select>
 
-                    <label for="ceritdao">Texto da Certidão:</label>
-                    <textarea id="ceritdao" name="ceritdao" rows="14" required></textarea>
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacao" name="observacao" rows="10"></textarea>
 
-                    <div class="botao-certidao">
-                        <button id="qualificar">Qualificar certidão</button>
-                        <button id="selar-documento">Selar certidão</button>
-                    </div>
-
-                    <div class="valor-certidao">
-                        <div class="detalhes-pagamento">
-                            <h3>Detalhes do Pagamento</h3>
-                            <p><strong>Valor da Certidão:</strong><input class="input-valor" type="text" name="" id=""></p>
-                            <p><strong>Taxa de Emissão:</strong><input class="input-valor" type="text" name="" id=""></p>
-                            <p><strong>Total a Pagar:</strong>R$ 60,00</p>
-                        </div>
-                        
-        
-                        <div class="opcao-pagamento">
-                            <label for="formaPagamento">Forma de Pagamento:</label>
-                            <select id="formaPagamento" name="formaPagamento" required>
-                                <option value="">Selecione uma forma de pagamento</option>
-                                <option value="boleto">Boleto Bancário</option>
-                                <option value="cartao">Cartão de Crédito</option>
-                                <option value="pix">Pix</option>
-                            </select>
-                        </div>
-                    </div>
+                    <label for="dnv">Documento Comprobatório (Opcional):</label>
+                    <input type="file" id="dnv" name="dnv" accept=".pdf,.jpg,.jpeg,.png">
                 </form>
                 <div class="botoes">
                     <button type="button" onclick="window.history.back();">Cancelar</button>
-                    <button type="submit">Concluir Certidão</button>
+                    <button type="submit" onclick="window.location.href = '../averbacao/averbacao.html'">Concluir
+                        Registro</button>
                 </div>
-
             </div>
 
         </div>
