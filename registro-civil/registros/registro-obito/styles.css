@@ -94,10 +94,17 @@ body {
 }
 
 #form-pesquisa input[type="text"],
-#form-pesquisa input[type="date"],
-#form-pesquisa select {
+#form-pesquisa input[type="date"] {
     flex: 1; /* Faz os inputs ocuparem o espaço disponível */
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#form-pesquisa select {
+    flex: 1; /* Faz os inputs ocuparem o espaço disponível */
+    padding: 10px 15px 10px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 15px;
@@ -136,7 +143,7 @@ body {
     background-color: #d32f2f; /* Cor ao passar o mouse no botão de limpar */
 }
 
-.registro-obito {
+.registro-nascimento {
     margin-top: 30px;
     background-color: white;
     border-radius: 8px;
@@ -144,7 +151,7 @@ body {
     padding: 20px;
 }
 
-.registro-obito h2 {
+.registro-nascimento h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;

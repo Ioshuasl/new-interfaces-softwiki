@@ -167,12 +167,7 @@ select:focus {
     flex: 1;
 }
 
-.buttons-lavratura-cpf {
-    display: flex;
-    gap: 20px;
-}
-
-.buttons-lavratura-cpf button {
+.btn-lavratura button {
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -198,26 +193,6 @@ select:focus {
     background-color: #0056b3;
 }
 
-.row-sexo-data-hora-nascido {
-    display: flex;
-    gap: 20px;
-}
-
-.sexo-nascido {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.sexo-nascido select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
 .data-hora-nascimento {
     display: flex;
     flex: 1;
@@ -240,6 +215,18 @@ select:focus {
     justify-content: space-between;
     margin-bottom: 10px;
     /* Espaçamento entre as linhas */
+}
+
+.filiacao-falecido {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.input-row-filiacao {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 #numero {
@@ -273,6 +260,69 @@ select:focus {
     /* O input estado ocupará o espaço disponível */
 }
 
+.cpf-dataNascimento-documento-falecido {
+    display: flex;
+    gap: 20px;
+}
+
+.cpf-falecido {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.data-nascimento-falecido {
+    display: flex;
+    flex-direction: column;
+}
+
+.documento-falecido {
+    display: flex;
+    flex-direction: column;
+}
+
+.naturalidade-nacionalidade-falecido {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.nacionalidade-falecido {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.naturalidade-falecido{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.cep {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.cep input {
+    padding: 10px;
+    /* Espaçamento interno dos inputs */
+    border: 1px solid #ccc;
+    /* Borda dos inputs */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    margin-right: 0px;
+    /* Espaço entre os inputs */
+    flex: 1;
+    /* Faz com que os inputs ocupem o espaço disponível */
+}
+
+.cep button {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
 .botoes {
     display: flex;
     justify-content: end;
@@ -281,12 +331,6 @@ select:focus {
 .botoes button {
     font-size: 18px;
     margin-left: 20px;
-}
-
-/* Estilos para o upload de arquivo */
-input[type="file"] {
-    border: none;
-    /* Remove a borda padrão */
 }
 
 /* Responsividade */

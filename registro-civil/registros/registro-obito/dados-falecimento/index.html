@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dados do falecimento</title>
+</head>
+
+<body>
+    <main>
+
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Registros</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="../index.html">Nascimento</a></li>
+                        <li><a href="">Casamento</a></li>
+                        <li><a href="">Obito</a></li>
+                        <li><a href="">Natimorto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="submenu-toggle">
+                        <h3>Configuração de Cadastro</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Cartório</a></li>
+                        <li><a href="">Pessoas</a></li>
+                        <li><a href="">Minuta</a></li>
+                        <li><a href="">Livro</a></li>
+                        <li><a href="">Complemento Pessoas</a></li>
+                        <li><a href="">Outros Cartórios</a></li>
+                        <li><a href="">CID</a></li>
+                        <li><a href="">Tipo de Andamento</a></li>
+                        <li><a href="">Tipo de Serviço</a></li>
+                        <li><a href="">Livro E</a></li>
+                        <li><a href="">Emolumentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Integração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">CRC</a></li>
+                        <li><a href="">SIRC</a></li>
+                        <li><a href="">IBGE</a></li>
+                        <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Impressão</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Impressão de Protocolo</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Administração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Controle de Marcação</a></li>
+                    </ul>
+                </li>
+                <li><a href="">
+                        <h3>Configuração do sistema</h3>
+                    </a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+
+            <h1>Dados do Falecimento</h1>
+
+            <nav>
+                <div class="container-navbar">
+                    <ul class="nav-links">
+                        <li><a href="../cadastrarRegistroNascimento/registroNascimento.html">Registro</a></li>
+                        <li><a href="../cadastroPais/cadastroPais.html">Dados dos Pais</a></li>
+                        <li><a href="../informacaoComplementar/informacaoComplementar.html">Informações
+                                Complementares</a></li>
+                        <li><a href="../averbacao/averbacao.html">Averbação</a></li>
+                        <li><a href="">Pedido de Certidão</a></li>
+                        <li><a href="">Histórico</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container">
+                <form id="registro-form">
+                    <h3>Dados do falecimento</h3>
+                    <div class="data-hora-falecimento">
+                        <div class="data-hora-row">
+                            <label for="data-falecimento">Data de Falecimento:</label>
+                            <input type="date" id="data-nascimento" name="data-nascimento" required>
+                        </div>
+                        <div class="data-hora-row">
+                            <label for="hora-nascimento">Hora de Falecimento:</label>
+                            <input type="time" id="hora-nascimento" name="hora-nascimento">
+                        </div>
+                    </div>
+
+                    <label for="local-falecimento">Local do Falecimento</label>
+                    <select name="tipo-local" id="tipo-local">
+                        <option value="">Selecione o tipo de local do Falecimento</option>
+                        <option value="hospital">Hospital</option>
+                        <option value="residencia">Residência ou Estabelecimento de Saúde</option>
+                        <option value="via-publica">Via Pública</option>
+                        <option value="outros">Outros</option>
+                    </select>
+
+                    <label for="endereco-falecimento">Endereço do Falecimento</label>
+                    <div class="endereco-falecimento">
+                        <div class="input-row">
+                            <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                            <input type="text" id="numero" name="numero" placeholder="Número" required>
+                        </div>
+
+                        <div class="input-row estado">
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                            <select id="estado" name="estado" required>
+                                <option value="">Estado</option>
+                                <option value="SP">SP</option>
+                                <option value="RJ">RJ</option>
+                                <option value="MG">MG</option>
+                                <!-- e assim por diante -->
+                            </select>
+                            <div class="cep">
+                                <input type="text" id="cep" name="cep" placeholder="CEP(00000-000)" required>
+                                <button type="button">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="causa-e-cid">
+                        <div class="input-causa-cid">
+                            <label for="causa-morte">Causa da morte:</label>
+                            <input type="text" name="causa-morte" id="causa-morte">
+                        </div>
+
+                        <div class="input-causa-cid">
+                            <label for="cid">Código CID:</label>
+                            <input type="text" name="cid" id="cid">
+                        </div>
+                    </div>
+
+                    <div class="medico-obito">
+                        <label for="">Dados do médico e Declaração:</label>
+                        <div class="dados-medico">
+                            <input type="text" name="nome-medico" id="nome-medico" placeholder="Nome do médico">
+                            <input type="text" name="codigo-crm" id="codigo-crm" placeholder="Código CRM">
+                            <input type="text" name="declaracao-obito" id="declaracao-obito"
+                                placeholder="Nº da Declaração de Obito">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="">Dados do Sepultamento:</label>
+
+                        <div class="dados-sepultamento">
+                            <input type="text" name="local-sepultamento" id="local-sepultamento"
+                                placeholder="Local do Sepultamento">
+                            <select name="tipo-sepultamento" id="tipo-sepultamento">
+                                <option value="">Selecione o tipo de Sepultamento</option>
+                                <option value="comum">Comum</option>
+                                <option value="particular">Particular</option>
+                                <option value="cremacao">Cremação</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Dados do Declarante</h3>
+                        <div class="dados-declarante">
+                            <div class="input-column-declarante">
+                                <div class="input-row-declarante bigger">
+                                    <label for="">Nome do Declarante:</label>
+                                    <input type="text" name="nome-declarante" id="nome-declarante">
+                                </div>
+                                <div class="input-row-declarante">
+                                    <label for="">CPF do Declarante:</label>
+                                    <input type="text" name="cpf-declarante" id="cpf-declarante"
+                                        placeholder="___.___.___-__">
+                                </div>
+
+                                <div class="input-row-declarante">
+                                    <label for="">Telefone do Declarante:</label>
+                                    <input type="text" name="telefone-declarante" id="telefone-declarante"
+                                        placeholder="(__) _____-____">
+                                </div>
+                            </div>
+
+                            <div class="input-column-declarante">
+                                <div class="input-row-declarante select">
+                                    <label for="">Grau de parentesco do Declarante:</label>
+                                    <select name="grau-parentesco" id="grau-parentesco">
+                                        <option value="">Selecione</option>
+                                        <option value="filho">Filho(a)</option>
+                                        <option value="conjuge">Cônjuge</option>
+                                        <option value="pai_mae">Pai ou Mãe</option>
+                                        <option value="irmao">Irmão(ã)</option>
+                                        <option value="neto">Neto(a)</option>
+                                        <option value="outro_parente">Outro parente</option>
+                                        <option value="amigo">Amigo</option>
+                                        <option value="vizinho">Vizinho</option>
+                                        <option value="agente_funerario">Agente funerário</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-row-declarante select">
+                                    <label for="">Tipo de Documento:</label>
+                                    <select name="tipo-documento" id="tipo-documento">
+                                        <option value="">Selecione</option>
+                                        <option value="">RG</option>
+                                        <option value="">CNH</option>
+                                        <option value="">Passaporte</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-row-declarante">
+                                    <label for="">Número do Documento:</label>
+                                    <input type="text" name="documento-declarante" id="documento-declarante">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div >
+                        <h3>Informações Complementares</h3>
+                        <div class="inputs-radio bbb">
+                            <div class="radio-labels">
+                                <label for="">Deixou bens a inventariar?</label>
+                                <label for="deixou-testamento">Deixou testamento?</label>
+                                <label for="era-eleitor">Era eleitor?</label>
+                            </div>
+    
+                            <div class="radio-labels">
+                                <div class="input-radio-row">
+                                    <label><input type="radio" name="era-eleitor" value="sim" required> Sim</label>
+                                    <label><input type="radio" name="era-eleitor" value="nao"> Não</label>
+                                </div>
+    
+                                <div class="input-radio-row">
+                                    <label><input type="radio" name="deixou-testamento" value="sim" required> Sim</label>
+                                    <label><input type="radio" name="deixou-testamento" value="nao"> Não</label>
+                                </div>
+    
+                                <div class="input-radio-row">
+                                    <label><input type="radio" name="deixou-bens" value="sim" required> Sim</label>
+                                    <label><input type="radio" name="deixou-bens" value="nao"> Não</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="botoes">
+                <button type="button" onclick="window.history.back();">Cancelar</button>
+                <button type="submit" onclick="window.location.href = '../averbacao/averbacao.html'">Concluir
+                    Registro</button>
+            </div>
+        </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

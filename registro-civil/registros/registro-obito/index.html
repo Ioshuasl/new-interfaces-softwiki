@@ -9,7 +9,11 @@
 </head>
 
 <body>
+    <header>
 
+    </header>
+
+    <main>
         <div class="sidebar">
             <h2><a href="../../index.html">Menu</a></h2>
             <ul>
@@ -17,7 +21,7 @@
                         <h3>Registros</h3>
                     </a>
                     <ul class="submenu">
-                        <li><a href="registros/registro nascimento/index.html">Nascimento</a></li>
+                        <li><a href="index.html">Nascimento</a></li>
                         <li><a href="">Casamento</a></li>
                         <li><a href="">Obito</a></li>
                         <li><a href="">Natimorto</a></li>
@@ -72,7 +76,7 @@
         <div class="content">
             <h1>Registro de Óbito</h1>
             <div class="search-obitos">
-                <h2>Pesquisar Óbito</h2>
+                <h2>Pesquisar Óbitos</h2>
                 <form id="form-pesquisa">
                     <input type="text" name="pessoa" id="input-pessoa" placeholder="Nome da pessoa">
                     <select name="andamento" id="select-andamento">
@@ -82,14 +86,14 @@
                         <option value="cancelado">Cancelado</option>
                         <option value="estornado">Estornado</option>
                     </select>
-                    <input type="text" name="termoObito" id="termoObito" placeholder="Termo">
+                    <input type="text" name="termoNascimento" id="termoNascimento" placeholder="Termo">
                     <select name="livro" id="livro">
                         <option value="">Livro</option>
                         <option value="livro-a-001">Livro A-001</option>
                         <option value="livro-a-002">Livro A-002</option>
                         <option value="livro-a-003">Livro A-003</option>
                     </select>
-                    <input type="text" name="folhaObito" id="folhaObito" placeholder="Folha">
+                    <input type="text" name="folhaNascimento" id="folhaNascimento" placeholder="Folha">
                     <input type="date" name="dataAssentoInicial" id="dataAssentoInicial" placeholder="Data Inicial">
                     <input type="date" name="dataAssentoFinal" id="dataAssentoFinal" placeholder="Data Final">
                     <div class="buttons">
@@ -99,8 +103,8 @@
                 </form>
             </div>
             
-            <div class="registro-obito">
-                <button id="btn-novo-registro" onclick="window.location.href=''">Novo Registro de Óbito</button>
+            <div class="registro-nascimento">
+                <button id="btn-novo-registro" onclick="window.location.href='./cadastrarRegistroNascimento/registroNascimento.html'">Novo Registro de Óbito</button>
                 
                 <div class="lista-registros">
                     <div class="registro-item">
@@ -108,7 +112,7 @@
                             <h3>Maria Silva</h3>
                             <div class="info-row">
                                 <p><strong>CPF:</strong> 111.222.333-44</p>
-                                <p><strong>Data de Óbito:</strong> 01/01/2020</p>
+                                <p><strong>Data do Óbito:</strong> 01/01/2020</p>
                             </div>
                             <div class="info-row">
                                 <p><strong>Termo:</strong> 12345</p>
@@ -127,7 +131,7 @@
                             <h3>João Souza</h3>
                             <div class="info-row">
                                 <p><strong>CPF:</strong> 222.333.444-55</p>
-                                <p><strong>Data de Óbito:</strong> 15/03/2021</p>
+                                <p><strong>Data do Óbito:</strong> 15/03/2021</p>
                             </div>
                             <div class="info-row">
                                 <p><strong>Termo:</strong> 12346</p>
@@ -145,7 +149,11 @@
                 </div>
             </div>
         </div>
-    
+    </main>
+
+    <footer>
+
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const submenuToggles = document.querySelectorAll('.submenu-toggle');

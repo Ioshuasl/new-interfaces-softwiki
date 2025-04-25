@@ -10,18 +10,18 @@ body {
     color: white;
     position: fixed;
     padding: 15px;
-    height: 95vh;
+    height: 95vh; /* Altura total da tela */
     overflow-y: scroll;
     scrollbar-width: none;
-}
-
-.sidebar h2 {
-    text-align: center;
 }
 
 .sidebar h2 a{
     color: white;
     text-decoration: none;
+}
+
+.sidebar h2 {
+    text-align: center;
 }
 
 .sidebar ul {
@@ -46,15 +46,16 @@ body {
     background-color: #575757;
 }
 
+/* Estilo para o submenu */
 .submenu {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: none;
+    display: none; /* Esconde o submenu por padrão */
 }
 
 .submenu li {
-    margin: 0px; 
+    margin: 0px; /* Remove a margem do submenu */
 }
 
 .submenu li a:hover {
@@ -83,10 +84,12 @@ body {
 
 .nav-links a:hover {
     text-decoration: underline;
+    /* Cor ao passar o mouse */
 }
 
 .content {
     margin-left: 260px;
+    /* Espaço para a barra lateral */
     padding: 20px;
 }
 
@@ -105,6 +108,7 @@ body {
 
 .container {
     max-width: 800;
+    /* Largura do contêiner */
     margin: auto;
     background: white;
     padding: 30px;
@@ -119,6 +123,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Estilos do formulário */
 form {
     display: flex;
     flex-direction: column;
@@ -148,41 +153,12 @@ input[type="date"]:focus,
 input[type="time"]:focus,
 select:focus {
     border-color: #4CAF50;
+    /* Cor verde ao focar */
     outline: none;
+    /* Remove o contorno padrão */
 }
 
-.dados-controle-nascimento {
-    margin-bottom: 20px;
-}
-
-.controle-registro-nascimento {
-    display: flex;
-    flex: 1;
-    gap: 20px;
-}
-
-.input-controle-row {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.buttons-lavratura-cpf {
-    display: flex;
-    gap: 20px;
-}
-
-.buttons-lavratura-cpf button {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
-    background-color: #007BFF;
-    transition: background-color 0.3s;
-}
-
+/* Estilos dos botões */
 .botoes button {
     padding: 12px;
     border: none;
@@ -191,36 +167,18 @@ select:focus {
     font-size: 16px;
     color: white;
     background-color: #007BFF;
+    /* Azul */
     transition: background-color 0.3s;
 }
 
 .botoes button:hover {
     background-color: #0056b3;
+    /* Tom mais escuro ao passar o mouse */
 }
 
-.row-sexo-data-hora-nascido {
+
+.data-hora-falecimento {
     display: flex;
-    gap: 20px;
-}
-
-.sexo-nascido {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.sexo-nascido select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.data-hora-nascimento {
-    display: flex;
-    flex: 1;
     gap: 20px;
 }
 
@@ -230,47 +188,117 @@ select:focus {
     flex: 1;
 }
 
-.form-container {
+.endereco-falecimento {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .input-row {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    /* Espaçamento entre as linhas */
+    flex: 1;
+    gap: 15px;
 }
 
-#numero {
+.estado {
+    flex: 0.6;
+}
+
+.cep {
+    display: flex;
     flex: 1;
-    /* O input número ocupará o espaço disponível */
-    margin-right: 10px;
-    /* Espaço entre número e bairro */
+    gap: 20px;
+}
+
+.cep button {
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
 #bairro {
-    flex: 2;
-    /* O input bairro será maior que o número */
-}
-
-.input-row-cidade {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    /* Espaçamento entre as linhas */
-}
-
-#cidade {
-    flex: 2;
-    /* O input cidade será maior que o estado */
-    margin-right: 10px;
-    /* Espaço entre cidade e estado */
-}
-
-#estado {
     flex: 1;
-    /* O input estado ocupará o espaço disponível */
+}
+
+#rua {
+    flex: 2;
+}
+
+#numero {
+    flex: 0.5;
+}
+
+.causa-e-cid {
+    display: flex;
+    gap: 20px;
+}
+
+.input-causa-cid {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.medico-obito {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.dados-medico {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+}
+
+#nome-medico {
+    flex: 2;
+}
+
+#codigo-crm {
+    flex: 0.5;
+}
+
+.dados-sepultamento {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+}
+
+#local-sepultamento {
+    flex: 1;
+}
+
+.input-column-declarante {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+}
+
+.input-row-declarante {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bigger {
+    flex: 2;
+}
+
+.select {
+    flex: 0.7;
+}
+
+.inputs-radio {
+    display: flex;
+}
+
+.input-radio-row {
+    margin: 10px 0 5px;
+}
+
+.radio-labels {
+    display: flex;
+    flex-direction: column;
 }
 
 .botoes {
@@ -281,12 +309,6 @@ select:focus {
 .botoes button {
     font-size: 18px;
     margin-left: 20px;
-}
-
-/* Estilos para o upload de arquivo */
-input[type="file"] {
-    border: none;
-    /* Remove a borda padrão */
 }
 
 /* Responsividade */
