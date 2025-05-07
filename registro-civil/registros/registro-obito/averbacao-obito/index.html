@@ -78,9 +78,6 @@
         </div>
 
         <div class="content">
-
-            <h1>Novo Registro de Nascimento</h1>
-
             <nav>
                 <div class="container-navbar">
                     <ul class="nav-links">
@@ -98,15 +95,7 @@
             <div class="container">
                 <input type="hidden" name="textoAverbacao" id="textoAverbacao">
                 <form id="registro-form">
-                    <h3>Averbação</h3>
-                    <label for="tipoAverbacao"><span title="Escolha o tipo de anotação que será feita no registro.">Tipo
-                            de Averbação: </span></label>
-                    <select id="tipoAverbacao" name="tipoAverbacao" required>
-                        <option value="">Selecione</option>
-                        <option value="retificacao">Retificação</option>
-                        <option value="judicial">Judicial</option>
-                        <option value="complementar">Complementar</option>
-                    </select>
+                    <h3>Averbação de Óbito</h3>
 
                     <label for="modeloTexto">Modelo do Texto de Averbação:</label>
                     <select id="modeloTexto" onchange="inserirModelo()">
@@ -123,7 +112,7 @@
                             <button type="button">Limpar texto</button>
                             <button type="button" onclick="visualizarAverbacao()">Visualizar como Folha</button>
                             <button type="button" onclick="exportarPDF()">Exportar como PDF</button>
-                            <button type="button">Imprimir Averbação</button>
+                            <button type="button" onclick="imprimirAverbacao()">Imprimir Averbação</button>
                         </div>
                         <div class="editor">
                             <!-- Toolbar padrão do Quill -->
@@ -203,6 +192,25 @@
 
                     <label for="dnv">Documento Anexo (Opcional):</label>
                     <input type="file" id="dnv" name="dnv" accept=".pdf,.jpg,.jpeg,.png">
+
+                    <div class="valor-certidao">
+                        <div class="detalhes-pagamento">
+                            <h3>Resumo de Pagamento</h3>
+                            <p><strong>Valor da Certidão:</strong> R$ 45,00</p>
+                            <p><strong>Taxa de Emissão:</strong> R$ 15,00</p>
+                            <p><strong>Total a Pagar:</strong> <span class="valor-final">R$ 60,00</span></p>
+                        </div>
+
+                        <div class="opcao-pagamento">
+                            <label for="formaPagamento"><strong>Forma de Pagamento:</strong></label>
+                            <select id="formaPagamento" required>
+                                <option value="">Selecione</option>
+                                <option value="boleto">Boleto Bancário</option>
+                                <option value="cartao">Cartão de Crédito</option>
+                                <option value="pix">Pix</option>
+                            </select>
+                        </div>
+                    </div>
                 </form>
                 <div class="botoes">
                     <button type="button" onclick="window.history.back();">Cancelar</button>
@@ -275,7 +283,12 @@
             const folhaPreview = document.getElementById('folha-preview');
 
             // Copiar o conteúdo do editor Quill para a área de visualização
-            previewContainer.innerHTML = quill.root.innerHTML;
+            const styledContent = document.createElement('div');
+            styledContent.classList.add('ql-editor');
+            styledContent.innerHTML = quill.root.innerHTML;
+
+            previewContainer.innerHTML = '';
+            previewContainer.appendChild(styledContent)
 
             // Agora, garantir que o QR Code do rodapé também seja incluído
             // A ideia é verificar se existe um QR Code no editor e adicioná-lo à pré-visualização
@@ -283,8 +296,9 @@
 
             if (qrCodeImage) {
                 const qrCodeClone = qrCodeImage.cloneNode(); // Clonar o QR Code para a pré-visualização
-                previewContainer.appendChild(qrCodeClone); // Adicionar o QR Code na pré-visualização
+                const qrcode = previewContainer.appendChild(qrCodeClone); // Adicionar o QR Code na pré-visualização
             }
+
 
             folhaPreview.style.display = 'block';
             modal.style.display = 'flex'; // Mostrar o modal com a pré-visualização
@@ -310,7 +324,25 @@
 
 
         function exportarPDF() {
-            const folha = document.querySelector('.folha-a4');
+
+            const conteudo = quill.root.innerHTML;
+
+            const qrCode = document.querySelector('#editor-container .qr-code-container');
+
+            const divExportar = document.createElement('div');
+
+            divExportar.classList.add('ql-editor'); // aplica os estilos do Quill
+
+            divExportar.innerHTML = conteudo;
+
+            if (qrCode) {
+                const qrClone = qrCode.cloneNode(true);
+                const qrWrapper = document.createElement('div');
+                qrWrapper.style.marginTop = '20px';
+                qrWrapper.appendChild(qrClone);
+                divExportar.appendChild(qrWrapper);
+            }
+
 
             const opt = {
                 margin: 0,
@@ -320,7 +352,7 @@
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            html2pdf().set(opt).from(folha).save();
+            html2pdf().set(opt).from(divExportar).save();
         }
     </script>
 
@@ -353,7 +385,7 @@
     <script>
         function gerarSelo() {
             // Gerar um código único para o selo
-            const seloCodigo = 'SELO-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            const seloCodigo = "08271504271620139500504"
 
             // Preencher o campo de input com o código do selo
             document.getElementById('selo-averbacao-obito').value = seloCodigo;
@@ -361,14 +393,14 @@
             // Criar o QR Code para o selo
             const qrCodeContainer = document.createElement('div');
             qrCodeContainer.className = 'qr-code-container'; // Adiciona a classe para o estilo
-            qrCodeContainer.style.width = '120px';
-            qrCodeContainer.style.height = '120px';
+            qrCodeContainer.style.width = '40px';
+            qrCodeContainer.style.height = '40px';
 
             // Gerar o QR Code
             new QRCode(qrCodeContainer, {
-                text: seloCodigo,
-                width: 120,
-                height: 120,
+                text: `https://see.tjgo.jus.br/buscas?codigo_selo=${seloCodigo}`,
+                width: 80,
+                height: 80,
                 colorDark: "#000000",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
@@ -388,7 +420,35 @@
         }
     </script>
 
+    <script>
+        function imprimirAverbacao() {
+            // Seleciona o conteúdo que você deseja imprimir
+            var conteudo = quill.root.innerHTML; // Obtém o conteúdo diretamente do Quill
 
+            const qrCode = document.querySelector('#editor-container .qr-code-container');
+
+            if (!qrCode) {
+                alert("QR Code não foi gerado ainda.");
+                return;
+            }
+
+            // Cria uma nova janela
+            var janela = window.open('', '_blank', `top=0,left=0,width=${screen.availWidth},height=${screen.availHeight}`);
+            janela.document.write('<html><head><title></title>');
+            janela.document.write('<link rel="stylesheet" href="styles.css">'); // Inclui o CSS, se necessário
+            janela.document.write('<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">');
+            janela.document.write('</head><body>');
+            janela.document.write('<div class="ql-editor">' + conteudo + '</div>'); // Adiciona o conteúdo que você deseja imprimir
+            janela.document.write(qrCode.outerHTML)
+            janela.document.close(); // Fecha o documento
+
+            janela.onload = () => {
+                janela.focus()
+                janela.print()
+                janela.close()
+            }
+        }
+    </script>
 </body>
 
 </html>

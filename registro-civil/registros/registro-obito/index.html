@@ -63,13 +63,15 @@
                     </ul>
                 </li>
                 <li><a href="" class="submenu-toggle">
-                    <h3>Administração</h3>
-                </a>
+                        <h3>Administração</h3>
+                    </a>
                     <ul class="submenu">
                         <li><a href="">Controle de Marcação</a></li>
                     </ul>
                 </li>
-                <li><a href=""><h3>Configuração do sistema</h3></a></li>
+                <li><a href="">
+                        <h3>Configuração do sistema</h3>
+                    </a></li>
             </ul>
         </div>
 
@@ -94,18 +96,28 @@
                         <option value="livro-a-003">Livro A-003</option>
                     </select>
                     <input type="text" name="folhaNascimento" id="folhaNascimento" placeholder="Folha">
-                    <input type="date" name="dataAssentoInicial" id="dataAssentoInicial" placeholder="Data Inicial">
-                    <input type="date" name="dataAssentoFinal" id="dataAssentoFinal" placeholder="Data Final">
+                    <input type="date" name="dataAssentoInicial" id="dataAssentoInicial">
+                    <input type="date" name="dataAssentoFinal" id="dataAssentoFinal">
+                    <div class="toggle-livro-antigo">
+                        <label for="livrosAntigosToggle" class="switch-label">Somente Registros antigos</label>
+                        <label class="switch">
+                            <input type="checkbox" id="livrosAntigosToggle" name="incluirAntigos">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
                     <div class="buttons">
-                        <button type="submit">Buscar</button>
+                        <button type="submit" id="btn-buscar">Buscar</button>
                         <button type="reset">Limpar Pesquisa</button>
                     </div>
                 </form>
             </div>
-            
+
             <div class="registro-nascimento">
-                <button id="btn-novo-registro" onclick="window.location.href='./cadastrarRegistroNascimento/registroNascimento.html'">Novo Registro de Óbito</button>
-                
+                <button id="btn-novo-registro"
+                    onclick="window.location.href='./cadastrarRegistroNascimento/registroNascimento.html'">Novo Registro
+                    de Óbito</button>
+
                 <div class="lista-registros">
                     <div class="registro-item">
                         <div class="info">
@@ -122,8 +134,11 @@
                             <p><strong>Andamento:</strong> Lavrado</p>
                         </div>
                         <div class="acoes">
-                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26" src="https://img.icons8.com/metro/26/create-new.png" alt="create-new"/></button>
-                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26" src="https://img.icons8.com/material/24/filled-trash.png" alt="filled-trash"/></button>
+                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26"
+                                    src="https://img.icons8.com/metro/26/create-new.png" alt="create-new" /></button>
+                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26"
+                                    src="https://img.icons8.com/material/24/filled-trash.png"
+                                    alt="filled-trash" /></button>
                         </div>
                     </div>
                     <div class="registro-item">
@@ -141,8 +156,11 @@
                             <p><strong>Andamento:</strong> Montagem</p>
                         </div>
                         <div class="acoes">
-                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26" src="https://img.icons8.com/metro/26/create-new.png" alt="create-new"/></button>
-                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26" src="https://img.icons8.com/material/24/filled-trash.png" alt="filled-trash"/></button>
+                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26"
+                                    src="https://img.icons8.com/metro/26/create-new.png" alt="create-new" /></button>
+                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26"
+                                    src="https://img.icons8.com/material/24/filled-trash.png"
+                                    alt="filled-trash" /></button>
                         </div>
                     </div>
                     <!-- Adicione mais registros conforme necessário -->
@@ -154,6 +172,20 @@
     <footer>
 
     </footer>
+    <script>
+        document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-buscar');
+            btn.classList.add('button-loading');
+
+            // Simulando uma busca (substituir com chamada real)
+            setTimeout(() => {
+                btn.classList.remove('button-loading');
+                alert("Busca concluída!");
+            }, 1500);
+        });
+
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const submenuToggles = document.querySelectorAll('.submenu-toggle');

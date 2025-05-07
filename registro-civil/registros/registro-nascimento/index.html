@@ -96,8 +96,15 @@
                     <input type="text" name="folhaNascimento" id="folhaNascimento" placeholder="Folha">
                     <input type="date" name="dataAssentoInicial" id="dataAssentoInicial" placeholder="Data Inicial">
                     <input type="date" name="dataAssentoFinal" id="dataAssentoFinal" placeholder="Data Final">
+                    <div class="toggle-livro-antigo">
+                        <label for="livrosAntigosToggle" class="switch-label">Somente Registros antigos</label>
+                        <label class="switch">
+                            <input type="checkbox" id="livrosAntigosToggle" name="incluirAntigos">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
                     <div class="buttons">
-                        <button type="submit">Buscar</button>
+                        <button type="submit" id="btn-buscar">Buscar</button>
                         <button type="reset">Limpar Pesquisa</button>
                     </div>
                 </form>
@@ -154,6 +161,20 @@
     <footer>
 
     </footer>
+    <script>
+        document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-buscar');
+            btn.classList.add('button-loading');
+
+            // Simulando uma busca (substituir com chamada real)
+            setTimeout(() => {
+                btn.classList.remove('button-loading');
+                alert("Busca concluída!");
+            }, 1500);
+        });
+
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const submenuToggles = document.querySelectorAll('.submenu-toggle');

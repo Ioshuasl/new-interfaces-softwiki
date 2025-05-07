@@ -102,6 +102,10 @@ body {
     font-size: 15px;
 }
 
+#folhaNascimento {
+    flex: 0.5;
+}
+
 #form-pesquisa select {
     flex: 1; /* Faz os inputs ocuparem o espaço disponível */
     padding: 10px 15px 10px 15px;
@@ -113,6 +117,14 @@ body {
 #form-pesquisa input[type="text"]::placeholder,
 #form-pesquisa select {
     color: #aaa; /* Cor do texto do placeholder */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
 }
 
 .buttons {
@@ -143,6 +155,31 @@ body {
     background-color: #d32f2f; /* Cor ao passar o mouse no botão de limpar */
 }
 
+.button-loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.button-loading::after {
+    content: "";
+    border: 2px solid #fff;
+    border-top: 2px solid #333;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
 .registro-nascimento {
     margin-top: 30px;
     background-color: white;
@@ -156,6 +193,60 @@ body {
     font-size: 24px;
     color: #333;
 }
+
+/* Toggle switch estilizado */
+.toggle-livro-antigo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ff0000;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
 
 #btn-novo-registro {
     padding: 10px 15px;

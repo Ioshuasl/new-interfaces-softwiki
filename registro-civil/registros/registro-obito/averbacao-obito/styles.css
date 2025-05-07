@@ -260,8 +260,8 @@ button {
 }
 
 .folha-a4 {
-    width: 210mm;  /* Largura A4 em mm */
-    height: 297mm; /* Altura A4 em mm */
+    width: 794px;
+    height: 1123px;
     background: white; /* Cor de fundo */
     margin: auto; /* Centraliza a folha */
     padding: 20mm; /* Padding opcional */
@@ -272,6 +272,8 @@ button {
 
 #preview-content {
     font-family: Arial, sans-serif;
+    width: 794px;
+    height: 1123px;
     font-size: 12pt;
     white-space: pre-wrap;
 }
@@ -289,6 +291,14 @@ button {
     font-size: 14pt;
     line-height: 1.5;
     box-sizing: border-box;
+}
+
+#preview-content img {
+    position: absolute; /* Permite posicionar o QR Code em relação à folha */
+    bottom: 20mm; /* Distância do fundo da folha */
+    right: 20mm; /* Distância da direita da folha */
+    width: 80px; /* Largura do QR Code */
+    height: 80px; /* Altura do QR Code */
 }
 
 /* Adiciona os estilos de tamanho de fonte personalizados para o Quill */
@@ -320,8 +330,8 @@ button {
     position: absolute; /* Permite posicionar o QR Code em relação à folha */
     bottom: 20mm; /* Distância do fundo da folha */
     right: 20mm; /* Distância da direita da folha */
-    width: 120px; /* Largura do QR Code */
-    height: 120px; /* Altura do QR Code */
+    width: 40px; /* Largura do QR Code */
+    height: 40px; /* Altura do QR Code */
 }
 
 .selo-averbacao {
@@ -337,6 +347,59 @@ button {
 
 .selo-averbacao button {
     margin-bottom: 10px;
+}
+
+.valor-certidao {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.valor-certidao p strong {
+    font-size: 1rem;
+    color: #333;
+}
+
+.valor-certidao p:last-child {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007BFF;
+}
+
+.valor-final {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.detalhes-pagamento p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.detalhes-pagamento p strong{
+    padding-right: 10px;
+}
+
+.input-valor {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    width: 70px;
+}
+
+.opcao-pagamento {
+    margin: 20px;
 }
 
 .botoes {

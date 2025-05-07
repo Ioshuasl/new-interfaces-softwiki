@@ -161,6 +161,12 @@ select:focus {
     gap: 20px;
 }
 
+.radio-livro-antigo {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .input-controle-row {
     display: flex;
     flex-direction: column;
