@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Quill CSS -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <title>Certidão de Nascimento</title>
+    <title>Averbação de Nascimento</title>
 </head>
 
 <body>
@@ -93,32 +93,26 @@
             </nav>
 
             <div class="container">
-                <input type="hidden" name="textoCertidao" id="textoCertidao">
+                <input type="hidden" name="textoAverbacao" id="textoAverbacao">
                 <form id="registro-form">
-                    <h3>Certidão de Óbito</h3>
+                    <h3>Averbação de Nascimento</h3>
 
-                    <label for="modeloTexto">Modelo da Certidão:</label>
+                    <label for="modeloTexto">Modelo do Texto de Averbação:</label>
                     <select id="modeloTexto" onchange="inserirModelo()">
-                        <option value="">Selecione um modelo de certidão</option>
-                        <option value="modelo1">Certidão de Nascimento - 1ª via</option>
-                        <option value="modelo2">Certidão de Nascimento - 2ª via</option>
-                        <option value="mudancaSobrenome">Assento de Nascimento</option>
-                        <option value="adocao">Adoção</option>
-                        <option value="retificacaoDados">Retificação de Dados</option>
-                        <option value="declaracaoNascimento">Declaração de Nascimento</option>
-                        <option value="mudancaNacionalidade">Mudança de Nacionalidade</option>
-                        <option value="anulacaoRegistro">Anulação de Registro</option>
+                        <option value="">Selecionar modelo</option>
+                        <option value="modelo1">Modelo Judicial</option>
+                        <option value="modelo2">Modelo Retificação</option>
                     </select>
 
 
-                    <div class="texto-certidao">
-                        <label for="observacoes">Texto de Certidão:</label>
-                        <div class="botoes-texto-certidao">
+                    <div class="texto-averbacao">
+                        <label for="observacoes">Texto de Averbação:</label>
+                        <div class="botoes-texto-averbacao">
                             <button type="button">Qualificar Texto</button>
                             <button type="button">Limpar texto</button>
-                            <button type="button" onclick="visualizarCertidao()">Visualizar como Folha</button>
+                            <button type="button" onclick="visualizarAverbacao()">Visualizar como Folha</button>
                             <button type="button" onclick="exportarPDF()">Exportar como PDF</button>
-                            <button type="button" onclick="imprimirCertidao()">Imprimir Certidão</button>
+                            <button type="button" onclick="imprimirAverbacao()">Imprimir Averbação</button>
                         </div>
                         <div class="editor">
                             <!-- Toolbar padrão do Quill -->
@@ -187,12 +181,12 @@
                         </div>
                     </div>
 
-                    <div class="selo-certidao">
-                        <label for="selo-certidao-obito">Selo de Certidão:</label>
+                    <div class="selo-averbacao">
+                        <label for="selo-averbacao-nascimento">Selo de Averbação:</label>
                         <div class="botao-selo">
-                            <button type="button" onclick="gerarSelo()">Gerar Selo de Certidão</button>
+                            <button type="button" onclick="gerarSelo()">Gerar Selo de Averbação</button>
                         </div>
-                        <input type="text" name="selo-certidao-obito" id="selo-certidao-obito"
+                        <input type="text" name="selo-averbacao-nascimento" id="selo-averbacao-nascimento"
                             placeholder="Número do selo">
                     </div>
 
@@ -220,7 +214,7 @@
                 </form>
                 <div class="botoes">
                     <button type="button" onclick="window.history.back();">Cancelar</button>
-                    <button type="submit"> Concluir Certidão</button>
+                    <button type="submit"> Concluir Averbação</button>
                 </div>
             </div>
 
@@ -283,7 +277,7 @@
             });
         });
 
-        function visualizarCertidao() {
+        function visualizarAverbacao() {
             const previewContainer = document.getElementById('preview-content');
             const modal = document.getElementById('modal-folha');
             const folhaPreview = document.getElementById('folha-preview');
@@ -325,7 +319,7 @@
         }
 
         document.getElementById('registro-form').addEventListener('submit', function (e) {
-            document.getElementById('textocertidao').value = quill.root.innerHTML;
+            document.getElementById('textoAverbacao').value = quill.root.innerHTML;
         });
 
 
@@ -334,7 +328,7 @@
 
             const opt = {
                 margin: 0,
-                filename: 'certidao.pdf',
+                filename: 'averbacao.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -376,7 +370,7 @@
             const seloCodigo = "08271504271620139500504"
 
             // Preencher o campo de input com o código do selo
-            document.getElementById('selo-certidao-obito').value = seloCodigo;
+            document.getElementById('selo-averbacao-nascimento').value = seloCodigo;
 
             // Criar o QR Code para o selo
             const qrCodeContainer = document.createElement('div');
@@ -409,7 +403,7 @@
     </script>
 
     <script>
-        function imprimirCertidao() {
+        function imprimirAverbacao() {
             // Seleciona o conteúdo que você deseja imprimir
             var conteudo = quill.root.innerHTML; // Obtém o conteúdo diretamente do Quill
 

@@ -135,6 +135,7 @@ input[type="date"],
 input[type="time"],
 select,
 input[type="file"] {
+    flex: 1;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -166,7 +167,7 @@ select:focus {
 
 .controle-registro {
     display: flex;
-    gap: 10px; /* Espaçamento entre os inputs */
+    gap: 20px;
 }
 
 #termo-registro {
@@ -186,6 +187,27 @@ select:focus {
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.tipo-data-celebracao {
+    display: flex; 
+    gap: 20px;
+}
+
+.input-celebrante-regime {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.label-input-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#nome-celebrante {
+    width: 600px;
 }
 
 .buttons-lavratura button {
@@ -212,38 +234,6 @@ select:focus {
 
 .botoes button:hover {
     background-color: #0056b3;
-}
-
-.row-sexo-data-hora-nascido {
-    display: flex;
-    gap: 20px;
-}
-
-.sexo-nascido {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.sexo-nascido select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.data-hora-nascimento {
-    display: flex;
-    flex: 1;
-    gap: 20px;
-}
-
-.data-hora-row {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
 }
 
 .form-container {
@@ -292,6 +282,24 @@ select:focus {
 .botoes {
     display: flex;
     justify-content: end;
+}
+
+.cep {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.cep button {
+    height: 44px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+    background-color: #007BFF;
+    transition: background-color 0.3s;
 }
 
 .botoes button {

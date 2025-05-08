@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
@@ -65,4 +66,260 @@ body {
 .content {
     margin-left: 260px; /* Espaço para a barra lateral */
     padding: 20px;
+}
+
+.content h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.search-casamentos {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0px 20px 0px;
+}
+
+.search-casamentos h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+
+#form-pesquisa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espaçamento entre os elementos */
+    flex: 1;
+}
+
+label {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+#form-pesquisa input[type="text"],
+#form-pesquisa input[type="date"] {
+    min-width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#form-pesquisa select {
+    padding: 10px 15px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#form-pesquisa input[type="text"]::placeholder,
+#form-pesquisa select {
+    color: #aaa; /* Cor do texto do placeholder */
+}
+
+
+#input-pessoa {
+    width: 500px;
+}
+
+#folha-casamento {
+    width: 100px;
+}
+
+#termo-casamento {
+    width: 100px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.buttons button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #575757; /* Cor ao passar o mouse */
+}
+
+.buttons button[type="reset"] {
+    background-color: #f44336; /* Cor para o botão de limpar */
+}
+
+.buttons button[type="reset"]:hover {
+    background-color: #d32f2f; /* Cor ao passar o mouse no botão de limpar */
+}
+
+.button-loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.button-loading::after {
+    content: "";
+    border: 2px solid #fff;
+    border-top: 2px solid #333;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+.registro-casamento {
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.registro-casamento h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Toggle switch estilizado */
+.toggle-livro-antigo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ff0000;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+#btn-novo-registro {
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+#btn-novo-registro:hover {
+    background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+}
+
+.lista-registros {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduzido o espaçamento entre os itens */
+}
+
+.registro-item {
+    margin: 20px 40px 20 40px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px; /* Reduzido o padding */
+    display: flex; /* Usar flexbox para alinhar os itens */
+    justify-content: space-between; /* Espaço entre as informações e os botões */
+    align-items: center; /* Alinha verticalmente os itens */
+    transition: background-color 0.3s;
+}
+
+.registro-item:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+.info {
+    flex: 1; /* Faz a seção de informações ocupar o espaço disponível */
+}
+
+.info-row {
+    display: flex; /* Usar flexbox para alinhar os elementos dentro da linha */
+    gap: 15px; /* Reduzido o espaçamento entre os elementos */
+}
+
+.info-row p,h3 {
+    margin: 8px 0px 8px 0px;
+}
+
+.acoes {
+    display: flex; /* Usar flexbox para alinhar os botões */
+    gap: 5px; /* Espaçamento entre os botões */
+}
+
+.acoes button {
+    padding: 5px 8px; /* Reduzido o padding dos botões */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.acoes i {
+    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
 }

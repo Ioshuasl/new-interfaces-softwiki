@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dados do 2º Nubente</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2><a href="../../../index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../index.html">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <nav>
+            <div class="container-navbar">
+                <ul class="nav-links">
+                    <li><a href="">Dados do Casamento</a></li>
+                    <li><a href="">1º Nubente</a></li>
+                    <li><a href="">2º Nubente</a></li>
+                    <li><a href="">Informação Complementar</a></li>
+                    <li><a href="">Averbação</a></li>
+                    <li><a href="">Certidão</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div>
+
+            <div class="container">
+                <form id="registro-form">
+                    <h3>Dados do 2º Nubente</h3>
+
+                    <label for="nome-mae">Nome completo:</label>
+                    <div class="input-nome-pais-pesquisar">
+                        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                        <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
+                        <button type="button">Pesquisar</button>
+                    </div>
+
+                    <div class="cpf-dataNascimento-documento">
+                        <div class="label-input-row cpf">
+                            <label for="cpf">Cpf:</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                        </div>
+                        <div class="label-input-row">
+                            <label for="data-nascimento-mae">Data de nascimento:</label>
+                            <input type="date" id="data-nascimento" name="data-nascimento" required>
+                        </div>
+                        <div class="label-input-row">
+                            <label for="documento">Tipo do Documento:</label>
+                            <select id="tipo-documento" name="tipo-documento" required>
+                                <option value="rg">RG</option>
+                                <option value="cnh">CNH</option>
+                                <option value="cpf">CPF</option>
+                                <option value="passaporte">Passaporte</option>
+                            </select>
+                        </div>
+
+                        <div class="label-input-row">
+                            <label for="numero-documento">Númmero do Documento:</label>
+                            <input type="text" name="numero-documento" id="numero-documento">
+                        </div>
+                    </div>
+
+                    <div class="naturalidade-nacionalidade-pais">
+                        <div class="label-input-row">
+                            <label for="nacionalidade-mae">Nacionalidade:</label>
+                            <select id="nacionalidade-mae" name="nacionalidade-mae" required>
+                                <option value="brasileira">Brasileira</option>
+                                <option value="estrangeira">Estrangeira</option>
+                            </select>
+                        </div>
+                        <div class="label-input-row">
+                            <label for="naturalidade">Naturalidade:</label>
+                            <input type="text" id="naturalidade" name="naturalidade" required>
+                        </div>
+                    </div>
+
+                    <div class="profissao-estado-civil-anterior">
+                        <div class="label-input-row">
+                            <label for="profissao">Profissão:</label>
+                            <input type="text" id="profissao" name="profissao" required>
+                        </div>
+
+                        <div class="label-input-row">
+                            <label for="estadoCivilAnterior">Estado Civil Anterior:</label>
+                            <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
+                                <option value="" disabled selected>Selecione o estado civil anterior</option>
+                                <option value="solteiro">Solteiro(a)</option>
+                                <option value="divorciado">Divorciado(a)</option>
+                                <option value="viuvo">Viúvo(a)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="conjuge-anterior-details"
+                        style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                        <h4>Dados do Casamento Anterior (Obrigatório)</h4>
+                        <div class="conjuge-anterior">
+                            <div class="label-input-row">
+                                <label for="nome-conjuge-anterior">Nome do Cônjuge Anterior:</label>
+                                <input type="text" id="nome-conjuge-anterior" name="nome-conjuge-anterior"
+                                    placeholder="Nome do cônjuge anterior">
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="data-dissolucao">Data de Dissolução do Casamento:</label>
+                                <input type="date" id="data-dissolucao" name="data-dissolucao">
+                            </div>
+
+
+                            <div class="label-input-row">
+                                <label for="tipo-dissolucao">Tipo de Dissolução:</label>
+                                <select id="tipo-dissolucao" name="tipo-dissolucao">
+                                    <option value="divorcio">Divórcio</option>
+                                    <option value="falecimento">Falecimento</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span><strong>OBS.:</strong> Lembrando que precisa ser anexado documentos desse casamento
+                            anterior (Certidão de
+                            Divórcio ou Certidão de Óbito)</span>
+                    </div>
+
+                    <label for="endereco">Endereço completo:</label>
+                    <div class="form-container">
+                        <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                        <div class="input-row">
+                            <input type="text" id="numero" name="numero" placeholder="Número" required>
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                        </div>
+
+                        <div class="input-row-cidade">
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                            <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                        </div>
+                        <div class="cep">
+                            <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                            <button type="button">Pesquisar</button>
+                        </div>
+                    </div>
+
+                    <h3>Pai do Nubente</h3>
+
+                    <div class="genitor-nao-declarado-desconhecido">
+                        <input type="checkbox" id="pai-nao-declarado" title="Selecionar esta opção quando o nubente optar por não informar o nome do pai."> Pai não declarado
+
+                        <input type="checkbox" id="pai-genitor-desconhecido" title="Usar esta opção quando o pai realmente for desconhecido, como em casos de registro sem paternidade.">Genitor Desconhecido
+                    </div>
+
+
+                    <div id="dados-pai">
+                        <label for="nome-mae">Nome completo:</label>
+                        <div class="input-nome-pais-pesquisar">
+                            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
+                            <button type="button">Pesquisar</button>
+                        </div>
+
+                        <div class="cpf-dataNascimento-documento">
+                            <div class="label-input-row cpf">
+                                <label for="cpf">Cpf:</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="data-nascimento-mae">Data de nascimento:</label>
+                                <input type="date" id="data-nascimento" name="data-nascimento" required>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="documento">Tipo do Documento:</label>
+                                <select id="tipo-documento" name="tipo-documento" required>
+                                    <option value="rg">RG</option>
+                                    <option value="cnh">CNH</option>
+                                    <option value="cpf">CPF</option>
+                                    <option value="passaporte">Passaporte</option>
+                                </select>
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="numero-documento">Númmero do Documento:</label>
+                                <input type="text" name="numero-documento" id="numero-documento">
+                            </div>
+                        </div>
+
+                        <div class="naturalidade-nacionalidade-pais">
+                            <div class="label-input-row">
+                                <label for="nacionalidade-mae">Nacionalidade:</label>
+                                <select id="nacionalidade-mae" name="nacionalidade-mae" required>
+                                    <option value="brasileira">Brasileira</option>
+                                    <option value="estrangeira">Estrangeira</option>
+                                </select>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="naturalidade">Naturalidade:</label>
+                                <input type="text" id="naturalidade" name="naturalidade" required>
+                            </div>
+                        </div>
+
+                        <div class="profissao-estado-civil-anterior">
+                            <div class="label-input-row">
+                                <label for="profissao">Profissão:</label>
+                                <input type="text" id="profissao" name="profissao" required>
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="estadoCivilAnterior">Estado Civil:</label>
+                                <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="solteiro">Solteiro(a)</option>
+                                    <option value="casado">Casado</option>
+                                    <option value="divorciado">Divorciado(a)</option>
+                                    <option value="viuvo">Viúvo(a)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label for="endereco">Endereço completo:</label>
+                        <div class="form-container">
+                            <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                            <div class="input-row">
+                                <input type="text" id="numero" name="numero" placeholder="Número" required>
+                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                            </div>
+
+                            <div class="input-row-cidade">
+                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                                <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                            </div>
+                            <div class="cep">
+                                <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                                <button type="button">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h3>Mãe do Nubente</h3>
+
+                    <div class="genitor-nao-declarado-desconhecido">
+                        <input type="checkbox" id="mae-nao-declarado" title="Selecionar esta opção quando o nubente optar por não informar o nome do pai."> Pai não declarado
+
+                        <input type="checkbox" id="mae-genitor-desconhecido" title="Usar esta opção quando o pai realmente for desconhecido, como em casos de registro sem paternidade.">Genitor Desconhecido
+                    </div>
+
+
+                    <div id="dados-mae">
+                        <label for="nome-mae">Nome completo:</label>
+                        <div class="input-nome-pais-pesquisar">
+                            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
+                            <button type="button">Pesquisar</button>
+                        </div>
+
+                        <div class="cpf-dataNascimento-documento">
+                            <div class="label-input-row cpf">
+                                <label for="cpf">Cpf:</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="data-nascimento-mae">Data de nascimento:</label>
+                                <input type="date" id="data-nascimento" name="data-nascimento" required>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="documento">Tipo do Documento:</label>
+                                <select id="tipo-documento" name="tipo-documento" required>
+                                    <option value="rg">RG</option>
+                                    <option value="cnh">CNH</option>
+                                    <option value="cpf">CPF</option>
+                                    <option value="passaporte">Passaporte</option>
+                                </select>
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="numero-documento">Númmero do Documento:</label>
+                                <input type="text" name="numero-documento" id="numero-documento">
+                            </div>
+                        </div>
+
+                        <div class="naturalidade-nacionalidade-pais">
+                            <div class="label-input-row">
+                                <label for="nacionalidade-mae">Nacionalidade:</label>
+                                <select id="nacionalidade-mae" name="nacionalidade-mae" required>
+                                    <option value="brasileira">Brasileira</option>
+                                    <option value="estrangeira">Estrangeira</option>
+                                </select>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="naturalidade">Naturalidade:</label>
+                                <input type="text" id="naturalidade" name="naturalidade" required>
+                            </div>
+                        </div>
+
+                        <div class="profissao-estado-civil-anterior">
+                            <div class="label-input-row">
+                                <label for="profissao">Profissão:</label>
+                                <input type="text" id="profissao" name="profissao" required>
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="estadoCivilAnterior">Estado Civil:</label>
+                                <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="solteiro">Solteiro(a)</option>
+                                    <option value="casado">Casado</option>
+                                    <option value="divorciado">Divorciado(a)</option>
+                                    <option value="viuvo">Viúvo(a)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label for="endereco">Endereço completo:</label>
+                        <div class="form-container">
+                            <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                            <div class="input-row">
+                                <input type="text" id="numero" name="numero" placeholder="Número" required>
+                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                            </div>
+
+                            <div class="input-row-cidade">
+                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                                <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                            </div>
+                            <div class="cep">
+                                <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                                <button type="button">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="botoes">
+                        <button type="reset">Limpar Dados</button>
+                        <button type="submit">Salvar Dados</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="botoes">
+                <button type="button" onclick="window.history.back();">Cancelar</button>
+                <button type="submit"
+                    onclick="window.location.href = '../informacaoComplementar/informacaoComplementar.html'">Salvar e
+                    Continuar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('estadoCivilAnterior');
+            const conjugeDetails = document.querySelector('.conjuge-anterior-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'divorciado' || estadoCivilAnteriorSelect.value === 'viuvo') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+    <script>
+        document.getElementById('pai-nao-declarado').addEventListener('change', function () {
+            const dadosPai = document.getElementById('dados-pai');
+            dadosPai.style.display = this.checked ? 'none' : 'block';
+        });
+
+        document.getElementById('mae-nao-declarada').addEventListener('change', function () {
+            const dadosMae = document.getElementById('dados-mae');
+            dadosMae.style.display = this.checked ? 'none' : 'block';
+        });
+    </script>
+
+    <script>
+        document.getElementById('pai-genitor-desconhecido').addEventListener('change', function () {
+            const dadosPai = document.getElementById('dados-pai');
+            dadosPai.style.display = this.checked ? 'none' : 'block';
+        });
+
+        document.getElementById('mae-genitor-desconhecido').addEventListener('change', function () {
+            const dadosMae = document.getElementById('dados-mae');
+            dadosMae.style.display = this.checked ? 'none' : 'block';
+        });
+    </script>
+</body>
+
+</html>

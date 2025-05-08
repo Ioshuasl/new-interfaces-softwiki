@@ -151,11 +151,11 @@ select:focus {
     outline: none;
 }
 
-.dados-controle-nascimento {
+.dados-controle-registro {
     margin-bottom: 20px;
 }
 
-.controle-registro-nascimento {
+.controle-registro-registro {
     display: flex;
     flex: 1;
     gap: 20px;
@@ -197,18 +197,6 @@ select:focus {
 
 .botoes button:hover {
     background-color: #0056b3;
-}
-
-.data-hora-nascimento {
-    display: flex;
-    flex: 1;
-    gap: 20px;
-}
-
-.data-hora-row {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
 }
 
 .form-container {
