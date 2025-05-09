@@ -15,13 +15,13 @@ body {
     scrollbar-width: none;
 }
 
+.sidebar h2 {
+    text-align: center;
+}
+
 .sidebar h2 a{
     color: white;
     text-decoration: none;
-}
-
-.sidebar h2 {
-    text-align: center;
 }
 
 .sidebar ul {
@@ -100,7 +100,7 @@ body {
 
 .container-navbar {
     margin: auto;
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 30px 30px 0px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -136,6 +136,7 @@ label {
 }
 
 input[type="text"],
+input[list],
 input[type="date"],
 input[type="time"],
 select,
@@ -171,6 +172,12 @@ select:focus {
     transition: background-color 0.3s;
 }
 
+.label-input-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .botoes button:hover {
     background-color: #0056b3;
     /* Tom mais escuro ao passar o mouse */
@@ -196,19 +203,19 @@ select:focus {
     /* Alinha os itens verticalmente ao centro */
     margin-bottom: 10px;
     gap: 20px;
+    flex: 1;
 }
 
-.input-nome-pais-pesquisar input {
-    padding: 10px;
-    /* Espaçamento interno dos inputs */
-    border: 1px solid #ccc;
-    /* Borda dos inputs */
-    border-radius: 4px;
-    /* Bordas arredondadas */
-    margin-right: 0px;
-    /* Espaço entre os inputs */
+.genitor-nao-declarado-desconhecido {
+    margin-bottom: 18px;
+}
+
+#nome {
     flex: 1;
-    /* Faz com que os inputs ocupem o espaço disponível */
+}
+
+#sobrenome {
+    flex: 2;
 }
 
 .input-nome-pais-pesquisar button {
@@ -216,20 +223,18 @@ select:focus {
     margin-bottom: 15px;
 }
 
-.cpf-dataNascimento-documento-pais {
+.cpf-dataNascimento-documento {
     display: flex;
+    flex: 1;
     gap: 20px;
 }
 
-.cpf-pais {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+#cpf {
+    width: 200px;
 }
 
-.data-nascimento-pais {
-    display: flex;
-    flex-direction: column;
+#numero-documento {
+    width: 300px;
 }
 
 .documento-pais {
@@ -240,19 +245,31 @@ select:focus {
 .naturalidade-nacionalidade-pais {
     display: flex;
     gap: 20px;
-    flex: 1;
 }
 
-.nacionalidade-pais {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+#uf {
+    width: 100px;
+    flex: none;
 }
 
-.naturalidade-pais{
+.profissao-estado-civil-anterior {
     display: flex;
-    flex-direction: column;
-    flex: 2;
+    flex: 1;
+    gap: 20px;
+}
+
+.conjuge-anterior-details hr {
+    color: #555555 ;
+}
+
+.conjuge-anterior {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+#nome-conjuge-anterior {
+    width: 350px;
 }
 
 .cep {
@@ -270,34 +287,12 @@ select:focus {
     /* Bordas arredondadas */
     margin-right: 0px;
     /* Espaço entre os inputs */
-    flex: 1;
-    /* Faz com que os inputs ocupem o espaço disponível */
+
 }
 
 .cep button {
     padding: 10px;
     margin-bottom: 15px;
-}
-
-.data-hora-row label {
-    margin-top: 0px;
-    margin-right: 10px;
-    /* Espaço entre o label e o input */
-    white-space: nowrap;
-    /* Impede que o texto do label quebre a linha */
-}
-
-.data-hora-row input {
-    padding: 10px;
-    /* Espaçamento interno dos inputs */
-    border: 1px solid #ccc;
-    /* Borda dos inputs */
-    border-radius: 4px;
-    /* Bordas arredondadas */
-    margin-right: 0px;
-    /* Espaço entre os inputs */
-    flex: 1;
-    /* Faz com que os inputs ocupem o espaço disponível */
 }
 
 .form-container {
@@ -341,6 +336,34 @@ select:focus {
 #estado {
     flex: 1;
     /* O input estado ocupará o espaço disponível */
+}
+
+.testemunha {
+    padding-bottom: 20px;
+}
+
+.remover-testemunha {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    background-color: #ff0000;
+    /* Azul */
+    transition: background-color 0.3s;
+}
+
+.incluir-testemunha {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #00ff15;
+    /* Azul */
+    transition: background-color 0.3s;
 }
 
 .botoes {

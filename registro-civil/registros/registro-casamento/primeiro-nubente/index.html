@@ -77,7 +77,9 @@
                     <li><a href="">Dados do Casamento</a></li>
                     <li><a href="">1º Nubente</a></li>
                     <li><a href="">2º Nubente</a></li>
-                    <li><a href="">Informação Complementar</a></li>
+                    <li><a href="">Testemunhas</a></li>
+                    <li><a href="">Informações Complementares</a>
+                    </li>
                     <li><a href="">Averbação</a></li>
                     <li><a href="">Certidão</a></li>
                 </ul>
@@ -88,132 +90,12 @@
 
             <div class="container">
                 <form id="registro-form">
-                    <h3>Dados do 1º Nubente</h3>
+                    <div class="cadastro-nubente">
+                        <h3>Dados do 1º Nubente</h3>
 
-                    <label for="nome-mae">Nome completo:</label>
-                    <div class="input-nome-pais-pesquisar">
-                        <input type="text" id="nome" name="nome" placeholder="Nome" required>
-                        <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
-                        <button type="button">Pesquisar</button>
-                    </div>
-
-                    <div class="cpf-dataNascimento-documento">
-                        <div class="label-input-row cpf">
-                            <label for="cpf">Cpf:</label>
-                            <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
-                        </div>
-                        <div class="label-input-row">
-                            <label for="data-nascimento-mae">Data de nascimento:</label>
-                            <input type="date" id="data-nascimento" name="data-nascimento" required>
-                        </div>
-                        <div class="label-input-row">
-                            <label for="documento">Tipo do Documento:</label>
-                            <select id="tipo-documento" name="tipo-documento" required>
-                                <option value="rg">RG</option>
-                                <option value="cnh">CNH</option>
-                                <option value="cpf">CPF</option>
-                                <option value="passaporte">Passaporte</option>
-                            </select>
-                        </div>
-
-                        <div class="label-input-row">
-                            <label for="numero-documento">Númmero do Documento:</label>
-                            <input type="text" name="numero-documento" id="numero-documento">
-                        </div>
-                    </div>
-
-                    <div class="naturalidade-nacionalidade-pais">
-                        <div class="label-input-row">
-                            <label for="nacionalidade-mae">Nacionalidade:</label>
-                            <select id="nacionalidade-mae" name="nacionalidade-mae" required>
-                                <option value="brasileira">Brasileira</option>
-                                <option value="estrangeira">Estrangeira</option>
-                            </select>
-                        </div>
-                        <div class="label-input-row">
-                            <label for="naturalidade">Naturalidade:</label>
-                            <input type="text" id="naturalidade" name="naturalidade" required>
-                        </div>
-                    </div>
-
-                    <div class="profissao-estado-civil-anterior">
-                        <div class="label-input-row">
-                            <label for="profissao">Profissão:</label>
-                            <input type="text" id="profissao" name="profissao" required>
-                        </div>
-
-                        <div class="label-input-row">
-                            <label for="estadoCivilAnterior">Estado Civil Anterior:</label>
-                            <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
-                                <option value="" disabled selected>Selecione o estado civil anterior</option>
-                                <option value="solteiro">Solteiro(a)</option>
-                                <option value="divorciado">Divorciado(a)</option>
-                                <option value="viuvo">Viúvo(a)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="conjuge-anterior-details"
-                        style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
-                        <h4>Dados do Casamento Anterior (Obrigatório)</h4>
-                        <div class="conjuge-anterior">
-                            <div class="label-input-row">
-                                <label for="nome-conjuge-anterior">Nome do Cônjuge Anterior:</label>
-                                <input type="text" id="nome-conjuge-anterior" name="nome-conjuge-anterior"
-                                    placeholder="Nome do cônjuge anterior">
-                            </div>
-
-                            <div class="label-input-row">
-                                <label for="data-dissolucao">Data de Dissolução do Casamento:</label>
-                                <input type="date" id="data-dissolucao" name="data-dissolucao">
-                            </div>
-
-
-                            <div class="label-input-row">
-                                <label for="tipo-dissolucao">Tipo de Dissolução:</label>
-                                <select id="tipo-dissolucao" name="tipo-dissolucao">
-                                    <option value="divorcio">Divórcio</option>
-                                    <option value="falecimento">Falecimento</option>
-                                </select>
-                            </div>
-                        </div>
-                        <span><strong>OBS.:</strong> Lembrando que precisa ser anexado documentos desse casamento
-                            anterior (Certidão de
-                            Divórcio ou Certidão de Óbito)</span>
-                    </div>
-
-                    <label for="endereco">Endereço completo:</label>
-                    <div class="form-container">
-                        <input type="text" id="rua" name="rua" placeholder="Rua" required>
-                        <div class="input-row">
-                            <input type="text" id="numero" name="numero" placeholder="Número" required>
-                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
-                        </div>
-
-                        <div class="input-row-cidade">
-                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
-                            <input type="text" id="estado" name="estado" placeholder="Estado" required>
-                        </div>
-                        <div class="cep">
-                            <input type="text" id="cep" name="cep" placeholder="CEP" required>
-                            <button type="button">Pesquisar</button>
-                        </div>
-                    </div>
-
-                    <h3>Pai do Nubente</h3>
-
-                    <div class="genitor-nao-declarado-desconhecido">
-                        <input type="checkbox" id="pai-nao-declarado" title="Selecionar esta opção quando o nubente optar por não informar o nome do pai."> Pai não declarado
-
-                        <input type="checkbox" id="pai-genitor-desconhecido" title="Usar esta opção quando o pai realmente for desconhecido, como em casos de registro sem paternidade.">Genitor Desconhecido
-                    </div>
-
-
-                    <div id="dados-pai">
                         <label for="nome-mae">Nome completo:</label>
                         <div class="input-nome-pais-pesquisar">
                             <input type="text" id="nome" name="nome" placeholder="Nome" required>
-                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
                             <button type="button">Pesquisar</button>
                         </div>
 
@@ -226,19 +108,152 @@
                                 <label for="data-nascimento-mae">Data de nascimento:</label>
                                 <input type="date" id="data-nascimento" name="data-nascimento" required>
                             </div>
+
                             <div class="label-input-row">
-                                <label for="documento">Tipo do Documento:</label>
-                                <select id="tipo-documento" name="tipo-documento" required>
-                                    <option value="rg">RG</option>
-                                    <option value="cnh">CNH</option>
-                                    <option value="cpf">CPF</option>
-                                    <option value="passaporte">Passaporte</option>
+                                <label for="numero-documento">Sexo:</label>
+                                <select name="sexo-nubente" id="sexo-nubente" required>
+                                    <option value="">Selecione</option>
+                                    <option value="">Masculino</option>
+                                    <option value="">Feminino</option>
                                 </select>
                             </div>
 
                             <div class="label-input-row">
-                                <label for="numero-documento">Númmero do Documento:</label>
-                                <input type="text" name="numero-documento" id="numero-documento">
+                                <label for="documento">Tipo do Documento:</label>
+                                <select id="tipo-documento" name="tipo-documento" required>
+                                    <option value="">Selecione</option>
+                                    <option value="rg">RG</option>
+                                    <option value="cnh">CNH</option>
+                                    <option value="passaporte-brasileiro">Passaporte Brasileiro</option>
+                                    <option value="passaporte-estrangeiro">Passaporte Estrangeiro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="detalhes-adicionais rg-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="numero-rg">Número do RG:</label>
+                                    <input type="text" id="numero-rg" name="numero-rg">
+                                </div>
+
+                                <div class="label-input-row" id="div-orgao-expedidor">
+                                    <label for="orgao-expedidor">Órgão Expedidor:</label>
+                                    <input type="text" name="orgao-expedidor" id="orgao-expedidor">
+                                </div>
+
+
+                                <div class="label-input-row" id="uf-orgao-expedidor-cnh">
+                                    <label for="uf-orgao-expedidor">UF do Órgão Expedidor:</label>
+                                    <select id="uf-orgao-expedidor" name="uf-orgao-expedidor">
+                                        <option value="go">GO</option>
+                                        <option value="sp">SP</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detalhes-adicionais cnh-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="numero-rg">Número da CNH:</label>
+                                    <input type="text" id="numero-rg" name="numero-rg">
+                                </div>
+
+                                <div class="label-input-row" id="div-orgao-expedidor">
+                                    <label for="orgao-expedidor">Órgão Expedidor:</label>
+                                    <input type="text" name="orgao-expedidor" id="orgao-expedidor">
+                                </div>
+
+
+                                <div class="label-input-row" id="uf-orgao-expedidor-cnh">
+                                    <label for="uf-orgao-expedidor">UF do Órgão Expedidor:</label>
+                                    <select id="uf-orgao-expedidor" name="uf-orgao-expedidor">
+                                        <option value="go">GO</option>
+                                        <option value="sp">SP</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="data-emissao-cnh">Data de Emissão:</label>
+                                    <input type="date" name="data-emissao-cnh" id="data-emissao-cnh">
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="data-validade-cnh">Data de Validade:</label>
+                                    <input type="date" name="data-validade-cnh" id="data-validade-cnh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detalhes-adicionais passaporte-brasileiro-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row" id="numero-passaporte-brasileiro">
+                                    <label for="numero-rg">Número da CNH:</label>
+                                    <input type="text" id="numero-rg" name="numero-rg">
+                                </div>
+
+                                <div class="label-input-row" id="div-orgao-expedidor">
+                                    <label for="orgao-expedidor">Órgão Expedidor:</label>
+                                    <input type="text" name="orgao-expedidor" id="orgao-expedidor">
+                                </div>
+                                <div class="detalhes-row">
+                                    <div class="label-input-row">
+                                        <label for="data-emissao-passaporte-brasileiro">Data de Emissão:</label>
+                                        <input type="date" name="data-emissao-passaporte-brasileiro"
+                                            id="data-emissao-passaporte-brasileiro">
+                                    </div>
+
+                                    <div class="label-input-row">
+                                        <label for="data-validade-passaporte-brasileiro">Data de Validade:</label>
+                                        <input type="date" name="data-validade-passaporte-brasileiro"
+                                            id="data-validade-passaporte-brasileiro">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detalhes-adicionais passaporte-estrangeiro-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row" id="numero-passaporte-brasileiro">
+                                    <label for="numero-rg">Número da CNH:</label>
+                                    <input type="text" id="numero-rg" name="numero-rg">
+                                </div>
+
+                                <div class="label-input-row" id="div-orgao-expedidor">
+                                    <label for="orgao-expedidor">Órgão Expedidor:</label>
+                                    <input type="text" name="orgao-expedidor" id="orgao-expedidor">
+                                </div>
+                                <div class="label-input-row">
+                                    <label for="pais-emissao">Pais de Emissão:</label>
+                                    <input type="text" name="pais-emissao" id="pais-emissao">
+                                </div>
+                            </div>
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="data-emissao-passaporte-brasileiro">Data de Emissão:</label>
+                                    <input type="date" name="data-emissao-passaporte-brasileiro"
+                                        id="data-emissao-passaporte-brasileiro">
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="data-validade-passaporte-brasileiro">Data de Validade:</label>
+                                    <input type="date" name="data-validade-passaporte-brasileiro"
+                                        id="data-validade-passaporte-brasileiro">
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label>Tradução Juramentada Entregue?</label>
+                                    <div style="display: flex;">
+                                        <label><input type="radio" name="livro-antigo" value="sim" required> Sim</label>
+                                        <label><input type="radio" name="livro-antigo" value="nao"> Não</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -250,9 +265,20 @@
                                     <option value="estrangeira">Estrangeira</option>
                                 </select>
                             </div>
+
                             <div class="label-input-row">
                                 <label for="naturalidade">Naturalidade:</label>
-                                <input type="text" id="naturalidade" name="naturalidade" required>
+                                <input list="naturalidade-list" id="naturalidade" name="naturalidade">
+                                <datalist id="naturalidade-list">
+                                    <option value="Goiânia"></option>
+                                    <option value="Anápolis"></option>
+                                    <option value="Aparecida de Goiânia"></option>
+                                </datalist>
+                            </div>
+
+                            <div class="label-input-row" id="uf">
+                                <label for="estado-naturalidade-nubente">UF:</label>
+                                <input type="text" name="estado-naturalidade-nubente" id="estado-naturalidade-nubente">
                             </div>
                         </div>
 
@@ -263,15 +289,42 @@
                             </div>
 
                             <div class="label-input-row">
-                                <label for="estadoCivilAnterior">Estado Civil:</label>
+                                <label for="estadoCivilAnterior">Estado Civil Anterior:</label>
                                 <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
-                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="" disabled selected>Selecione o estado civil anterior</option>
                                     <option value="solteiro">Solteiro(a)</option>
-                                    <option value="casado">Casado</option>
                                     <option value="divorciado">Divorciado(a)</option>
                                     <option value="viuvo">Viúvo(a)</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="detalhes-adicionais conjuge-anterior-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="nome-conjuge-anterior">Nome do Cônjuge Anterior:</label>
+                                    <input type="text" id="nome-conjuge-anterior" name="nome-conjuge-anterior"
+                                        placeholder="Nome do cônjuge anterior">
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="data-dissolucao">Data de Dissolução do Casamento:</label>
+                                    <input type="date" id="data-dissolucao" name="data-dissolucao">
+                                </div>
+
+
+                                <div class="label-input-row">
+                                    <label for="tipo-dissolucao">Tipo de Dissolução:</label>
+                                    <select id="tipo-dissolucao" name="tipo-dissolucao">
+                                        <option value="divorcio">Divórcio</option>
+                                        <option value="falecimento">Falecimento</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span><strong>OBS.:</strong> Lembrando que precisa ser anexado documentos desse casamento
+                                anterior (Certidão de
+                                Divórcio ou Certidão de Óbito)</span>
                         </div>
 
                         <label for="endereco">Endereço completo:</label>
@@ -293,96 +346,228 @@
                         </div>
                     </div>
 
+                    <div class="pai-nubente">
+                        <h3>Pai do Nubente</h3>
 
-                    <h3>Mãe do Nubente</h3>
+                        <div class="genitor-nao-declarado-desconhecido">
+                            <input type="checkbox" id="pai-nao-declarado"
+                                title="Selecionar esta opção quando o nubente optar por não informar o nome do pai.">
+                            Pai
+                            não declarado
 
-                    <div class="genitor-nao-declarado-desconhecido">
-                        <input type="checkbox" id="mae-nao-declarado" title="Selecionar esta opção quando o nubente optar por não informar o nome do pai."> Pai não declarado
+                            <input type="checkbox" id="pai-genitor-desconhecido"
+                                title="Usar esta opção quando o pai realmente for desconhecido, como em casos de registro sem paternidade.">Genitor
+                            Desconhecido
+                        </div>
 
-                        <input type="checkbox" id="mae-genitor-desconhecido" title="Usar esta opção quando o pai realmente for desconhecido, como em casos de registro sem paternidade.">Genitor Desconhecido
+
+                        <div id="dados-pai">
+                            <label for="nome-mae">Nome completo:</label>
+                            <div class="input-nome-pais-pesquisar">
+                                <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                                <button type="button">Pesquisar</button>
+                            </div>
+
+                            <div class="cpf-dataNascimento-documento">
+                                <div class="label-input-row cpf">
+                                    <label for="cpf">Cpf:</label>
+                                    <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                                </div>
+                                <div class="label-input-row">
+                                    <label for="data-nascimento-mae">Data de nascimento:</label>
+                                    <input type="date" id="data-nascimento" name="data-nascimento" required>
+                                </div>
+                                <div class="label-input-row">
+                                    <label for="documento">Tipo do Documento:</label>
+                                    <select id="tipo-documento" name="tipo-documento" required>
+                                        <option value="rg">RG</option>
+                                        <option value="cnh">CNH</option>
+                                        <option value="cpf">CPF</option>
+                                        <option value="passaporte">Passaporte</option>
+                                    </select>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="numero-documento">Númmero do Documento:</label>
+                                    <input type="text" name="numero-documento" id="numero-documento">
+                                </div>
+                            </div>
+
+                            <div class="naturalidade-nacionalidade-pais">
+                                <div class="label-input-row">
+                                    <label for="nacionalidade-mae">Nacionalidade:</label>
+                                    <select id="nacionalidade-mae" name="nacionalidade-mae" required>
+                                        <option value="brasileira">Brasileira</option>
+                                        <option value="estrangeira">Estrangeira</option>
+                                    </select>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="naturalidade">Naturalidade:</label>
+                                    <input list="naturalidade-list" id="naturalidade" name="naturalidade">
+                                    <datalist id="naturalidade-list">
+                                        <option value="Goiânia"></option>
+                                        <option value="Anápolis"></option>
+                                        <option value="Aparecida de Goiânia"></option>
+                                    </datalist>
+                                </div>
+
+                                <div class="label-input-row" id="uf">
+                                    <label for="estado-naturalidade-nubente">UF:</label>
+                                    <input type="text" name="estado-naturalidade-nubente"
+                                        id="estado-naturalidade-nubente">
+                                </div>
+                            </div>
+
+                            <div class="profissao-estado-civil-anterior">
+                                <div class="label-input-row">
+                                    <label for="profissao">Profissão:</label>
+                                    <input type="text" id="profissao" name="profissao" required>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="estadoCivilAnterior">Estado Civil:</label>
+                                    <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
+                                        <option value="" disabled selected>Selecione</option>
+                                        <option value="solteiro">Solteiro(a)</option>
+                                        <option value="casado">Casado</option>
+                                        <option value="divorciado">Divorciado(a)</option>
+                                        <option value="viuvo">Viúvo(a)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label for="endereco">Endereço completo:</label>
+                            <div class="form-container">
+                                <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                                <div class="input-row">
+                                    <input type="text" id="numero" name="numero" placeholder="Número" required>
+                                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                                </div>
+
+                                <div class="input-row-cidade">
+                                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                                    <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                                </div>
+                                <div class="cep">
+                                    <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                                    <button type="button">Pesquisar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="mae-nubente">
 
-                    <div id="dados-mae">
-                        <label for="nome-mae">Nome completo:</label>
-                        <div class="input-nome-pais-pesquisar">
-                            <input type="text" id="nome" name="nome" placeholder="Nome" required>
-                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
-                            <button type="button">Pesquisar</button>
+
+                        <h3>Mãe do Nubente</h3>
+
+                        <div class="genitor-nao-declarado-desconhecido">
+                            <input type="checkbox" id="mae-nao-declarado"
+                                title="Selecionar esta opção quando o nubente optar por não informar o nome do pai.">
+                            Pai
+                            não declarado
+
+                            <input type="checkbox" id="mae-genitor-desconhecido"
+                                title="Usar esta opção quando o pai realmente for desconhecido, como em casos de registro sem paternidade.">Genitor
+                            Desconhecido
                         </div>
 
-                        <div class="cpf-dataNascimento-documento">
-                            <div class="label-input-row cpf">
-                                <label for="cpf">Cpf:</label>
-                                <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
-                            </div>
-                            <div class="label-input-row">
-                                <label for="data-nascimento-mae">Data de nascimento:</label>
-                                <input type="date" id="data-nascimento" name="data-nascimento" required>
-                            </div>
-                            <div class="label-input-row">
-                                <label for="documento">Tipo do Documento:</label>
-                                <select id="tipo-documento" name="tipo-documento" required>
-                                    <option value="rg">RG</option>
-                                    <option value="cnh">CNH</option>
-                                    <option value="cpf">CPF</option>
-                                    <option value="passaporte">Passaporte</option>
-                                </select>
-                            </div>
 
-                            <div class="label-input-row">
-                                <label for="numero-documento">Númmero do Documento:</label>
-                                <input type="text" name="numero-documento" id="numero-documento">
-                            </div>
-                        </div>
-
-                        <div class="naturalidade-nacionalidade-pais">
-                            <div class="label-input-row">
-                                <label for="nacionalidade-mae">Nacionalidade:</label>
-                                <select id="nacionalidade-mae" name="nacionalidade-mae" required>
-                                    <option value="brasileira">Brasileira</option>
-                                    <option value="estrangeira">Estrangeira</option>
-                                </select>
-                            </div>
-                            <div class="label-input-row">
-                                <label for="naturalidade">Naturalidade:</label>
-                                <input type="text" id="naturalidade" name="naturalidade" required>
-                            </div>
-                        </div>
-
-                        <div class="profissao-estado-civil-anterior">
-                            <div class="label-input-row">
-                                <label for="profissao">Profissão:</label>
-                                <input type="text" id="profissao" name="profissao" required>
-                            </div>
-
-                            <div class="label-input-row">
-                                <label for="estadoCivilAnterior">Estado Civil:</label>
-                                <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
-                                    <option value="" disabled selected>Selecione</option>
-                                    <option value="solteiro">Solteiro(a)</option>
-                                    <option value="casado">Casado</option>
-                                    <option value="divorciado">Divorciado(a)</option>
-                                    <option value="viuvo">Viúvo(a)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <label for="endereco">Endereço completo:</label>
-                        <div class="form-container">
-                            <input type="text" id="rua" name="rua" placeholder="Rua" required>
-                            <div class="input-row">
-                                <input type="text" id="numero" name="numero" placeholder="Número" required>
-                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
-                            </div>
-
-                            <div class="input-row-cidade">
-                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
-                                <input type="text" id="estado" name="estado" placeholder="Estado" required>
-                            </div>
-                            <div class="cep">
-                                <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                        <div id="dados-mae">
+                            <label for="nome-mae">Nome completo:</label>
+                            <div class="input-nome-pais-pesquisar">
+                                <input type="text" id="nome" name="nome" placeholder="Nome" required>
                                 <button type="button">Pesquisar</button>
+                            </div>
+
+                            <div class="cpf-dataNascimento-documento">
+                                <div class="label-input-row cpf">
+                                    <label for="cpf">Cpf:</label>
+                                    <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                                </div>
+                                <div class="label-input-row">
+                                    <label for="data-nascimento-mae">Data de nascimento:</label>
+                                    <input type="date" id="data-nascimento" name="data-nascimento" required>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="documento">Tipo do Documento:</label>
+                                    <select id="tipo-documento" name="tipo-documento" required>
+                                        <option value="">Selecione</option>
+                                        <option value="rg">RG</option>
+                                        <option value="cnh">CNH</option>
+                                        <option value="cpf">CPF</option>
+                                        <option value="passaporte">Passaporte</option>
+                                    </select>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="numero-documento">Númmero do Documento:</label>
+                                    <input type="text" name="numero-documento" id="numero-documento">
+                                </div>
+                            </div>
+
+                            <div class="naturalidade-nacionalidade-pais">
+                                <div class="label-input-row">
+                                    <label for="nacionalidade-mae">Nacionalidade:</label>
+                                    <select id="nacionalidade-mae" name="nacionalidade-mae" required>
+                                        <option value="brasileira">Brasileira</option>
+                                        <option value="estrangeira">Estrangeira</option>
+                                    </select>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="naturalidade">Naturalidade:</label>
+                                    <input list="naturalidade-list" id="naturalidade" name="naturalidade">
+                                    <datalist id="naturalidade-list">
+                                        <option value="Goiânia"></option>
+                                        <option value="Anápolis"></option>
+                                        <option value="Aparecida de Goiânia"></option>
+                                    </datalist>
+                                </div>
+
+                                <div class="label-input-row" id="uf">
+                                    <label for="estado-naturalidade-nubente">UF:</label>
+                                    <input type="text" name="estado-naturalidade-nubente"
+                                        id="estado-naturalidade-nubente">
+                                </div>
+                            </div>
+
+                            <div class="profissao-estado-civil-anterior">
+                                <div class="label-input-row">
+                                    <label for="profissao">Profissão:</label>
+                                    <input type="text" id="profissao" name="profissao" required>
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="estadoCivilAnterior">Estado Civil:</label>
+                                    <select id="estadoCivilAnterior" name="estadoCivilAnterior" required>
+                                        <option value="" disabled selected>Selecione</option>
+                                        <option value="solteiro">Solteiro(a)</option>
+                                        <option value="casado">Casado</option>
+                                        <option value="divorciado">Divorciado(a)</option>
+                                        <option value="viuvo">Viúvo(a)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label for="endereco">Endereço completo:</label>
+                            <div class="form-container">
+                                <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                                <div class="input-row">
+                                    <input type="text" id="numero" name="numero" placeholder="Número" required>
+                                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                                </div>
+
+                                <div class="input-row-cidade">
+                                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                                    <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                                </div>
+                                <div class="cep">
+                                    <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                                    <button type="button">Pesquisar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -436,6 +621,67 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('tipo-documento');
+            const conjugeDetails = document.querySelector('.rg-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'rg') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('tipo-documento');
+            const conjugeDetails = document.querySelector('.cnh-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'cnh') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('tipo-documento');
+            const conjugeDetails = document.querySelector('.passaporte-brasileiro-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'passaporte-brasileiro') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('tipo-documento');
+            const conjugeDetails = document.querySelector('.passaporte-estrangeiro-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'passaporte-estrangeiro') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+
     <script>
         document.getElementById('pai-nao-declarado').addEventListener('change', function () {
             const dadosPai = document.getElementById('dados-pai');

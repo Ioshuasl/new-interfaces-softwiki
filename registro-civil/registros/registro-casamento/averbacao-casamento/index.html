@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Quill CSS -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <title>Averbação de Nascimento</title>
+    <title>Averbação de Casamento</title>
 </head>
 
 <body>
@@ -81,13 +81,14 @@
             <nav>
                 <div class="container-navbar">
                     <ul class="nav-links">
-                        <li><a href="../cadastrarRegistroNascimento/registroNascimento.html">Registro</a></li>
-                        <li><a href="../cadastroPais/cadastroPais.html">Dados dos Pais</a></li>
-                        <li><a href="../informacaoComplementar/informacaoComplementar.html">Informações
-                                Complementares</a></li>
-                        <li><a href="../averbacao/averbacao.html">Averbação</a></li>
-                        <li><a href="../certidao/certidao.html">Pedido de Certidão</a></li>
-                        <li><a href="">Histórico</a></li>
+                        <li><a href="">Dados do Casamento</a></li>
+                        <li><a href="">1º Nubente</a></li>
+                        <li><a href="">2º Nubente</a></li>
+                        <li><a href="">Testemunhas</a></li>
+                        <li><a href="">Informações Complementares</a>
+                        </li>
+                        <li><a href="">Averbação</a></li>
+                        <li><a href="">Certidão</a></li>
                     </ul>
                 </div>
             </nav>
@@ -95,7 +96,7 @@
             <div class="container">
                 <input type="hidden" name="textoAverbacao" id="textoAverbacao">
                 <form id="registro-form">
-                    <h3>Averbação de Nascimento</h3>
+                    <h3>Averbação de Casamento</h3>
 
                     <label for="modeloTexto">Modelo do Texto de Averbação:</label>
                     <select id="modeloTexto" onchange="inserirModelo()">
@@ -200,7 +201,7 @@
                             <p><strong>Taxa de Emissão:</strong> R$ 15,00</p>
                             <p><strong>Total a Pagar:</strong> <span class="valor-final">R$ 60,00</span></p>
                         </div>
-                      
+
                         <div class="opcao-pagamento">
                             <label for="formaPagamento"><strong>Forma de Pagamento:</strong></label>
                             <select id="formaPagamento" required>
@@ -210,7 +211,7 @@
                                 <option value="pix">Pix</option>
                             </select>
                         </div>
-                      </div>                      
+                    </div>
                 </form>
                 <div class="botoes">
                     <button type="button" onclick="window.history.back();">Cancelar</button>

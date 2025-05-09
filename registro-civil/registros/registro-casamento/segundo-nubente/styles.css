@@ -136,6 +136,7 @@ label {
 }
 
 input[type="text"],
+input[list],
 input[type="date"],
 input[type="time"],
 select,
@@ -241,10 +242,23 @@ select:focus {
     flex-direction: column;
 }
 
+#div-orgao-expedidor {
+    flex: none;
+    width: 150px;
+}
+
+#uf-orgao-expedidor-cnh {
+    flex: none;
+}
+
 .naturalidade-nacionalidade-pais {
     display: flex;
     gap: 20px;
-    flex: 1;
+}
+
+#uf {
+    width: 100px;
+    flex: none;
 }
 
 .profissao-estado-civil-anterior {
@@ -253,11 +267,11 @@ select:focus {
     gap: 20px;
 }
 
-.conjuge-anterior-details hr {
+.detalhes-adicionais hr {
     color: #555555 ;
 }
 
-.conjuge-anterior {
+.detalhes-row {
     display: flex;
     flex: 1;
     gap: 20px;
