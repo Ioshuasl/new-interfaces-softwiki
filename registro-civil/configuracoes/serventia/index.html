@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dados da Serventia</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2><a href="../../../index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../index.html">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+
+        <div>
+
+            <div class="container">
+                <form id="registro-form">
+
+                    <div class="dados-serventia">
+                        <h2>Dados da Serventia</h2>
+                        <div class="label-input-row">
+                            <label for="nome-serventia">Nome Completo da Serventia</label>
+                            <input type="text" name="nome-serventia" id="nome-serventia">
+                        </div>
+
+                        <div class="div-template-1">
+                            <div class="label-input-row">
+                                <label for="cnpj-serventia">CNPJ da Serventia:</label>
+                                <div class="cnpj-button-pesquisar">
+                                    <input type="text" name="cnpj-serventia" id="cnpj-serventia" placeholder="__.___.___/____-__" required>
+                                    <button type="button">Pesquisar</button>
+                                </div>
+                            </div>
+    
+                            <div class="label-input-row">
+                                <label for="numero-serventia">Número da Serventia:</label>
+                                <input type="text" name="numero-serventia" id="numero-serventia">
+                            </div>
+    
+                            <div class="label-input-row">
+                                <label for="comarca-municipio-sede">Comarca/Município:</label>
+                                <input type="text" name="comarca-municipio-sede" id="comarca-municipio-sede">
+                            </div>
+                        </div>
+
+                        <div class="div-template-1">
+                            <div class="label-input-row">
+                                <label for="email-serventia">Email da Servetia:</label>
+                                <input type="text" name="email-serventia" id="email-serventia">
+                            </div>
+    
+                            <div class="label-input-row">
+                                <label for="telefone-serventia">Telefone da Serventia:</label>
+                                <input type="text" name="telefone-serventia" id="telefone-serventia" placeholder="(__) _____-____">
+                            </div>
+                        </div>
+
+
+                        <div class="container-servico">
+                            <label>Tipos de Serviço Oferecidos:</label>
+
+                            <div class="tipos-servicos-serventia">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="registroCivil" value="1">
+                                    <label class="form-check-label" for="registroCivil">Registro Civil</label>
+                                </div>
+    
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tabelionatoNotas" value="2">
+                                    <label class="form-check-label" for="tabelionatoNotas">Tabelionato de Notas</label>
+                                </div>
+    
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="registroImoveis" value="3">
+                                    <label class="form-check-label" for="registroImoveis">Registro de Imóveis</label>
+                                </div>
+    
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="protestoTitulos" value="4">
+                                    <label class="form-check-label" for="protestoTitulos">Protesto de Títulos</label>
+                                </div>
+    
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="registroTitulos" value="5">
+                                    <label class="form-check-label" for="registroTitulos">Registro de Títulos e
+                                        Documentos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="endereco-serventia">
+                            <label>Endereço Completo da Serventia:</label>
+                            <div class="cep">
+                                <input type="text" id="cep" name="cep" placeholder="CEP (_____-___)" required>
+                                <button type="button">Pesquisar</button>
+                            </div>
+
+
+
+                            <div class="div-template-1">
+                                <input type="text" id="rua" name="rua" placeholder="Logadouro" required>
+                                <input type="text" id="numero" name="numero" placeholder="Número" required>
+                            </div>
+
+                            <div class="div-template-1">
+                                <input type="text" name="complemento" id="complemento" placeholder="Complemento"
+                                    required>
+                            </div>
+
+                            <div class="div-template-1">
+                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                                <select name="estado-serventia" id="estado">
+                                    <option value="">Selecione o UF</option>
+                                    <option value="">GO</option>
+                                    <option value="">SP</option>
+                                    <option value="">RJ</option>
+                                    <option value="">SC</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dados-titular">
+                        <h2>Dados do Oficial</h2>
+                        <div class="div-template-1">
+                            <div class="label-input-row">
+                                <label for="nome-completo-titular">Nome Completo:</label>
+                                <input type="text" name="nome-completo-titular" id="nome-completo-titular">
+                            </div>
+                            <div class="label-input-row" id="cargo-funcao-titular">
+                                <label for="funcao-titular">Função/Cargo do Titular:</label>
+                                <input type="text" name="funcao-titular" id="funcao-titular">
+                            </div>
+                        </div>
+                        <div class="div-template-1">
+                            <div class="label-input-row cpf">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="data-nascimento-mae">Data de nascimento:</label>
+                                <input type="date" id="data-nascimento" name="data-nascimento" required>
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="numero-documento">Sexo:</label>
+                                <select name="sexo-nubente" id="sexo-nubente" required>
+                                    <option value="">Selecione</option>
+                                    <option value="">Masculino</option>
+                                    <option value="">Feminino</option>
+                                </select>
+                            </div>
+
+                            <div class="label-input-row">
+                                <label for="documento">Tipo do Documento:</label>
+                                <select id="tipo-documento" name="tipo-documento" required>
+                                    <option value="">Selecione</option>
+                                    <option value="rg">RG</option>
+                                    <option value="cnh">CNH</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="detalhes-adicionais rg-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="numero-rg">Número do RG:</label>
+                                    <input type="text" id="numero-rg" name="numero-rg">
+                                </div>
+
+                                <div class="label-input-row" id="div-orgao-expedidor">
+                                    <label for="orgao-expedidor">Órgão Expedidor:</label>
+                                    <input type="text" name="orgao-expedidor" id="orgao-expedidor">
+                                </div>
+
+
+                                <div class="label-input-row" id="uf-orgao-expedidor-cnh">
+                                    <label for="uf-orgao-expedidor">UF do Órgão Expedidor:</label>
+                                    <select id="uf-orgao-expedidor" name="uf-orgao-expedidor">
+                                        <option value="go">GO</option>
+                                        <option value="sp">SP</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detalhes-adicionais cnh-details"
+                            style="display:none; background-color: rgb(245, 245, 245); box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding: 10px;">
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="numero-rg">Número da CNH:</label>
+                                    <input type="text" id="numero-rg" name="numero-rg">
+                                </div>
+
+                                <div class="label-input-row" id="div-orgao-expedidor">
+                                    <label for="orgao-expedidor">Órgão Expedidor:</label>
+                                    <input type="text" name="orgao-expedidor" id="orgao-expedidor">
+                                </div>
+
+
+                                <div class="label-input-row" id="uf-orgao-expedidor-cnh">
+                                    <label for="uf-orgao-expedidor">UF do Órgão Expedidor:</label>
+                                    <select id="uf-orgao-expedidor" name="uf-orgao-expedidor">
+                                        <option value="go">GO</option>
+                                        <option value="sp">SP</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="detalhes-row">
+                                <div class="label-input-row">
+                                    <label for="data-emissao-cnh">Data de Emissão:</label>
+                                    <input type="date" name="data-emissao-cnh" id="data-emissao-cnh">
+                                </div>
+
+                                <div class="label-input-row">
+                                    <label for="data-validade-cnh">Data de Validade:</label>
+                                    <input type="date" name="data-validade-cnh" id="data-validade-cnh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="div-template-1">
+                            <div class="label-input-row" id="posse-data">
+                                <label for="data-posse">Data de Posse:</label>
+                                <input type="date" name="data-posse" id="data-posse">
+                            </div>
+                            <div class="label-input-row">
+                                <label for="numero-ato-provimento">Número do ato judicial ou administrativo que designou o titular:</label>
+                                <input type="text" name="numero-ato-provimento" id="numero-ato-provimento">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="botoes">
+                        <button type="reset">Limpar Dados</button>
+                        <button type="submit">Salvar Dados</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('tipo-documento');
+            const conjugeDetails = document.querySelector('.rg-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'rg') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const estadoCivilAnteriorSelect = document.getElementById('tipo-documento');
+            const conjugeDetails = document.querySelector('.cnh-details');
+
+            estadoCivilAnteriorSelect.addEventListener('change', function () {
+                if (estadoCivilAnteriorSelect.value === 'cnh') {
+                    conjugeDetails.style.display = 'block'; // Exibe os campos para o cônjuge anterior
+                } else {
+                    conjugeDetails.style.display = 'none'; // Esconde os campos caso contrário
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

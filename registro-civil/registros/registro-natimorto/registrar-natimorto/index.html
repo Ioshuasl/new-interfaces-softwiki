@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Registrar Natimorto</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2><a href="../../../index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../index.html">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <nav>
+            <div class="container-navbar">
+                <ul class="nav-links">
+                    <li><a href="../cadastrarRegistroNascimento/registroNascimento.html">Registro</a></li>
+                    <li><a href="../cadastroPais/cadastroPais.html">Dados dos Pais</a></li>
+                    <li><a href="../informacaoComplementar/informacaoComplementar.html">Informações Complementares</a>
+                    </li>
+                    <li><a href="../averbacao/averbacao.html">Averbação</a></li>
+                    <li><a href="">Pedido de Certidão</a></li>
+                    <li><a href="">Histórico</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div>
+
+            <div class="container">
+                <form id="registro-form">
+
+                    <div class="dados-controle-registro">
+                        <h3>Dados de controle do Registro de Natimorto</h3>
+                        <div class="radio-livro-antigo">
+                            <label for="livro-antigo">Registro do Livro antigo?</label>
+                            <label><input type="radio" name="livro-antigo" value="sim" required> Sim</label>
+                            <label><input type="radio" name="livro-antigo" value="nao"> Não</label>
+                        </div>
+                        <div class="controle-registro">
+                            <div class="input-controle-row">
+                                <label for="data-registro">Data do Registro</label>
+                                <input type="date" name="data-registro" id="data-registro">
+                            </div>
+                            <div class="input-controle-row" id="termo-registro">
+                                <label for="termo-nascimento">Nº Termo:</label>
+                                <input type="text" name="termo-nascimento" id="termo-nascimento">
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="livro-nascimento">Livro:</label>
+                                <input type="text" name="livro-nascimento" id="livro-nascimento">
+                            </div>
+                            <div class="input-controle-row" id="pagina-registro">
+                                <label for="pagina-livro-nascimento">Página:</label>
+                                <input type="text" name="pagina-livro-nascimento" id="pagina-livro-nascimento">
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="numero-registro">Nº do Protocolo:</label>
+                                <input type="text" name="numero-protocolo-nascimento" id="numero-protocolo-nascimento"
+                                    placeholder="Preenchido após a lavratura">
+                            </div>
+                        </div>
+                        <div class="buttons-lavratura">
+                            <button type="button">Lavrar Registro de Natimorto</button>
+                        </div>
+                    </div>
+
+                    <div class="dados-crianca">
+                        <h3>Dados da Criança</h3>
+                        <label for="nome-crianca">Nome completo da criança:</label>
+                        <input type="text" id="nome-crianca" name="nome-crianca"
+                            placeholder='"Natimorto" ou "Filho(a) de João Silva"' required>
+    
+                        <label for="cpf-crianca">CPF da criança</label>
+                        <input type="text" name="cpf-crianca" id="cpf-crianca"
+                            placeholder="Vai ser preenchido automaticamente">
+    
+                        <div class="row-sexo-data-hora-nascido">
+                            <div class="sexo-nascido">
+                                <label for="sexo">Sexo:</label>
+                                <select id="sexo" name="sexo" required>
+                                    <option value="">Selecione o sexo</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+    
+                            <div class="data-hora-nascimento">
+                                <div class="data-hora-row">
+                                    <label for="data-nascimento">Data do Parto:</label>
+                                    <input type="date" id="data-nascimento" name="data-nascimento" required>
+                                </div>
+                                <div class="data-hora-row">
+                                    <label for="hora-nascimento">Hora do Parto:</label>
+                                    <input type="time" id="hora-nascimento" name="hora-nascimento">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="template-div-1">
+                            <div class="input-controle-row">
+                                <label for="idade-gestacional">Idade Gestacional (em semanas)</label>
+                                <input type="text" name="idade-gestacional" id="idade-gestacional">
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="peso-natimorto">Peso (gramas):</label>
+                                <input type="text" name="peso-natimorto" id="peso-natimorto" placeholder="g" required>
+                            </div>
+                            <div class="input-controle-row">
+                                <label for="altura-cm-natimorto">Altura (centímetros)</label>
+                                <input type="text" name="altura-cm-natimorto" id="altura-cm-natimorto" placeholder="cm" required>
+                            </div>
+                        </div>
+    
+                        <label for="local-nascimento">Local de nascimento:</label>
+                        <input type="text" id="local-nascimento" name="local-nascimento" required>
+                        <input type="text" id="endereco-nascimento" name="endereco-nascimento" placeholder="Endereço (se fora de unidade de saúde)">
+                    </div>
+
+                    <div class="dados-medico">
+                        <h3>Dados do Médico Responsável pelo Parto</h3>
+
+                        <div class="template-div-1">
+                            <div class="input-controle-row">
+                                <label for="nome-medico">Nome Completo:</label>
+                                <input type="text" name="nome-medico" id="nome-medico" required>
+                            </div>
+                            
+                            <div class="input-controle-row" id="input-crm">
+                                <label for="crm-medico">CRM:</label>
+                                <input type="text" name="crm-medico" id="crm-medico" required>
+                            </div>
+                        </div>
+    
+                        <label for="delcaracao-nartimortalidade">Declaração de Natimortalidade:</label>
+                        <input type="file" name="delcaracao-natimortalidade" id="delcaracao-natimortalidade">
+                    </div>
+                </form>
+            </div>
+
+            <div class="botoes">
+                <button type="button" onclick="window.history.back();">Cancelar</button>
+                <button type="submit"
+                    onclick="window.location.href = '../cadastroPais/cadastroPais.html'">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

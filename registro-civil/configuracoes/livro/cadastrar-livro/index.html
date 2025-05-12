@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cadastro de Livro</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2><a href="../../../index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../index.html">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div>
+            <div class="container">
+                <form id="registro-form">
+                    <div class="dados-livro">
+                        <h2>Dados do Livro</h2>
+
+                        <div class="div-template">
+                            <div class="label-input-row">
+                                <label for="tipo-livro">Tipo do Livro:</label>
+                                <select name="tipo-livro" id="tipo-livro">
+                                    <option value="">Selecione o tipo de livro</option>
+                                    <option value="">A</option>
+                                    <option value="">B</option>
+                                    <option value="">C</option>
+                                </select>
+                            </div>
+                            <div class="label-input-row">
+                                <label for="numero-livro">Número do Livro:</label>
+                                <input type="text" name="numero-livro" id="numero-livro">
+                            </div>
+                            <div class="label-input-row">
+                                <label for="data-abertura">Data de Abertura:</label>
+                                <input type="date" name="data-abertura" id="data-abertura">
+                            </div>
+                        </div>
+                        <div class="div-template">
+                            <div class="label-input-row">
+                                <label for="folha-inicial">Folha Inicial:</label>
+                                <input type="text" name="folha-inicial" id="folha-inicial">
+                            </div>
+                            <div class="label-input-row">
+                                <label for="folha-final">Folha Final:</label>
+                                <input type="text" name="folha-final" id="folha-final">
+                            </div>
+                        </div>
+                        <div class="botoes">
+                            <button type="reset">Limpar Dados</button>
+                            <button type="submit">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="botoes">
+                <button type="button" onclick="window.history.back();">Cancelar</button>
+                <button type="submit"
+                    onclick="window.location.href = '../cadastroPais/cadastroPais.html'">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

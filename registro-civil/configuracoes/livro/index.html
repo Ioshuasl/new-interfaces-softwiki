@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestão de Livros</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2><a href="../../index.html">Menu</a></h2>
+            <ul>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Registros</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="index.html">Nascimento</a></li>
+                        <li><a href="">Casamento</a></li>
+                        <li><a href="">Obito</a></li>
+                        <li><a href="">Natimorto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="submenu-toggle">
+                        <h3>Configuração de Cadastro</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Cartório</a></li>
+                        <li><a href="">Pessoas</a></li>
+                        <li><a href="">Minuta</a></li>
+                        <li><a href="">Livro</a></li>
+                        <li><a href="">Complemento Pessoas</a></li>
+                        <li><a href="">Outros Cartórios</a></li>
+                        <li><a href="">CID</a></li>
+                        <li><a href="">Tipo de Andamento</a></li>
+                        <li><a href="">Tipo de Serviço</a></li>
+                        <li><a href="">Livro E</a></li>
+                        <li><a href="">Emolumentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Integração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">CRC</a></li>
+                        <li><a href="">SIRC</a></li>
+                        <li><a href="">IBGE</a></li>
+                        <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Impressão</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Impressão de Protocolo</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                    <ul class="submenu">
+                        <li><a href="">Controle de Marcação</a></li>
+                    </ul>
+                </li>
+                <li><a href=""><h3>Configuração do sistema</h3></a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Registro de Casamento</h1>
+            <div class="search-casamentos">
+                <h2>Gestão dos Livros</h2>
+                <form id="form-pesquisa">
+
+                    <select name="tipo-livro" id="tipo-livro">
+                        <option value="">Tipo de Livro</option>
+                        <option value="">Tipo A</option>
+                        <option value="">Tipo B</option>
+                        <option value="">Tipo C</option>
+                    </select>
+
+                    <input type="text" name="numero-livro" id="numero-livro" placeholder="Número do Livro">
+
+                    <select name="situacao-livro" id="situacao-livro">
+                        <option value="">Situação dos Livros</option>
+                        <option value="">Todos</option>
+                        <option value="">Aberto</option>
+                        <option value="">Encerrado</option>
+                    </select>
+
+                    <input type="date" name="data-abertura-livro" id="data-abertura-livro" placeholder="Data Inicial">
+                    <label for="">Até</label>
+                    <input type="date" name="data-fechadura-livro" id="data-fechadura-livro" placeholder="Data Final">
+                    <div class="buttons">
+                        <button type="submit" id="btn-buscar">Buscar</button>
+                        <button type="reset">Limpar Pesquisa</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="registro-casamento">
+                <button id="btn-novo-registro" onclick="">Cadastrar Novo Livro</button>
+                
+                <div class="lista-registros">
+                    <div class="registro-item">
+                        <div class="info">
+                            <h3>Livro A-001</h3>
+                            <div class="info-row">
+                                <p><strong>Folha atual:</strong> 200</p>
+                                <p><strong>Situação:</strong> Fechado</p>
+                            </div>
+                            <div class="info-row">
+                                <p><strong>Data de Abertura:</strong> 01/01/2020</p>
+                                <p><strong>Data de Fechamento:</strong> 27/05/2020</p>
+                            </div>
+                        </div>
+                        <div class="acoes">
+                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26" src="https://img.icons8.com/metro/26/create-new.png" alt="create-new"/></button>
+                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26" src="https://img.icons8.com/material/24/filled-trash.png" alt="filled-trash"/></button>
+                        </div>
+                    </div>
+                    <div class="registro-item">
+                        <div class="info">
+                            <h3>Livro A-002</h3>
+                            <div class="info-row">
+                                <p><strong>Folha atual:</strong> 59</p>
+                                <p><strong>Situação:</strong> Aberto</p>
+                            </div>
+                            <div class="info-row">
+                                <p><strong>Data de Abertura:</strong> 09/05/2025</p>
+                                <p><strong>Data de Fechamento:</strong>...</p>
+                            </div>
+                        </div>
+                        <div class="acoes">
+                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26" src="https://img.icons8.com/metro/26/create-new.png" alt="create-new"/></button>
+                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26" src="https://img.icons8.com/material/24/filled-trash.png" alt="filled-trash"/></button>
+                        </div>
+                    </div>
+                    <!-- Adicione mais registros conforme necessário -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+        document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-buscar');
+            btn.classList.add('button-loading');
+
+            // Simulando uma busca (substituir com chamada real)
+            setTimeout(() => {
+                btn.classList.remove('button-loading');
+                alert("Busca concluída!");
+            }, 1500);
+        });
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

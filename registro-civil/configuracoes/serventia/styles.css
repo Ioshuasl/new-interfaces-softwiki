@@ -1,0 +1,314 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 230px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding: 15px;
+    height: 95vh; /* Altura total da tela */
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar h2 a{
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a h3 {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Estilo para o submenu */
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Esconde o submenu por padrão */
+}
+
+.submenu li {
+    margin: 0px; /* Remove a margem do submenu */
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-left: 260px;
+    /* Espaço para a barra lateral */
+    padding: 20px;
+}
+
+.content h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.container-navbar {
+    margin: auto;
+    background: white;
+    padding: 30px 30px 0px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 800;
+    /* Largura do contêiner */
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+input[type="file"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    flex: 1;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    /* Cor verde ao focar */
+    outline: none;
+    /* Remove o contorno padrão */
+}
+
+/* Estilos dos botões */
+.botoes button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    /* Azul */
+    transition: background-color 0.3s;
+}
+
+.botoes button:hover {
+    background-color: #0056b3;
+    /* Tom mais escuro ao passar o mouse */
+}
+
+.div-labels-inputs {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.label-input-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.container-servico {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.tipos-servicos-serventia {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.endereco-serventia {
+    gap: 20px;
+}
+
+.cnpj-button-pesquisar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cep {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cep input {
+    padding: 10px;
+    /* Espaçamento interno dos inputs */
+    border: 1px solid #ccc;
+    /* Borda dos inputs */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    margin-right: 0px;
+    /* Espaço entre os inputs */
+    flex: none;
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.div-template-1 {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+}
+
+#numero {
+    flex: none;
+    width: 150px;
+}
+
+#estado {
+    flex: none;
+    width: 170px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espaçamento entre as linhas */
+}
+
+#cargo-funcao-titular {
+    flex: none;
+    width: 350px;
+}
+
+#cpf {
+    width: 200px;
+}
+
+#numero-documento {
+    width: 300px;
+}
+
+.documento-pais {
+    display: flex;
+    flex-direction: column;
+}
+
+#div-orgao-expedidor {
+    flex: none;
+    width: 150px;
+}
+
+#uf-orgao-expedidor-cnh {
+    flex: none;
+}
+
+.detalhes-row {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+#uf {
+    width: 100px;
+    flex: none;
+}
+
+.input-row-cidade {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espaçamento entre as linhas */
+}
+
+#posse-data{
+    flex: none;
+    width: 200px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: end;
+}
+
+.botoes button {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+/* Estilos para o upload de arquivo */
+input[type="file"] {
+    border: none;
+    /* Remove a borda padrão */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        /* Botões ocupam toda a largura em telas pequenas */
+        margin-top: 10px;
+    }
+}

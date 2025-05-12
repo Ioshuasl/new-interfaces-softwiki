@@ -1,0 +1,336 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 230px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding: 15px;
+    height: 95vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar h2 a{
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a h3 {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.submenu li {
+    margin: 0px; 
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    color: white;
+    padding: 15px 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+.content h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.container-navbar {
+    margin: auto;
+    background: white;
+    padding: 30px 30px 0px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 800;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+input[type="file"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.dados-controle-registro {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.radio-livro-antigo {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.controle-registro {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os inputs */
+}
+
+.dados-crianca {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#termo-registro {
+    width: 100px; /* ajuste conforme necessário */
+}
+
+#pagina-registro {
+    width: 150px;
+}
+
+.buttons-lavratura {
+    display: flex;
+    gap: 20px;
+}
+
+.template-div-1 {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.input-controle-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#input-crm {
+    flex: none;
+    width: 300px;
+}
+
+.buttons-lavratura button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    transition: background-color 0.3s;
+}
+
+.botoes button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    transition: background-color 0.3s;
+}
+
+.botoes button:hover {
+    background-color: #0056b3;
+}
+
+.row-sexo-data-hora-nascido {
+    display: flex;
+    gap: 20px;
+}
+
+.sexo-nascido {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sexo-nascido select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.data-hora-nascimento {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.data-hora-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espaçamento entre as linhas */
+}
+
+#numero {
+    flex: 1;
+    /* O input número ocupará o espaço disponível */
+    margin-right: 10px;
+    /* Espaço entre número e bairro */
+}
+
+#bairro {
+    flex: 2;
+    /* O input bairro será maior que o número */
+}
+
+.input-row-cidade {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espaçamento entre as linhas */
+}
+
+#cidade {
+    flex: 2;
+    /* O input cidade será maior que o estado */
+    margin-right: 10px;
+    /* Espaço entre cidade e estado */
+}
+
+#estado {
+    flex: 1;
+    /* O input estado ocupará o espaço disponível */
+}
+
+.botoes {
+    display: flex;
+    justify-content: end;
+}
+
+.botoes button {
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+/* Estilos para o upload de arquivo */
+input[type="file"] {
+    border: none;
+    /* Remove a borda padrão */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        /* Botões ocupam toda a largura em telas pequenas */
+        margin-top: 10px;
+    }
+}
