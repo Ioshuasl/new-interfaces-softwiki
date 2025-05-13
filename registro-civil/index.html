@@ -5,75 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Tela Principal Registro Civil</title>
 </head>
 
 <body>
 
-        <div class="sidebar">
-            <h2><a href="index.html">Menu</a></h2>
-            <ul>
-                <li><a href="" class="submenu-toggle">
-                        <h3>Registros</h3>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="registros/registro nascimento/index.html">Nascimento</a></li>
-                        <li><a href="registros/registro casamento/index.html">Casamento</a></li>
-                        <li><a href="registros/registro obito/index.html">Obito</a></li>
-                        <li><a href="">Natimorto</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="" class="submenu-toggle">
-                        <h3>Configuração de Cadastro</h3>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="">Cartório</a></li>
-                        <li><a href="">Pessoas</a></li>
-                        <li><a href="">Minuta</a></li>
-                        <li><a href="">Livro</a></li>
-                        <li><a href="">Complemento Pessoas</a></li>
-                        <li><a href="">Outros Cartórios</a></li>
-                        <li><a href="">CID</a></li>
-                        <li><a href="">Tipo de Andamento</a></li>
-                        <li><a href="">Tipo de Serviço</a></li>
-                        <li><a href="">Livro E</a></li>
-                        <li><a href="">Emolumentos</a></li>
-                    </ul>
-                </li>
-                <li><a href="" class="submenu-toggle">
-                        <h3>Integração</h3>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="">CRC</a></li>
-                        <li><a href="">SIRC</a></li>
-                        <li><a href="">IBGE</a></li>
-                        <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
-                    </ul>
-                </li>
-                <li><a href="" class="submenu-toggle">
-                        <h3>Impressão</h3>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="">Impressão de Protocolo</a></li>
-                    </ul>
-                </li>
-                <li><a href="" class="submenu-toggle">
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
                     <h3>Administração</h3>
                 </a>
-                    <ul class="submenu">
-                        <li><a href="">Controle de Marcação</a></li>
-                    </ul>
-                </li>
-                <li><a href=""><h3>Configuração do sistema</h3></a></li>
-            </ul>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="dashboard">
+            <h1>Bem-vindo, "Nome do Usuário"</h1>
+            <p>Resumo geral das atividades do cartório.</p>
+
+            <!-- Cards de Indicadores -->
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h2>Registros Hoje</h2>
+                    <p>15</p>
+                </div>
+                <div class="card" role="link" onclick="window.location.href=''">
+                    <h2>Envios Pendentes SIRC</h2>
+                    <p>3</p>
+                </div>
+                <div class="card" role="link" onclick="window.location.href=''">
+                    <h2>Certidões Emitidas</h2>
+                    <p>27</p>
+                </div>
+                <div class="card" role="link" onclick="window.location.href=''">
+                    <h2>Averbações Aguardando</h2>
+                    <p>2</p>
+                </div>
+            </div>
+
+            <!-- Atalhos rápidos -->
+            <div class="quick-actions">
+                <h2>Ações Rápidas</h2>
+                <div class="actions-grid">
+                    <a href="" class="action-button">Novo Nascimento</a>
+                    <a href="" class="action-button">Novo Casamento</a>
+                    <a href="" class="action-button">Novo Óbito</a>
+                    <a href="" class="action-button">Emitir Certidão</a>
+                    <a href="" class="action-button">Emitir Averbação</a>
+                </div>
+            </div>
+
+            <!--Mini gráfico de tendência-->
+            <div class="trend-chart">
+                <h2>Tendência de Registros (últimos 5 dias)</h2>
+                <canvas id="registrosChart" height="100"></canvas>
+            </div>
+
+
+            <!-- Alertas -->
+            <div class="alerts">
+                <h2>Alertas do Sistema</h2>
+                <ul>
+                    <li>⚠️ 3 registros ainda não foram enviados ao SIRC.</li>
+                    <li>📌 Averbação judicial aguardando assinatura.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="content">
-            <h1>Bem-vindo, "nome do usuario"</h1>
-            <p>Dashboard Registro Civil.</p>
+        <!-- Calendário de Atos -->
+        <div class="calendar-section">
+            <!-- Calendário de Atos com FullCalendar -->
+            <div class="calendar-section">
+                <h2>Calendário de Atos</h2>
+
+                <!-- Filtros -->
+                <div class="calendar-filters">
+                    <label><input type="checkbox" class="filter-checkbox" value="Nascimento" checked> Nascimento</label>
+                    <label><input type="checkbox" class="filter-checkbox" value="Casamento" checked> Casamento</label>
+                    <label><input type="checkbox" class="filter-checkbox" value="Óbito" checked> Óbito</label>
+                    <label><input type="checkbox" class="filter-checkbox" value="Certidão" checked> Certidão</label>
+                    <label><input type="checkbox" class="filter-checkbox" value="Averbação" checked>Averbação</label>
+                </div>
+
+                <!-- Calendário -->
+                <div id="calendar"></div>
+            </div>
+
         </div>
-    
+
+        <!-- Últimas Atividades do Usuário -->
+        <div class="user-activity">
+            <h2>Últimas Atividades</h2>
+            <ul id="activity-log"></ul>
+        </div>
+
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const submenuToggles = document.querySelectorAll('.submenu-toggle');
@@ -93,6 +176,108 @@
             });
         });
     </script>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+
+            // Eventos originais, com uma propriedade "tipo"
+            const allEvents = [
+                { title: 'Nascimento - João Silva', date: '2025-05-05', tipo: 'Nascimento' },
+                { title: 'Casamento - Maria & Pedro', date: '2025-05-09', tipo: 'Casamento' },
+                { title: 'Óbito - José Lima', date: '2025-05-18', tipo: 'Óbito' },
+                { title: 'Certidão Emitida', date: '2025-05-18', tipo: 'Certidão' },
+                { title: 'Nascimento - Lucas Rocha', date: '2025-05-21', tipo: 'Nascimento' }
+            ];
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'pt-br',
+                height: 500,
+                events: allEvents
+            });
+
+            calendar.render();
+
+            // Filtro de eventos
+            const checkboxes = document.querySelectorAll('.filter-checkbox');
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const activeFilters = Array.from(checkboxes)
+                        .filter(c => c.checked)
+                        .map(c => c.value);
+
+                    const filteredEvents = allEvents.filter(event =>
+                        activeFilters.includes(event.tipo)
+                    );
+
+                    calendar.removeAllEvents();
+                    calendar.addEventSource(filteredEvents);
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        // Simula carregamento dinâmico de logs de atividades
+        const activities = [
+            { time: '10:12', action: 'Registrado nascimento de João Silva' },
+            { time: '09:47', action: 'Emitida certidão de casamento para Maria & Pedro' },
+            { time: '08:35', action: 'Atualizado livro de óbitos - Termo 041' },
+            { time: '08:10', action: 'Acesso ao módulo SIRC' },
+        ];
+
+        const logContainer = document.getElementById('activity-log');
+
+        activities.forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = `🕓 ${item.time} - ${item.action}`;
+            logContainer.appendChild(li);
+        });
+    </script>
+
+    <script>
+        const ctx = document.getElementById('registrosChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'], // dias da semana
+                datasets: [{
+                    label: 'Registros',
+                    data: [12, 15, 14, 20, 17], // dados simulados
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0,123,255,0.1)',
+                    tension: 0.3,
+                    fill: true,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#007bff'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 5
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

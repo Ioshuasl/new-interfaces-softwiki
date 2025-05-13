@@ -172,38 +172,6 @@ select:focus {
     background-color: #0056b3;
 }
 
-.row-sexo-data-hora-nascido {
-    display: flex;
-    gap: 20px;
-}
-
-.sexo-nascido {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.sexo-nascido select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.data-hora-nascimento {
-    display: flex;
-    flex: 1;
-    gap: 20px;
-}
-
-.data-hora-row {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
 .form-container {
     display: flex;
     flex-direction: column;
@@ -216,35 +184,15 @@ select:focus {
     /* Espaçamento entre as linhas */
 }
 
-#numero {
-    flex: 1;
-    /* O input número ocupará o espaço disponível */
-    margin-right: 10px;
-    /* Espaço entre número e bairro */
-}
-
-#bairro {
-    flex: 2;
-    /* O input bairro será maior que o número */
-}
-
-.input-row-cidade {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    /* Espaçamento entre as linhas */
-}
-
-#cidade {
-    flex: 2;
-    /* O input cidade será maior que o estado */
-    margin-right: 10px;
-    /* Espaço entre cidade e estado */
-}
-
-#estado {
-    flex: 1;
-    /* O input estado ocupará o espaço disponível */
+.btn-fechar-livro button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #ff0000;
+    transition: background-color 0.3s;
 }
 
 .botoes {

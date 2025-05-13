@@ -75,7 +75,7 @@
             <div class="container">
                 <form id="registro-form">
                     <div class="dados-livro">
-                        <h2>Dados do Livro</h2>
+                        <h2>Abrir Novo Livro</h2>
 
                         <div class="div-template">
                             <div class="label-input-row">
@@ -99,12 +99,26 @@
                         <div class="div-template">
                             <div class="label-input-row">
                                 <label for="folha-inicial">Folha Inicial:</label>
-                                <input type="text" name="folha-inicial" id="folha-inicial">
+                                <input type="text" name="folha-inicial" id="folha-inicial" placeholder="0">
                             </div>
                             <div class="label-input-row">
                                 <label for="folha-final">Folha Final:</label>
-                                <input type="text" name="folha-final" id="folha-final">
+                                <input type="text" name="folha-final" id="folha-final" placeholder="200">
                             </div>
+                            <div class="label-input-row">
+                                <label for="data-encerramento">Data de Encerramento:</label>
+                                <input type="date" name="data-encerramento" id="data-encerramento">
+                            </div>
+                        </div>
+                        <div class="label-input-row">
+                            <label for="situacao-livro">Situação do Livro:</label>
+                            <select name="situacao-livro" id="situacao-livro">
+                                <option value="ativo">Ativo</option>
+                                <option value="encerrado">Encerrado</option>
+                            </select>
+                        </div>
+                        <div class="btn-fechar-livro">
+                            <button type="button" onclick="encerrarlivro()">Fechar Livro</button>
                         </div>
                         <div class="botoes">
                             <button type="reset">Limpar Dados</button>
@@ -140,6 +154,11 @@
                 });
             });
         });
+    </script>
+    <script>
+        function encerrarlivro() {
+            alert("Encerrando Livro")
+        }
     </script>
 </body>
 

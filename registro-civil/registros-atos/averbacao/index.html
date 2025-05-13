@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Gestão de Livros</title>
+    <title>Gestão das Averbações</title>
 </head>
 
 <body>
@@ -63,88 +63,100 @@
                     </ul>
                 </li>
                 <li><a href="" class="submenu-toggle">
-                    <h3>Administração</h3>
-                </a>
+                        <h3>Administração</h3>
+                    </a>
                     <ul class="submenu">
                         <li><a href="">Controle de Marcação</a></li>
                     </ul>
                 </li>
-                <li><a href=""><h3>Configuração do sistema</h3></a></li>
+                <li><a href="">
+                        <h3>Configuração do sistema</h3>
+                    </a></li>
             </ul>
         </div>
 
         <div class="content">
-            <h1>Gestão de Livros</h1>
-            <div class="search-casamentos">
-                <h2>Pesquisar Livros</h2>
+            <h1>Gestão das Averbações</h1>
+            <p>Gerencie todas as averbações pendentes, em andamento e finalizadas.</p>
+            <div class="pesquisa-averbacao">
+                <h2>Pesquisar Averbação</h2>
                 <form id="form-pesquisa">
 
-                    <select name="tipo-livro" id="tipo-livro">
-                        <option value="">Tipo de Livro</option>
-                        <option value="">Tipo A</option>
-                        <option value="">Tipo B</option>
-                        <option value="">Tipo C</option>
-                    </select>
+                    <div style="display: flex; flex: 1; gap: 20px;">
+                        <select>
+                            <option>Todos os Tipos de Ato</option>
+                            <option>Nascimento</option>
+                            <option>Casamento</option>
+                            <option>Óbito</option>
+                            <option>Natimorto</option>
+                        </select>
+    
+                        <select>
+                            <option>Status: Todos</option>
+                            <option>Pendente</option>
+                            <option>Finalizada</option>
+                            <option>Aguardando Envio</option>
+                            <option>Com Erro</option>
+                        </select>
+    
+                        <div style="gap: 10px;">
+                            <input type="date" placeholder="De" />
+                            <label>Até</label>
+                            <input type="date" placeholder="Até" />
+                        </div>
+                    </div>
 
-                    <input type="text" name="numero-livro" id="numero-livro" placeholder="Número do Livro">
-
-                    <select name="situacao-livro" id="situacao-livro">
-                        <option value="">Situação dos Livros</option>
-                        <option value="">Todos</option>
-                        <option value="">Aberto</option>
-                        <option value="">Encerrado</option>
-                    </select>
-
-                    <input type="date" name="data-abertura-livro" id="data-abertura-livro" placeholder="Data Inicial">
-                    <label for="">Até</label>
-                    <input type="date" name="data-fechadura-livro" id="data-fechadura-livro" placeholder="Data Final">
-                    <div class="buttons">
-                        <button type="submit" id="btn-buscar">Buscar</button>
-                        <button type="reset">Limpar Pesquisa</button>
+                    <div style="display: flex; flex: 1; gap: 20px;">
+                        <input type="text" placeholder="Nome ou CPF..." />
+    
+                        <div class="buttons">
+                            <button type="submit" id="btn-buscar">🔎 Filtrar</button>
+                            <button type="reset">Limpar Pesquisa</button>
+                        </div>
                     </div>
                 </form>
             </div>
+
             
-            <div class="registro-casamento">
-                <button id="btn-novo-registro" onclick="">Cadastrar Novo Livro</button>
-                
-                <div class="lista-registros">
-                    <div class="registro-item">
-                        <div class="info">
-                            <h3>Livro A-001</h3>
-                            <div class="info-row">
-                                <p><strong>Folha atual:</strong> 200</p>
-                                <p><strong>Situação:</strong> Encerrado</p>
-                            </div>
-                            <div class="info-row">
-                                <p><strong>Data de Abertura:</strong> 01/01/2020</p>
-                                <p><strong>Data de Encerramento:</strong> 27/05/2020</p>
-                            </div>
+            <div class="lista-averbacao">
+                <button id="btn-novo-registro" onclick="">Nova Averbação</button>
+
+                <div class="cards-averbacoes">
+
+                    <div class="card-averbacao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
                         </div>
-                        <div class="acoes">
-                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26" src="https://img.icons8.com/metro/26/create-new.png" alt="create-new"/></button>
-                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26" src="https://img.icons8.com/material/24/filled-trash.png" alt="filled-trash"/></button>
-                        </div>
-                    </div>
-                    <div class="registro-item">
-                        <div class="info">
-                            <h3>Livro A-002</h3>
-                            <div class="info-row">
-                                <p><strong>Folha atual:</strong> 59</p>
-                                <p><strong>Situação:</strong> Aberto</p>
-                            </div>
-                            <div class="info-row">
-                                <p><strong>Data de Abertura:</strong> 09/05/2025</p>
-                                <p><strong>Data de Encerramento:</strong>...</p>
-                            </div>
-                        </div>
-                        <div class="acoes">
-                            <button class="btn-editar"><i class="fas fa-edit"></i> <img width="26" height="26" src="https://img.icons8.com/metro/26/create-new.png" alt="create-new"/></button>
-                            <button class="btn-excluir"><i class="fas fa-trash"></i> <img width="26" height="26" src="https://img.icons8.com/material/24/filled-trash.png" alt="filled-trash"/></button>
+                        <h3>Reconhecimento de paternidade</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
                         </div>
                     </div>
-                    <!-- Adicione mais registros conforme necessário -->
+
+                    <div class="card-averbacao">
+                        <div class="card-header">
+                            <span class="badge tipo">Casamento</span>
+                            <span class="badge status erro">Erro no envio</span>
+                        </div>
+                        <h3>Divórcio</h3>
+                        <p><strong>Nome:</strong> Ana Paula & João Lima</p>
+                        <p><strong>Solicitado em:</strong> 08/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">🔄 Reenviar</button>
+                        </div>
+                    </div>
+
+                    <!-- Repetir para cada item -->
                 </div>
+
             </div>
         </div>
     </main>

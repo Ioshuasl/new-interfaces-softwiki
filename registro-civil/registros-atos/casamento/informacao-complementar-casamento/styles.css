@@ -173,8 +173,10 @@ select:focus {
 
 .template-label-input {
     display: flex;
+    flex-direction: column;
     flex: 1;
     gap: 20px;
+    font-size: 18px;
 }
 
 .template-div-comum {
