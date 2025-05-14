@@ -94,9 +94,9 @@
                         <select>
                             <option>Status: Todos</option>
                             <option>Pendente</option>
-                            <option>Finalizada</option>
+                            <option>Concluído</option>
                             <option>Aguardando Envio</option>
-                            <option>Com Erro</option>
+                            <option>Erro no envio</option>
                         </select>
     
                         <div style="gap: 10px;">
@@ -119,7 +119,10 @@
 
             
             <div class="lista-averbacao">
-                <button id="btn-novo-registro" onclick="">Nova Averbação</button>
+                <div style="display: flex; justify-content: space-between;">
+                    <button id="btn-novo-registro" onclick="">Nova Averbação</button>
+                    <button id="btn-configuracao">Configurações</button>
+                </div>
 
                 <div class="cards-averbacoes">
 
@@ -154,6 +157,53 @@
                         </div>
                     </div>
 
+                    <div class="card-averbacao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Reconhecimento de paternidade</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
+
+                    <div class="card-averbacao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Reconhecimento de paternidade</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
+
+                    <div class="card-averbacao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Reconhecimento de paternidade</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
                     <!-- Repetir para cada item -->
                 </div>
 

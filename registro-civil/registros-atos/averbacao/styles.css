@@ -217,6 +217,22 @@ label {
     background-color: #45a049; /* Verde mais escuro ao passar o mouse */
 }
 
+#btn-configuracao {
+    padding: 10px 15px;
+    background-color: #4c82af; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+#btn-configuracao:hover {
+    background-color: #456fa0; /* Azul mais escuro ao passar o mouse */
+}
+
 .lista-registros {
     display: flex;
     flex-direction: column;
