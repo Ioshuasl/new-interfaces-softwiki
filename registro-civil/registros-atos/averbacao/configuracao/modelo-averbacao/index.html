@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestão das Averbações</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2><a href="../../index.html">Menu</a></h2>
+            <ul>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Registros</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="index.html">Nascimento</a></li>
+                        <li><a href="">Casamento</a></li>
+                        <li><a href="">Obito</a></li>
+                        <li><a href="">Natimorto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="submenu-toggle">
+                        <h3>Configuração de Cadastro</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Cartório</a></li>
+                        <li><a href="">Pessoas</a></li>
+                        <li><a href="">Minuta</a></li>
+                        <li><a href="">Livro</a></li>
+                        <li><a href="">Complemento Pessoas</a></li>
+                        <li><a href="">Outros Cartórios</a></li>
+                        <li><a href="">CID</a></li>
+                        <li><a href="">Tipo de Andamento</a></li>
+                        <li><a href="">Tipo de Serviço</a></li>
+                        <li><a href="">Livro E</a></li>
+                        <li><a href="">Emolumentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Integração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">CRC</a></li>
+                        <li><a href="">SIRC</a></li>
+                        <li><a href="">IBGE</a></li>
+                        <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Impressão</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Impressão de Protocolo</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Administração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Controle de Marcação</a></li>
+                    </ul>
+                </li>
+                <li><a href="">
+                        <h3>Configuração do sistema</h3>
+                    </a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="header-content">
+                <h2>Modelos de Averbação</h2>
+            </div>
+            
+            <!-- Filtros -->
+            <form>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="filtro-tipo-ato">Tipo de Ato:</label>
+                        <select id="filtro-tipo-ato">
+                            <option value="">Todos</option>
+                            <option value="nascimento">Nascimento</option>
+                            <option value="casamento">Casamento</option>
+                            <option value="obito">Óbito</option>
+                            <option value="natimorto">Natimorto</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filtro-status">Status:</label>
+                        <select id="filtro-status">
+                            <option value="">Todos</option>
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                    <button class="btn-filter" type="submit">Filtrar</button>
+                    <button class="btn-limpar" type="reset">Limpar</button>
+                </div>
+            </form>
+
+            <div class="novo-modelo">
+                <button class="btn btn-primary">+ Novo Modelo</button>
+            </div>
+            
+            <!-- Cards de Modelos -->
+            <div class="card-container">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Retificação Judicial</h3>
+                        <span class="status active">Ativo</span>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Tipo de Ato:</strong> Nascimento</p>
+                        <p><strong>Vinculado ao Selo:</strong> Sim</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-edit" onclick="editarModelo(1)">Editar</button>
+                        <button class="btn btn-delete" onclick="excluirModelo(1)">Excluir</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Alteração de Nome</h3>
+                        <span class="status inactive">Inativo</span>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Tipo de Ato:</strong> Casamento</p>
+                        <p><strong>Vinculado ao Selo:</strong> Não</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-edit" onclick="editarModelo(2)">Editar</button>
+                        <button class="btn btn-delete" onclick="excluirModelo(2)">Excluir</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Averbação de Óbito</h3>
+                        <span class="status active">Ativo</span>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Tipo de Ato:</strong> Nascimento</p>
+                        <p><strong>Vinculado ao Selo:</strong> Sim</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-edit" onclick="editarModelo(3)">Editar</button>
+                        <button class="btn btn-delete" onclick="excluirModelo(3)">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+        document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-buscar');
+            btn.classList.add('button-loading');
+
+            // Simulando uma busca (substituir com chamada real)
+            setTimeout(() => {
+                btn.classList.remove('button-loading');
+                alert("Busca concluída!");
+            }, 1500);
+        });
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

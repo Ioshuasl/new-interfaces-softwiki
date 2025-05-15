@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestão das Certidões</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2><a href="../../index.html">Menu</a></h2>
+            <ul>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Registros</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="index.html">Nascimento</a></li>
+                        <li><a href="">Casamento</a></li>
+                        <li><a href="">Obito</a></li>
+                        <li><a href="">Natimorto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="submenu-toggle">
+                        <h3>Configuração de Cadastro</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Cartório</a></li>
+                        <li><a href="">Pessoas</a></li>
+                        <li><a href="">Minuta</a></li>
+                        <li><a href="">Livro</a></li>
+                        <li><a href="">Complemento Pessoas</a></li>
+                        <li><a href="">Outros Cartórios</a></li>
+                        <li><a href="">CID</a></li>
+                        <li><a href="">Tipo de Andamento</a></li>
+                        <li><a href="">Tipo de Serviço</a></li>
+                        <li><a href="">Livro E</a></li>
+                        <li><a href="">Emolumentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Integração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">CRC</a></li>
+                        <li><a href="">SIRC</a></li>
+                        <li><a href="">IBGE</a></li>
+                        <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Impressão</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Impressão de Protocolo</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Administração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Controle de Marcação</a></li>
+                    </ul>
+                </li>
+                <li><a href="">
+                        <h3>Configuração do sistema</h3>
+                    </a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Gestão das Certidões</h1>
+            <p>Gerencie todas as certidões pendentes, em andamento e finalizadas.</p>
+            <div class="pesquisa-certidao">
+                <h2>Pesquisar Certidão</h2>
+                <form id="form-pesquisa">
+
+                    <div style="display: flex; flex: 1; gap: 20px;">
+                        <select>
+                            <option>Todos os Tipos de Ato</option>
+                            <option>Nascimento</option>
+                            <option>Casamento</option>
+                            <option>Óbito</option>
+                            <option>Natimorto</option>
+                        </select>
+
+                        <select>
+                            <option>Status: Todos</option>
+                            <option>Pendente</option>
+                            <option>Concluído</option>
+                            <option>Aguardando Envio</option>
+                            <option>Erro no envio</option>
+                        </select>
+
+                        <input type="text" id="pedido-certidao" placeholder="Nº Pedido de Certidão">
+
+                        <div style="gap: 10px;">
+                            <input type="date" placeholder="De" />
+                            <label>Até</label>
+                            <input type="date" placeholder="Até" />
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex: 1; gap: 20px;">
+                        <input type="text" placeholder="Nome do Requerente" />
+
+                        <select name="responsavel-certidao" id="responsavel-certidao" style="flex: none;width: 300px;">
+                            <option value="">Selecione o Responsável</option>
+                            <option value="dr_jose_silva">Dr. José Silva (Titular)</option>
+                            <option value="dra_maria_almeida">Dra. Maria Almeida (Escrivão)</option>
+                        </select>
+
+                        <div class="buttons">
+                            <button type="submit" id="btn-buscar">🔎 Filtrar</button>
+                            <button type="reset">Limpar Pesquisa</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="lista-certidao">
+                <div style="display: flex; justify-content: space-between;">
+                    <button id="btn-novo-registro" onclick="">Nova Certidão</button>
+                    <button id="btn-configuracao">Configurações</button>
+                </div>
+
+                <div class="cards-averbacoes">
+
+                    <div class="card-certidao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Certidão de Nascimento 1º Via</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
+
+                    <div class="card-certidao">
+                        <div class="card-header">
+                            <span class="badge tipo">Casamento</span>
+                            <span class="badge status erro">Erro no envio</span>
+                        </div>
+                        <h3>Certidão de Óbito 1º Via</h3>
+                        <p><strong>Nome:</strong> Ana Paula & João Lima</p>
+                        <p><strong>Solicitado em:</strong> 08/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">🔄 Reenviar</button>
+                        </div>
+                    </div>
+
+                    <div class="card-certidao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Certidão de Casamento 2º Via</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
+
+                    <div class="card-certidao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Reconhecimento de paternidade</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
+
+                    <div class="card-certidao">
+                        <div class="card-header">
+                            <span class="badge tipo">Nascimento</span>
+                            <span class="badge status pendente">Pendente</span>
+                        </div>
+                        <h3>Reconhecimento de paternidade</h3>
+                        <p><strong>Nome:</strong> Lucas da Silva</p>
+                        <p><strong>Solicitado em:</strong> 10/05/2025</p>
+
+                        <div class="acoes-card">
+                            <button class="btn-acao">👁 Visualizar</button>
+                            <button class="btn-acao">✏️ Editar</button>
+                            <button class="btn-acao">✅ Concluir</button>
+                        </div>
+                    </div>
+                    <!-- Repetir para cada item -->
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+        document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-buscar');
+            btn.classList.add('button-loading');
+
+            // Simulando uma busca (substituir com chamada real)
+            setTimeout(() => {
+                btn.classList.remove('button-loading');
+                alert("Busca concluída!");
+            }, 1500);
+        });
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

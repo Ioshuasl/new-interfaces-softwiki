@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Quill CSS -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <title>Nova Averbação</title>
+    <title>Nova Certidão</title>
 </head>
 
 <body>
@@ -82,7 +82,7 @@
             <div class="container">
                 <input type="hidden" name="textoAverbacao" id="textoAverbacao">
                 <form id="registro-form">
-                    <h3>Nova Averbação</h3>
+                    <h3>Nova Certidão</h3>
 
                     <div class="label-input-row">
                         <label for="">Dados do Registro Original</label>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
 
-                    <label for="modeloTexto">Modelo do Texto de Averbação:</label>
+                    <label for="modeloTexto">Modelo do Texto de Certidão:</label>
                     <select id="modeloTexto" onchange="inserirModelo()">
                         <option value="">Selecionar modelo</option>
                         <option value="modelo1">Modelo Judicial</option>
@@ -107,19 +107,19 @@
                         <option value="">Alteração de Nome</option>
                         <option value="">Mudança de Estado Civil</option>
                         <option value="">Filiação</option>
-                        <option value="">Averbação de Óbito</option>
+                        <option value="">Certidão de Óbito</option>
                     </select>
 
                     <div class="label-input-row">
-                        <label for="motivo-averbacao">Motivo da Averbação:</label>
+                        <label for="motivo-averbacao">Motivo da Certidão:</label>
                         <textarea name="motivo-averbacao" id="motivo-averbacao" rows="3"></textarea>
                     </div>
 
                     <div>
-                        <h4>Dados de Registro da Averbação</h4>
+                        <h4>Dados de Registro da Certidão</h4>
                         <div style="display: flex; gap: 20px;margin-top: 20px;flex: 1;">
                             <div class="label-input-row" style="flex: none;width: 150px;">
-                                <label>Data da Averbação:</label>
+                                <label>Data da Certidão:</label>
                                 <input type="date" id="dataRegistro" />
                             </div>
                             <div class="label-input-row" style="flex: none; width: 150px;">
@@ -139,7 +139,7 @@
                                 <input type="text" id="folha-final" placeholder="Folha Final" />
                             </div>
                             <div class="label-input-row">
-                                <label for="responsavel">Responsável pela Averbação:</label>
+                                <label for="responsavel">Responsável pela Certidão:</label>
                                 <select id="responsavel" name="responsavel" required>
                                     <option value="">Selecione</option>
                                     <option value="dr_jose_silva">Dr. José Silva (Titular)</option>
@@ -316,7 +316,7 @@
                     </div>
 
                     <div class="pessoas" style="margin-bottom: 20px;">
-                        <h4>Pessoas Vinculadas à Averbação</h4>
+                        <h4>Pessoas Vinculadas à Certidão</h4>
                         <div id="pessoas-vinculadas">
                             <div class="pessoa-item">
                                 <div class="pessoa-item-select">
@@ -439,13 +439,13 @@
                     </div>
 
                     <div class="texto-averbacao">
-                        <label for="observacoes">Texto de Averbação:</label>
+                        <label for="observacoes">Texto de Certidão:</label>
                         <div class="botoes-texto-averbacao">
                             <button type="button">Qualificar Texto</button>
                             <button type="button">Limpar texto</button>
                             <button type="button" onclick="visualizarAverbacao()">Visualizar como Folha</button>
                             <button type="button" onclick="exportarPDF()">Exportar como PDF</button>
-                            <button type="button" onclick="imprimirAverbacao()">Imprimir Averbação</button>
+                            <button type="button" onclick="imprimirAverbacao()">Imprimir Certidão</button>
                         </div>
                         <div class="editor">
                             <!-- Toolbar padrão do Quill -->
@@ -515,9 +515,9 @@
                     </div>
 
                     <div class="selo-averbacao">
-                        <label for="selo-averbacao-nascimento">Selo de Averbação:</label>
+                        <label for="selo-averbacao-nascimento">Selo de Certidão:</label>
                         <div class="botao-selo">
-                            <button type="button" onclick="gerarSelo()">Gerar Selo de Averbação</button>
+                            <button type="button" onclick="gerarSelo()">Gerar Selo de Certidão</button>
                         </div>
                         <input type="text" name="selo-averbacao-nascimento" id="selo-averbacao-nascimento"
                             placeholder="Número do selo">
@@ -554,14 +554,14 @@
                 </form>
                 <div class="botoes">
                     <button type="button" onclick="window.history.back();">Cancelar</button>
-                    <button type="submit" onclick="confimacaoAverbacao()">Confirmar e Emitir Averbação</button>
+                    <button type="submit" onclick="confimacaoAverbacao()">Confirmar e Emitir Certidão</button>
                 </div>
 
                 <div id="modal-confirmacao" class="modal">
                     <div class="modal-conteudo"
                         style="display: flex;flex-direction: column;background-color: white; width: 400px; height: 200px; align-items: center; justify-content: center;">
                         <h3>Confirmar emissão</h3>
-                        <p>Deseja realmente emitir esta averbação?</p>
+                        <p>Deseja realmente emitir esta Certidão?</p>
                         <div>
                             <button onclick="confirmarEmissao()">Sim</button>
                             <button onclick="fecharModal()">Não</button>
@@ -696,7 +696,7 @@
 
             if (modelo === "modelo1") {
                 const conteudoHTML = `
-            <h2 style="text-align: center;">Averbação Judicial</h2>
+            <h2 style="text-align: center;">Certidão Judicial</h2>
             <br>
             <p><strong>Decisão nº:</strong> 12345/2024</p>
             <p><span style="font-size: 16px;">Conforme decisão do juiz da 1ª Vara Cível de São Paulo...</span></p>
@@ -852,7 +852,7 @@
 
     <script>
         function confirmarEmissao() {
-            alert("Averbação emitida com sucesso!");
+            alert("Certidão emitida com sucesso!");
             // Aqui viria a chamada ao backend
         }
         function fecharModal() {

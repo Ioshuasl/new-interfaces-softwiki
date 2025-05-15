@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <title>Nova Averbação</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2><a href="../../../index.html">Menu</a></h2>
+            <ul>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Registros</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="../index.html">Nascimento</a></li>
+                        <li><a href="">Casamento</a></li>
+                        <li><a href="">Obito</a></li>
+                        <li><a href="">Natimorto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="submenu-toggle">
+                        <h3>Configuração de Cadastro</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Cartório</a></li>
+                        <li><a href="">Pessoas</a></li>
+                        <li><a href="">Minuta</a></li>
+                        <li><a href="">Livro</a></li>
+                        <li><a href="">Complemento Pessoas</a></li>
+                        <li><a href="">Outros Cartórios</a></li>
+                        <li><a href="">CID</a></li>
+                        <li><a href="">Tipo de Andamento</a></li>
+                        <li><a href="">Tipo de Serviço</a></li>
+                        <li><a href="">Livro E</a></li>
+                        <li><a href="">Emolumentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Integração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">CRC</a></li>
+                        <li><a href="">SIRC</a></li>
+                        <li><a href="">IBGE</a></li>
+                        <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Impressão</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Impressão de Protocolo</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="submenu-toggle">
+                        <h3>Administração</h3>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="">Controle de Marcação</a></li>
+                    </ul>
+                </li>
+                <li><a href="">
+                        <h3>Configuração do sistema</h3>
+                    </a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+
+            <div class="container">
+                <input type="hidden" name="textoAverbacao" id="textoAverbacao">
+                <form id="registro-form">
+                    <h2>Novo Modelo de Averbação</h2>
+
+                    <div style="display: flex; flex: 1; gap: 20px;">
+                        <div style="display: flex; flex-direction: column; flex: 1;">
+                            <label for="nome-modelo">Nome do Modelo:</label>
+                            <input type="text" id="nome-modelo" placeholder="Ex: Retificação de Nome">
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; flex: 1;">
+                            <label for="tipo-ato">Tipo de Ato:</label>
+                            <select id="tipo-ato">
+                                <option value="">Selecione</option>
+                                <option value="nascimento">Nascimento</option>
+                                <option value="casamento">Casamento</option>
+                                <option value="obito">Óbito</option>
+                                <option value="natimorto">Natimorto</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="is-ativo">
+                        <label class="switch">
+                            <input type="checkbox" id="ativo" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <label>Ativo</label>
+                    </div>
+
+
+                    <div class="editor">
+                        <!-- Toolbar padrão do Quill -->
+                        <div id="toolbar">
+                            <span class="ql-formats">
+                                <button class="ql-bold"></button>
+                                <button class="ql-italic"></button>
+                                <button class="ql-underline"></button>
+                                <button class="ql-strike"></button>
+                                <select class="ql-size">
+                                    <option value="12px">12px</option>
+                                    <option value="14px" selected>14px</option>
+                                    <option value="16px">16px</option>
+                                    <option value="18px">18px</option>
+                                    <option value="24px">24px</option>
+                                    <option value="32px">32px</option>
+                                </select>
+                                <select class="ql-font">
+                                    <option value="sans-serif"></option>
+                                    <option value="serif"></option>
+                                    <option value="monospace"></option>
+                                </select>
+                                <select class="ql-color"></select>
+                                <select class="ql-background"></select>
+                                <button class="ql-list" value="ordered"></button>
+                                <button class="ql-list" value="bullet"></button>
+                                <button class="ql-blockquote"></button>
+                                <button class="ql-link"></button>
+                                <button class="ql-image"></button>
+                                <button class="ql-video"></button>
+                                <button class="ql-clean"></button> <!-- Limpar formatação -->
+                            </span>
+                            <span class="ql-formats">
+                                <select class="ql-header">
+                                    <option value="1">Cabeçalho 1</option>
+                                    <option value="2">Cabeçalho 2</option>
+                                    <option value="3">Cabeçalho 3</option>
+                                    <option value="4">Cabeçalho 4</option>
+                                    <option value="5">Cabeçalho 5</option>
+                                    <option value="6">Cabeçalho 6</option>
+                                    <option selected></option>
+                                </select>
+                                <select class="ql-align">
+                                    <option value=""></option>
+                                    <option value="center"></option>
+                                    <option value="right"></option>
+                                    <option value="justify"></option>
+                                </select>
+                            </span>
+                        </div>
+
+                        <!-- Área editável do Quill -->
+                        <div id="editor-container"></div>
+                    </div>
+
+                    <h4>Configurações Avançadas</h4>
+
+                    <label for="selo-vinculado">Vincular a qual tipo de selo?</label>
+                    <select id="selo-vinculado">
+                        <option value="">Nenhum</option>
+                        <option value="modelo-selo-nasc">Selo - Nascimento</option>
+                        <option value="modelo-selo-casamento">Selo - Casamento</option>
+                    </select>
+
+                    <div class="botoes">
+                        <button type="button" onclick="salvarModelo()">Salvar Modelo</button>
+                        <button type="button" onclick="cancelarEdicao()">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+
+        const Size = Quill.import('formats/size');
+        Size.whitelist = ['12px', '14px', '16px', '18px', '24px', '32px'];
+        Quill.register(Size, true);
+
+
+        const quill = new Quill('#editor-container', {
+            modules: {
+                toolbar: {
+                    container: '#toolbar'
+                }
+            },
+            theme: 'snow'
+        });
+
+
+        // Adicionando um listener para o cabeçalho
+        const headerSelect = document.querySelector('.ql-header');
+        headerSelect.addEventListener('change', function () {
+            const header = this.value;
+            quill.format('header', header);
+        });
+
+        // Adicionando um listener para o alinhamento
+        const alignSelect = document.querySelector('.ql-align');
+        alignSelect.addEventListener('change', function () {
+            const align = this.value;
+            quill.format('align', align);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+
+        function visualizarAverbacao() {
+            const previewContainer = document.getElementById('preview-content');
+            const modal = document.getElementById('modal-folha');
+            const folhaPreview = document.getElementById('folha-preview');
+
+            // Copiar o conteúdo do editor Quill para a área de visualização
+            const styledContent = document.createElement('div');
+            styledContent.classList.add('ql-editor');
+            styledContent.innerHTML = quill.root.innerHTML;
+
+            previewContainer.innerHTML = '';
+            previewContainer.appendChild(styledContent)
+
+            // Agora, garantir que o QR Code do rodapé também seja incluído
+            // A ideia é verificar se existe um QR Code no editor e adicioná-lo à pré-visualização
+            const qrCodeImage = document.querySelector('#editor-container img'); // Encontrar o QR Code inserido
+
+            if (qrCodeImage) {
+                const qrCodeClone = qrCodeImage.cloneNode(); // Clonar o QR Code para a pré-visualização
+                const qrcode = previewContainer.appendChild(qrCodeClone); // Adicionar o QR Code na pré-visualização
+            }
+
+
+            folhaPreview.style.display = 'block';
+            modal.style.display = 'flex'; // Mostrar o modal com a pré-visualização
+        }
+
+
+
+        function fecharFolha() {
+            document.getElementById("modal-folha").style.display = "none";
+        }
+
+        // Fecha o modal ao clicar fora
+        window.onclick = function (event) {
+            const modal = document.getElementById("modal-folha");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('registro-form').addEventListener('submit', function (e) {
+            document.getElementById('textoAverbacao').value = quill.root.innerHTML;
+        });
+
+
+        function exportarPDF() {
+            const folha = document.querySelector('.folha-a4');
+
+            const opt = {
+                margin: 0,
+                filename: 'averbacao.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(folha).save();
+        }
+    </script>
+
+    <script>
+        function inserirModelo() {
+            const modelo = document.getElementById("modeloTexto").value;
+
+            if (modelo === "modelo1") {
+                const conteudoHTML = `
+            <h2 style="text-align: center;">Averbação Judicial</h2>
+            <br>
+            <p><strong>Decisão nº:</strong> 12345/2024</p>
+            <p><span style="font-size: 16px;">Conforme decisão do juiz da 1ª Vara Cível de São Paulo...</span></p>
+        `;
+                quill.clipboard.dangerouslyPasteHTML(conteudoHTML);
+            } else if (modelo === "modelo2") {
+                const conteudoHTML = `
+            <h3 style="color: #007BFF;">Retificação Administrativa</h3>
+            <p style="font-family: serif; font-size: 15px;">
+                Foi identificada divergência no nome da genitora, sendo corrigido para o nome completo conforme documento apresentado.
+            </p>
+        `;
+                quill.clipboard.dangerouslyPasteHTML(conteudoHTML);
+            }
+        }
+    </script>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <script>
+        function gerarSelo() {
+            // Gerar um código único para o selo
+            const seloCodigo = "08271504271620139500504"
+
+            // Preencher o campo de input com o código do selo
+            document.getElementById('selo-averbacao-nascimento').value = seloCodigo;
+
+            // Criar o QR Code para o selo
+            const qrCodeContainer = document.createElement('div');
+            qrCodeContainer.className = 'qr-code-container'; // Adiciona a classe para o estilo
+            qrCodeContainer.style.width = '40px';
+            qrCodeContainer.style.height = '40px';
+
+            // Gerar o QR Code
+            new QRCode(qrCodeContainer, {
+                text: `https://see.tjgo.jus.br/buscas?codigo_selo=${seloCodigo}`,
+                width: 80,
+                height: 80,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Agora insere o QR Code no rodapé do editor de texto (editor-container)
+            const editorContainer = document.getElementById('editor-container');
+
+            // Limpa o conteúdo anterior do editor antes de adicionar o QR Code
+            const existingQRCode = editorContainer.querySelector('.qr-code-container');
+            if (existingQRCode) {
+                existingQRCode.remove(); // Remove o QR Code anterior, se existir
+            }
+
+            // Adiciona o QR Code ao final do editor
+            editorContainer.appendChild(qrCodeContainer);
+        }
+    </script>
+
+    <script>
+        function imprimirAverbacao() {
+            // Seleciona o conteúdo que você deseja imprimir
+            var conteudo = quill.root.innerHTML; // Obtém o conteúdo diretamente do Quill
+
+            const qrCode = document.querySelector('#editor-container .qr-code-container');
+
+            if (!qrCode) {
+                alert("QR Code não foi gerado ainda.");
+                return;
+            }
+
+            // Cria uma nova janela
+            var janela = window.open('', '_blank', `top=0,left=0,width=${screen.availWidth},height=${screen.availHeight}`);
+            janela.document.write('<html><head><title></title>');
+            janela.document.write('<link rel="stylesheet" href="styles.css">'); // Inclui o CSS, se necessário
+            janela.document.write('<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">');
+            janela.document.write('</head><body>');
+            janela.document.write('<div class="ql-editor">' + conteudo + '</div>'); // Adiciona o conteúdo que você deseja imprimir
+            janela.document.write(qrCode.outerHTML)
+            janela.document.close(); // Fecha o documento
+
+            janela.onload = () => {
+                janela.focus()
+                janela.print()
+                janela.close()
+            }
+        }
+    </script>
+
+    <script>
+        document.getElementById("tipo-requerente").addEventListener("change", function () {
+            const pf = document.getElementById("bloco-pf");
+            const pj = document.getElementById("bloco-pj");
+
+            if (this.value === "pf") {
+                pf.style.display = "block";
+                pj.style.display = "none";
+            } else if (this.value === "pj") {
+                pf.style.display = "none";
+                pj.style.display = "block";
+            } else {
+                pf.style.display = 'none'
+                pj.style.display = 'none'
+            }
+        });
+    </script>
+
+    <script>
+        function assinarDocumento() {
+            const responsavel = document.getElementById("responsavel").value;
+            const textoAverbacao = quill.root.innerHTML;
+
+            if (!responsavel) {
+                alert("Selecione um responsável antes de assinar.");
+                return;
+            }
+
+            // Aqui entra a lógica real de assinatura
+            if (confirm("Você deseja assinar esse documento digitalmente?")) {
+                try {
+                    // Simular assinatura (substituir por chamada real)
+                    const hash = calcularHash(textoAverbacao);
+                    const assinaturaDigital = simularAssinatura(hash);
+
+                    // Mostrar status
+                    document.getElementById("status-assinatura").innerHTML = `
+                ✅ Documento assinado por <strong>${responsavel}</strong><br>
+                Hash: ${hash.substring(0, 20)}...<br>
+                Assinatura: ${assinaturaDigital.substring(0, 20)}...
+            `;
+
+                    // Desabilitar edição após assinatura
+                    quill.enable(false);
+
+                    alert("Documento assinado com sucesso!");
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Erro ao assinar o documento.");
+                }
+            }
+        }
+
+        // Função simulada de hash
+        function calcularHash(data) {
+            // Em produção, usar crypto-js ou outra biblioteca para gerar SHA-256
+            return btoa(data).substring(0, 40); // Base64 truncado (simulação)
+        }
+
+        // Função simulada de assinatura
+        function simularAssinatura(hash) {
+            return `${hash}-assinado`;
+        }
+    </script>
+
+    <script>
+        function confirmarEmissao() {
+            alert("Averbação emitida com sucesso!");
+            // Aqui viria a chamada ao backend
+        }
+        function fecharModal() {
+            document.getElementById("modal-confirmacao").style.display = "none";
+        }
+    </script>
+
+    <script>
+        function confimacaoAverbacao() {
+            const popup = document.getElementById("modal-confirmacao")
+            popup.style.display = 'flex'
+        }
+    </script>
+</body>
+
+</html>

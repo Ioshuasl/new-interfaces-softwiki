@@ -90,7 +90,7 @@
                             <option>Óbito</option>
                             <option>Natimorto</option>
                         </select>
-    
+
                         <select>
                             <option>Status: Todos</option>
                             <option>Pendente</option>
@@ -98,7 +98,9 @@
                             <option>Aguardando Envio</option>
                             <option>Erro no envio</option>
                         </select>
-    
+
+                        <input type="text" id="pedido-averbacao" placeholder="Nº Pedido de Averbação">
+
                         <div style="gap: 10px;">
                             <input type="date" placeholder="De" />
                             <label>Até</label>
@@ -107,8 +109,14 @@
                     </div>
 
                     <div style="display: flex; flex: 1; gap: 20px;">
-                        <input type="text" placeholder="Nome ou CPF..." />
-    
+                        <input type="text" placeholder="Nome do Requerente" />
+
+                        <select name="responsavel-averbacao" id="responsavel-averbacao" style="flex: none;width: 300px;">
+                            <option value="">Selecione o Responsável</option>
+                            <option value="dr_jose_silva">Dr. José Silva (Titular)</option>
+                            <option value="dra_maria_almeida">Dra. Maria Almeida (Escrivão)</option>
+                        </select>
+
                         <div class="buttons">
                             <button type="submit" id="btn-buscar">🔎 Filtrar</button>
                             <button type="reset">Limpar Pesquisa</button>
@@ -117,7 +125,7 @@
                 </form>
             </div>
 
-            
+
             <div class="lista-averbacao">
                 <div style="display: flex; justify-content: space-between;">
                     <button id="btn-novo-registro" onclick="">Nova Averbação</button>
