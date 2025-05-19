@@ -282,7 +282,9 @@ button {
     position: relative; /* Para que o QR Code seja posicionado em relação a ele */
     width: 794px;
     height: 1123px;
-    background: white;
+    background-image: url(/registro-civil/assets/background-certidao.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 40px 50px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
@@ -430,4 +432,40 @@ input[type="file"] {
         /* Botões ocupam toda a largura em telas pequenas */
         margin-top: 10px;
     }
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+.campo label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.campo p {
+    margin: 0;
+    padding: 8px 12px;
+    background: #fafafa;
+    border: 1px dashed #ddd;
+    min-height: 24px;
+    color: #333;
+    font-size: 12pt;
+}
+
+.campo-assinatura {
+    margin-top: 40px;
+    font-size: 12pt;
+    text-align: right;
+}
+
+.certidao input[type="text"] {
+    border: 1px solid #000;
+    border-radius: 0px;
+    text-align: center;
+    width: 100%;
+    padding: 3px;
+    font-size: 8pt;
+    margin-bottom: 0px;
 }

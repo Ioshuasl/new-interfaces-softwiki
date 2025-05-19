@@ -335,11 +335,15 @@ button {
     max-height: 1123px;
     overflow-y: auto;
     font-size: 14pt;
+    background-image: url(/registro-civil/assets/background-certidao.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     line-height: 1.4;
     resize: none;
     box-sizing: border-box;
     padding: 40px;
 }
+
 
 .texto-averbacao {
     display: flex;
@@ -425,7 +429,9 @@ button {
     position: relative; /* Para que o QR Code seja posicionado em relação a ele */
     width: 794px;
     height: 1123px;
-    background: white;
+    background-image: url(/registro-civil/assets/background-certidao.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 40px 50px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
