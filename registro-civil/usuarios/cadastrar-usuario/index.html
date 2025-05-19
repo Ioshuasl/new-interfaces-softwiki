@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Tela Principal Registro Civil</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="user-form-container">
+            <div class="user-form-card">
+                <h2>Criar Usuário</h2>
+                <form id="userForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf" id="cpf" placeholder="___.___.___-__">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Ex: joao@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="perfil">Cargo</label>
+                            <select id="perfil" name="perfil" required>
+                                <option value="">Selecione</option>
+                                <option value="oficial-tabeliao">Oficial/Tabelião</option>
+                                <option value="sub-oficial">Sub-Oficial</option>
+                                <option value="escrevente">Escrevente</option>
+                                <option value="auxiliar">Auxiliar de Cartório</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="login">Login</label>
+                            <input type="text" name="login" id="login">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="text" name="password" id="password">
+                        </div>
+                    </div>
+
+                    <div class="form-group toggle-group">
+                        <label for="statusToggle">Status</label>
+                        <label class="toggle-wrapper">
+                            <input type="checkbox" id="statusToggle" name="status" checked>
+                            <span class="toggle-switch"></span>
+                            <span class="toggle-label" id="statusLabel">Ativo</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group system-access">
+                        <label>Acessos aos Sistemas</label>
+                        <div class="system-options">
+                            <label class="system-card">
+                                <input type="checkbox" name="sistemas" value="Caixa">
+                                <span class="card-content">
+                                    💰 Caixa
+                                </span>
+                            </label>
+
+                            <label class="system-card">
+                                <input type="checkbox" name="sistemas" value="Registro Civil">
+                                <span class="card-content">
+                                    👶 Registro Civil
+                                </span>
+                            </label>
+
+                            <label class="system-card">
+                                <input type="checkbox" name="sistemas" value="Registro de Imóveis">
+                                <span class="card-content">
+                                    🏠 Registro de Imóveis
+                                </span>
+                            </label>
+
+                            <label class="system-card">
+                                <input type="checkbox" name="sistemas" value="Tabelionato de Notas">
+                                <span class="card-content">
+                                    ✒️ Tabelionato de Notas
+                                </span>
+                            </label>
+                            <label class="system-card">
+                                <input type="checkbox" name="sistemas" value="Protesto de Títulos">
+                                <span class="card-content">
+                                    📄 Protesto de Títulos
+                                </span>
+                            </label>
+
+                            <label class="system-card">
+                                <input type="checkbox" name="sistemas" value="RTD (Registro de Títulos e Documentos)">
+                                <span class="card-content">
+                                    🗂️ RTD (Títulos e Documentos)
+                                </span>
+                            </label>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const statusToggle = document.getElementById('statusToggle');
+        const statusLabel = document.getElementById('statusLabel');
+
+        statusToggle.addEventListener('change', () => {
+            statusLabel.textContent = statusToggle.checked ? 'Ativo' : 'Inativo';
+        });
+    </script>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const perfil = document.getElementById('perfil').value;
+            const status = document.getElementById('statusToggle').checked ? 'Ativo' : 'Inativo';
+
+            const sistemasSelecionados = Array.from(
+                document.querySelectorAll('input[name="sistemas"]:checked')
+            ).map(el => el.value);
+
+            console.log({
+                nome,
+                email,
+                perfil,
+                status,
+                sistemasSelecionados
+            });
+
+            alert('Usuário salvo com sucesso!');
+        });
+    </script>
+</body>
+
+</html>
