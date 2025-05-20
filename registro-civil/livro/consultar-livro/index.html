@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Gerenciamento De Usuários</title>
+    <title>Consultar Livro</title>
 </head>
 
 <body>
@@ -73,59 +75,50 @@
     </div>
 
     <div class="content">
-        <div class="user-management">
-            <div class="header">
-                <h2>Gerenciamento de Usuários</h2>
-            </div>
-            
-            <form action="" class="filter-form">
-                <h3>Filtrar Usuário</h3>
-                <div class="search-container">
-                    <input type="text" placeholder="Buscar usuário..." class="search-input" id="searchInput">
-                    <input type="text" name="search-cpf" id="search-cpf" placeholder="___.___.___-__">
-                    <select name="search-cargo" id="search-cargo">
-                        <option>Filtrar pelo cargo</option>
-                        <option value="">Tabelião/Oficial</option>
-                        <option value="">Escrevente</option>
-                    </select>
-                    <button type="submit" class="btn-filtrar">Filtrar</button>
-                    <button type="reset" class="btn-limpar-filtro">Limpar</button>
-                </div>
-            </form>
-            
-            <div>
-                <button class="btn-add">+ Novo Usuário</button>
-            </div>
+        <div class="header">
+            <h2>Consultar Serviços do Livro</h2>
+        </div>
 
-            <div class="user-list" id="userList">
-                <div class="user-card">
-                    <div class="user-info">
-                        <h3>João Silva</h3>
-                        <p>Email: joao@exemplo.com</p>
-                        <p>Perfil: Administrador</p>
-                        <span class="status active">Ativo</span>
-                    </div>
-                    <div class="user-actions">
-                        <button class="btn-edit">Editar</button>
-                        <button class="btn-delete">Excluir</button>
-                    </div>
-                </div>
-
-                <div class="user-card">
-                    <div class="user-info">
-                        <h3>Maria Oliveira</h3>
-                        <p>Email: maria@exemplo.com</p>
-                        <p>Perfil: Usuário</p>
-                        <span class="status inactive">Inativo</span>
-                    </div>
-                    <div class="user-actions">
-                        <button class="btn-edit">Editar</button>
-                        <button class="btn-delete">Excluir</button>
-                    </div>
+        <div class="search-container">
+            <h3>Filtrar Protocolo</h3>
+            <div id="form-pesquisa">
+                <select name="" id="bookSelector">
+                    <option value="">Selecione o Livro</option>
+                    <option value="A-001">Livro A-001</option>
+                    <option value="A-002">Livro A-002</option>
+                    <option value="B-003">Livro B-003</option>
+                    <option value="C-002">Livro C-002</option>
+                </select>
+                <div>
+                <button class="btn-filter" onclick="buscarRegistros()">Buscar</button>
+                    <button class="btn-print" onclick="imprimirProtocolos()">🖨️ Imprimir</button>
                 </div>
             </div>
         </div>
 
+        <div class="btn-imprimir">
+            <button>Imprimir Livro</button>
+        </div>
+
+        <!-- Resultado da Busca -->
+        <div class="result-table">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Livro</th>
+                        <th>Página Inicial</th>
+                        <th>Página Final</th>
+                        <th>Nº do Termo</th>
+                        <th>Tipo de Registro</th>
+                        <th>Nome do Requerente</th>
+                        <th>Data do Registro</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Linhas serão inseridas aqui via JS -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
@@ -149,24 +142,40 @@
     </script>
 
     <script>
-        document.getElementById('searchInput').addEventListener('input', function () {
-            const filter = this.value.toLowerCase();
-            const cards = document.querySelectorAll('.user-card');
+        function buscarRegistros() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // Limpa resultados anteriores
 
-            cards.forEach(card => {
-                const name = card.querySelector('h3').textContent.toLowerCase();
-                const email = card.querySelector('p').textContent.toLowerCase();
+            const livroSelecionado = document.getElementById('bookSelector').value;
+            if (!livroSelecionado) {
+                alert("Por favor, selecione um livro.");
+                return;
+            }
 
-                if (name.includes(filter) || email.includes(filter)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
+            // Dados simulados - você pode substituir por dados reais do sistema
+            const registros = [
+                { livro: 'A-001', pagina_incial: 12, pagina_final: 12, termo: '0045', tipo: 'Nascimento', nome: 'João Silva', data: '20/05/2025' },
+                { livro: 'A-001', pagina_incial: 34, pagina_final: 34, termo: '0012', tipo: 'Casamento', nome: 'Maria Oliveira', data: '18/05/2025' },
+                { livro: 'A-001', pagina_incial: 56, pagina_final: 56, termo: '0078', tipo: 'Óbito', nome: 'José Lima', data: '15/05/2025' }
+            ];
+
+            registros.forEach(reg => {
+                if (reg.livro === livroSelecionado) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                <td style="text-align: center;">${reg.livro}</td>
+                <td style="text-align: center;">${reg.pagina_incial}</td>
+                <td style="text-align: center;">${reg.pagina_final}</td>
+                <td style="text-align: center;">${reg.termo}</td>
+                <td style="text-align: center;">${reg.tipo}</td>
+                <td style="text-align: center;">${reg.nome}</td>
+                <td style="text-align: center;">${reg.data}</td>
+            `;
+                    tableBody.appendChild(row);
                 }
             });
-        });
+        }
     </script>
-
-
 </body>
 
 </html>

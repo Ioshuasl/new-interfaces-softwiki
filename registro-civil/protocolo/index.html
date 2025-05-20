@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Gerenciamento De Protocolos</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="protocol-management">
+            <div class="header">
+                <h2>Gerenciamento de Protocolos</h2>
+            </div>
+
+            <div class="search-container">
+                <h3>Filtrar Protocolo</h3>
+                <form id="form-pesquisa">
+                    <input type="text" name="protocolo-ini" id="protocolo-ini" placeholder="Nº Protocolo Inicial">
+                    <label>Até</label>
+                    <input type="text" name="protocolo-fin" id="protocolo-fin" placeholder="Nº Protocolo Final">
+                    <input type="text" name="nome-requerente" id="nome-requerente" placeholder="Nome do Requerente">
+                    <input type="date" name="dataInicial" id="dataInicial" placeholder="Data Inicial">
+                    <label for="">Até</label>
+                    <input type="date" name="dataFinal" id="dataFinal" placeholder="Data Final">
+                    <select name="tipo-protocolo" id="tipo-protocolo">
+                        <option value="">Tipo de Protocolo</option>
+                        <option value="">Nascimento</option>
+                        <option value="">Casamento</option>
+                        <option value="">Óbito</option>
+                        <option value="">Certidãp</option>
+                        <option value="">Averbação</option>
+                    </select>
+                    <div class="buttons">
+                        <button type="submit" id="btn-buscar">Buscar</button>
+                        <button type="reset">Limpar Pesquisa</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-protocolo">
+                <button class="btn-add">Imprimir Relatório de Protocolo</button>
+                <button class="btn-add">Imprimir Livro de Protocolo</button>
+            </div>
+
+            <div class="lista-protocolos">
+                <div class="protocolo-card">
+                    <div class="card-header">
+                        <span class="numero-protocolo">1575</span>
+                        <div class="menu-container">
+                            <button class="menu-toggle">⋮</button>
+                            <ul class="menu-opcoes">
+                                <li onclick="visualizarProtocolo()">👁️ Visualizar</li>
+                                <li onclick="editarProtocolo()">✏️ Editar</li>
+                                <li onclick="cancelarProtocolo()">🗑️ Cancelar</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Requerente:</strong> João da Silva</p>
+                        <p><strong>Data:</strong> 10/05/2025</p>
+                        <p><strong>Tipo:</strong> Nascimento</p>
+                    </div>
+                    <div>
+                        <span class="status status-pendente">Pendente</span>
+                    </div>
+                </div>
+
+
+
+                <div class="protocolo-card">
+                    <div class="card-header">
+                        <span class="numero-protocolo">1576</span>
+                        <div class="menu-container">
+                            <button class="menu-toggle">⋮</button>
+                            <ul class="menu-opcoes">
+                                <li onclick="visualizarProtocolo()">👁️ Visualizar</li>
+                                <li onclick="editarProtocolo()">✏️ Editar</li>
+                                <li onclick="cancelarProtocolo()">🗑️ Cancelar</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Requerente:</strong> João da Silva</p>
+                        <p><strong>Data:</strong> 10/05/2025</p>
+                        <p><strong>Tipo:</strong> Nascimento</p>
+                    </div>
+                    <div>
+                        <span class="status status-pendente">Pendente</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.user-card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                const email = card.querySelector('p').textContent.toLowerCase();
+
+                if (name.includes(filter) || email.includes(filter)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('click', function (e) {
+            // Fecha todos os menus
+            document.querySelectorAll('.menu-opcoes').forEach(menu => {
+                menu.style.display = 'none';
+            });
+
+            // Se clicou no botão de menu, abre o correspondente
+            if (e.target.classList.contains('menu-toggle')) {
+                const menu = e.target.nextElementSibling;
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                e.stopPropagation(); // Evita fechar imediatamente
+            }
+        });
+
+    </script>
+
+    <script>
+        function visualizarProtocolo() {
+            alert("Abrindo visualização...");
+            // Ou abrir modal, ou redirecionar
+        }
+
+        function editarProtocolo() {
+            alert("Abrindo edição...");
+        }
+
+        function cancelarProtocolo() {
+            if (confirm("Deseja cancelar este protocolo?")) {
+                alert("Cancelado!");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

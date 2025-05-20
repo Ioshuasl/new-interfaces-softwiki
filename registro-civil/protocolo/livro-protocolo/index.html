@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Livro de Protocolo</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="protocol-book">
+            <h2>Livro de Protocolo</h2>
+
+            <!-- Filtros -->
+            <div class="filters">
+                <select id="typeSelector" class="filter-select">
+                    <option value="">Tipo de Serviço</option>
+                    <option value="registro">Registro</option>
+                    <option value="certidao">Certidão</option>
+                    <option value="averbacao">Averbação</option>
+                    <option value="requerimento">Requerimento</option>
+                </select>
+
+                <input type="date" id="startDate" class="filter-date" />
+                <input type="date" id="endDate" class="filter-date" />
+
+                <button class="btn-filter" onclick="buscarProtocolos()">Buscar</button>
+                <button class="btn-print" onclick="imprimirProtocolos()">🖨️ Imprimir</button>
+            </div>
+
+            <!-- Resultado da Busca -->
+            <div class="result-table">
+                <table class="styled-table" id="protocolTable">
+                    <thead>
+                        <tr>
+                            <th>Nº Protocolo</th>
+                            <th>Tipo de Serviço</th>
+                            <th>Nome do Requerente</th>
+                            <th>Data/Hora</th>
+                            <th>Usuário</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="protocolBody">
+                        <!-- Dados serão inseridos aqui via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function buscarProtocolos() {
+            const tableBody = document.getElementById('protocolBody');
+            tableBody.innerHTML = ''; // Limpa resultados anteriores
+
+            const tipoServico = document.getElementById('typeSelector').value;
+
+            // Dados simulados - você pode substituir por dados reais do sistema
+            const protocolos = [
+                { numero: '20250523001', tipo: 'registro', nome: 'João Silva', data: '23/05/2025 10:30', usuario: 'Maria Oliveira', status: 'Concluído' },
+                { numero: '20250523002', tipo: 'certidao', nome: 'Ana Souza', data: '23/05/2025 11:15', usuario: 'Pedro Almeida', status: 'Concluído' },
+                { numero: '20250523003', tipo: 'averbacao', nome: 'Carlos Lima', data: '23/05/2025 14:00', usuario: 'Maria Oliveira', status: 'Concluído' }
+            ];
+
+            protocolos.forEach(proto => {
+                if (!tipoServico || proto.tipo === tipoServico) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                <td>${proto.numero}</td>
+                <td>${formatarTipo(proto.tipo)}</td>
+                <td>${proto.nome}</td>
+                <td>${proto.data}</td>
+                <td>${proto.usuario}</td>
+                <td><span class="badge badge-success">${proto.status}</span></td>
+            `;
+                    tableBody.appendChild(row);
+                }
+            });
+        }
+
+        function formatarTipo(tipo) {
+            switch (tipo) {
+                case 'registro': return 'Registro';
+                case 'certidao': return 'Certidão';
+                case 'averbacao': return 'Averbação';
+                case 'requerimento': return 'Requerimento';
+                default: return tipo;
+            }
+        }
+
+        function imprimirProtocolos() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
