@@ -8,7 +8,7 @@
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Livro de Protocolo</title>
+    <title>Relatório de Atividade de Usuários</title>
 </head>
 
 <body>
@@ -75,20 +75,21 @@
     </div>
 
     <div class="content">
-        <div class="protocol-book">
-            <h2>Livro de Protocolo</h2>
+        <div class="user-book">
+            <h2>Relatório de Atividade de Usuários</h2>
 
             <!-- Filtros -->
             <div class="filters">
                 <select id="typeSelector" class="filter-select">
-                    <option value="">Tipo de Serviço</option>
-                    <option value="registro">Registro</option>
-                    <option value="certidao">Certidão</option>
-                    <option value="averbacao">Averbação</option>
-                    <option value="requerimento">Requerimento</option>
+                    <option value="">Selecione o Usuário</option>
+                    <option value="registro">Felipe</option>
+                    <option value="certidao">Danilo</option>
+                    <option value="averbacao">João</option>
+                    <option value="requerimento">Maria</option>
                 </select>
 
                 <input type="date" id="startDate" class="filter-date" />
+                <label>até</label>
                 <input type="date" id="endDate" class="filter-date" />
 
                 <button class="btn-filter" onclick="buscarProtocolos()">Buscar</button>
@@ -97,18 +98,18 @@
 
             <!-- Resultado da Busca -->
             <div class="result-table">
-                <table class="styled-table" id="protocolTable">
+                <table class="styled-table" id="userTable">
                     <thead>
                         <tr>
-                            <th>Nº Protocolo</th>
-                            <th>Tipo de Serviço</th>
-                            <th>Nome do Requerente</th>
-                            <th>Data/Hora</th>
-                            <th>Usuário</th>
-                            <th>Status</th>
+                            <th>Data</th>
+                            <th>Hora</th>
+                            <th>Tipo</th>
+                            <th>Serviço</th>
+                            <th>Usuário Responsável</th>
+                            <th>Concluído?</th>
                         </tr>
                     </thead>
-                    <tbody id="protocolBody">
+                    <tbody id="userBody">
                         <!-- Dados serão inseridos aqui via JS -->
                     </tbody>
                 </table>
@@ -138,28 +139,28 @@
 
     <script>
         function buscarProtocolos() {
-            const tableBody = document.getElementById('protocolBody');
+            const tableBody = document.getElementById('userBody');
             tableBody.innerHTML = ''; // Limpa resultados anteriores
 
             const tipoServico = document.getElementById('typeSelector').value;
 
             // Dados simulados - você pode substituir por dados reais do sistema
-            const protocolos = [
-                { numero: '20250523001', tipo: 'registro', nome: 'João Silva', data: '23/05/2025 10:30', usuario: 'Maria Oliveira', status: 'Concluído' },
-                { numero: '20250523002', tipo: 'certidao', nome: 'Ana Souza', data: '23/05/2025 11:15', usuario: 'Pedro Almeida', status: 'Concluído' },
-                { numero: '20250523003', tipo: 'averbacao', nome: 'Carlos Lima', data: '23/05/2025 14:00', usuario: 'Maria Oliveira', status: 'Concluído' }
+            const users = [
+                { data: '23/05/2025', hora: '08:45', tipo: 'registro', servico:'Casamento',nome: 'João Silva', usuario: 'Maria Oliveira', status: 'Concluído' },
+                { data: '23/05/2025', hora: '11:17', tipo: 'certidao', servico:'Óbito 1ª Via',nome: 'Ana Souza', usuario: 'Pedro Almeida', status: 'Concluído' },
+                { data: '23/05/2025', hora: '16:46', tipo: 'averbacao', servico:'Retificação de nome',nome: 'Carlos Lima', usuario: 'Maria Oliveira', status: 'Concluído' }
             ];
 
-            protocolos.forEach(proto => {
-                if (!tipoServico || proto.tipo === tipoServico) {
+            users.forEach(user => {
+                if (!tipoServico || user.tipo === tipoServico) {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                <td style="text-align: center;">${proto.numero}</td>
-                <td style="text-align: center;">${formatarTipo(proto.tipo)}</td>
-                <td style="text-align: center;">${proto.nome}</td>
-                <td style="text-align: center;">${proto.data}</td>
-                <td style="text-align: center;">${proto.usuario}</td>
-                <td style="text-align: center;"><span class="badge badge-success">${proto.status}</span></td>
+                <td style="text-align: center;">${user.data}</td>
+                <td style="text-align: center;">${user.hora}</td>
+                <td style="text-align: center;">${formatarTipo(user.tipo)}</td>
+                <td style="text-align: center;">${user.servico}</td>
+                <td style="text-align: center;">${user.usuario}</td>
+                <td style="text-align: center;"><span class="badge badge-success">${user.status}</span></td>
             `;
                     tableBody.appendChild(row);
                 }

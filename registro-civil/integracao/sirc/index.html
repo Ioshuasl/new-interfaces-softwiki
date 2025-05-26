@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>SIRC</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <header>
+            <h1>Integração com SIRC</h1>
+            <div class="status">
+                <span class="connected">🟢 Conectado</span>
+                <span>Último Envio: 26/05/2025 11:04</span>
+            </div>
+        </header>
+
+        <nav>
+            <button class="tab" onclick="openTab('envio')">Enviar Eventos</button>
+            <button class="tab" onclick="openTab('consulta')">Consultar Situação</button>
+            <button class="tab" onclick="openTab('historico')">Histórico</button>
+            <button class="tab" onclick="openTab('config')">Configurações</button>
+        </nav>
+
+        <div>
+            <!-- Aba: Enviar Eventos -->
+            <section id="envio" class="tab-content active">
+                <h2>Eventos Pendentes</h2>
+                <form class="filters">
+                    <select>
+                        <option>Todos</option>
+                        <option>Nascimento</option>
+                        <option>Casamento</option>
+                        <option>Óbito</option>
+                    </select>
+                    <input type="date">
+                    <input type="date">
+                    <button>🔍 Buscar</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Nome</th>
+                            <th>Data</th>
+                            <th>CPF</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nascimento</td>
+                            <td>Ana Beatriz</td>
+                            <td>25/05/2025</td>
+                            <td>Gerar</td>
+                            <td class="ok">Pronto</td>
+                            <td>
+                                <button>📄 XML</button>
+                                <button>🔐 Assinar</button>
+                                <button>📡 Enviar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Óbito</td>
+                            <td>João Lima</td>
+                            <td>24/05/2025</td>
+                            <td>OK</td>
+                            <td class="error">Erro</td>
+                            <td>
+                                <button>❌ Ver Erro</button>
+                                <button>🔁 Reenviar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Aba: Consulta -->
+            <section id="consulta" class="tab-content">
+                <h2>Consulta de Situação no SIRC</h2>
+                <form class="filters">
+                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="CPF">
+                    <input type="date">
+                    <select>
+                        <option>Todos</option>
+                        <option>Nascimento</option>
+                        <option>Casamento</option>
+                        <option>Óbito</option>
+                    </select>
+                    <button>🔍 Consultar</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Nome</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                            <th>Protocolo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nascimento</td>
+                            <td>Ana Beatriz</td>
+                            <td>25/05/2025</td>
+                            <td class="pending">Aguardando</td>
+                            <td>123456</td>
+                            <td>
+                                <button>📄 XML</button>
+                                <button>📥 Protocolo</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Aba: Histórico -->
+            <section id="historico" class="tab-content">
+                <h2>Histórico de Transações</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Evento</th>
+                            <th>Nome</th>
+                            <th>Resultado</th>
+                            <th>Código</th>
+                            <th>Mensagem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>26/05</td>
+                            <td>Óbito</td>
+                            <td>João Lima</td>
+                            <td class="error">Falha</td>
+                            <td>400</td>
+                            <td>CPF inválido</td>
+                        </tr>
+                        <tr>
+                            <td>26/05</td>
+                            <td>Nascimento</td>
+                            <td>Ana Beatriz</td>
+                            <td class="ok">Sucesso</td>
+                            <td>200</td>
+                            <td>Processado com sucesso</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Aba: Configurações -->
+            <section id="config" class="tab-content">
+                <h2>Configurações da Integração</h2>
+                <form class="config-form">
+                    <label>Certificado Digital:
+                        <input type="file">
+                    </label>
+                    <label>Tipo:
+                        <select>
+                            <option>A1</option>
+                            <option>A3</option>
+                        </select>
+                    </label>
+                    <label>Ambiente:
+                        <select>
+                            <option>Produção</option>
+                            <option>Homologação</option>
+                        </select>
+                    </label>
+                    <label>Identificador da Serventia:
+                        <input type="text" placeholder="CNS / Código CNJ">
+                    </label>
+                    <button>🔌 Testar Conexão</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function openTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

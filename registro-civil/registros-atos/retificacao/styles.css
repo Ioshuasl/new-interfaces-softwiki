@@ -1,0 +1,200 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 230px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  padding: 15px;
+  height: 95vh;
+  /* Altura total da tela */
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar h2 a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a h3 {
+  margin: 0px;
+  font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757;
+}
+
+/* Estilo para o submenu */
+.submenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  /* Esconde o submenu por padrão */
+}
+
+.submenu li {
+  margin: 0px;
+  /* Remove a margem do submenu */
+}
+
+.submenu li a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  margin-left: 260px;
+  /* Espaço para a barra lateral */
+  padding: 20px;
+}
+
+
+
+
+
+
+.container {
+  max-width: 950px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c3e50;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+input,
+select,
+textarea {
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.btn {
+  margin-top: 15px;
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.retificacao-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.retificacao-justificativa {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.log {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+
+
+.busca-horizontal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.busca-horizontal .campo {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.busca-horizontal label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.busca-horizontal input,
+.busca-horizontal select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.section {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fefefe;
+}

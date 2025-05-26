@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Cancelamento de registro</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+
+    <div class="content">
+        <div class="container">
+            <header>
+                <h2>Cancelamento de Registro</h2>
+            </header>
+
+            <h3>Buscar Registro</h3>
+            <div class="busca-horizontal">
+                <div class="campo">
+                    <label for="tipoRegistro">Tipo:</label>
+                    <select id="tipoRegistro">
+                        <option value="">Selecione</option>
+                        <option value="Nascimento">Nascimento</option>
+                        <option value="Casamento">Casamento</option>
+                        <option value="Óbito">Óbito</option>
+                        <option value="Natimorto">Natimorto</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="livro">Livro:</label>
+                    <input type="text" id="livro" placeholder="Ex: A123" />
+                </div>
+                <div class="campo">
+                    <label for="folha">Folha:</label>
+                    <input type="text" id="folha" placeholder="Ex: 22" />
+                </div>
+                <div class="campo">
+                    <label for="termo">Termo:</label>
+                    <input type="text" id="termo" placeholder="Ex: 4567" />
+                </div>
+            </div>
+            <button class="btn" onclick="buscarRegistro()">Buscar</button>
+
+            <div id="dadosRegistro" class="section" style="display:none;">
+                <h3>Resumo do Registro</h3>
+                <p><strong>Nome:</strong> João da Silva</p>
+                <p><strong>Data:</strong> 01/01/2020</p>
+                <p><strong>Tipo:</strong> Nascimento</p>
+            </div>
+
+            <div id="cancelamentoForm" class="section" style="display:none;">
+                <div class="dados-cancelamento">
+                    <h3>Dados do Cancelamento</h3>
+    
+                    <label for="tipoCancelamento">Tipo de Cancelamento:</label>
+                    <select id="tipoCancelamento" onchange="verificarTipo()">
+                        <option value="">Selecione</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Judicial">Judicial</option>
+                    </select>
+    
+                    <label for="justificativa">Justificativa:</label>
+                    <textarea id="justificativa" rows="4" placeholder="Descreva o motivo do cancelamento..."></textarea>
+    
+                    <label for="documento">Anexar Documento (sentença, despacho, etc):</label>
+                    <input type="file" id="documento" />
+    
+                    <button class="btn" onclick="cancelarRegistro()">Confirmar Cancelamento</button>
+                </div>
+            </div>
+
+            <div class="section" id="logCancelamento" style="display:none;">
+                <h3>Histórico</h3>
+                <div class="log" id="logTexto">
+                    Nenhum cancelamento realizado ainda.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function buscarRegistro() {
+            const tipo = document.getElementById("tipoRegistro").value;
+            const livro = document.getElementById("livro").value.trim();
+            const folha = document.getElementById("folha").value.trim();
+            const termo = document.getElementById("termo").value.trim();
+
+            if (!tipo || !livro || !folha || !termo) {
+                alert("Preencha todos os campos de busca.");
+                return;
+            }
+
+            // Simulação da exibição do registro
+            document.getElementById("dadosRegistro").style.display = "block";
+            document.getElementById("cancelamentoForm").style.display = "block";
+            document.getElementById("logCancelamento").style.display = "block";
+        }
+
+        function verificarTipo() {
+            const tipo = document.getElementById("tipoCancelamento").value;
+            const documento = document.getElementById("documento");
+
+            if (tipo === "Judicial") {
+                documento.setAttribute("required", "required");
+            } else {
+                documento.removeAttribute("required");
+            }
+        }
+
+        function cancelarRegistro() {
+            const tipo = document.getElementById("tipoCancelamento").value;
+            const justificativa = document.getElementById("justificativa").value;
+
+            if (!tipo || !justificativa.trim()) {
+                alert("Preencha todos os dados do cancelamento.");
+                return;
+            }
+
+            if (tipo === "Judicial" && !document.getElementById("documento").files.length) {
+                alert("É necessário anexar documento judicial.");
+                return;
+            }
+
+            const data = new Date().toLocaleString();
+            const log = document.getElementById("logTexto");
+            log.innerText += `📄 ${data}\nTipo: ${tipo}\nJustificativa: ${justificativa}\nStatus: Registro marcado como CANCELADO\n\n`;
+
+            alert("Registro cancelado com sucesso!");
+            document.getElementById("justificativa").value = "";
+            document.getElementById("documento").value = "";
+        }
+    </script>
+</body>
+
+</html>

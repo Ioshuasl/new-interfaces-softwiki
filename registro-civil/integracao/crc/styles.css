@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 230px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    padding: 15px;
+    height: 95vh;
+    /* Altura total da tela */
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar h2 a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a h3 {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Estilo para o submenu */
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    /* Esconde o submenu por padrão */
+}
+
+.submenu li {
+    margin: 0px;
+    /* Remove a margem do submenu */
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-left: 260px;
+    /* Espaço para a barra lateral */
+    padding: 20px;
+}
+
+header {
+  background: #ffffff;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  background: #ddd;
+  padding: 0.5em;
+  text-align: center;
+}
+
+nav .tab {
+  background: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+main {
+  padding: 1em;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+table th, table td {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.ok {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.filters, .config-form {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+
+.filters input, .filters select, .config-form input, .config-form select {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.actions button, .filters button, .config-form button {
+  padding: 0.5em 1em;
+  background: #003366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.status {
+  font-size: 0.9em;
+}
+
+.connected {
+  font-weight: bold;
+  color: #00cc00;
+}

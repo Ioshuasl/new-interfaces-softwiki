@@ -103,13 +103,17 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 15px;
-    flex: 1;
 }
 
 #form-pesquisa input[type="text"]::placeholder,
 #form-pesquisa select {
     color: #aaa;
     /* Cor do texto do placeholder */
+}
+
+.form-btn {
+    display: flex;
+    gap: 10px;
 }
 
 button {

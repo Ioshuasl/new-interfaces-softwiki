@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Relatório Mensal</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="rem-screen">
+            <h2>Relatório Estatístico Mensal (REM)</h2>
+
+            <!-- Filtro -->
+            <div class="filter-section">
+                <label for="mes">Mês:</label>
+                <select id="mes" class="input-select">
+                    <option value="">Selecione</option>
+                    <option value="01">Janeiro</option>
+                    <option value="02">Fevereiro</option>
+                    <option value="03">Março</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Maio</option>
+                    <option value="06">Junho</option>
+                    <option value="07">Julho</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+
+                <label for="ano">Ano:</label>
+                <input type="text" id="ano" class="input-text" placeholder="Ex: 2025" maxlength="4" />
+
+                <button class="btn-filter" onclick="buscarDados()">Buscar</button>
+            </div>
+
+            <!-- Cards de Dados -->
+            <div class="card-container">
+
+                <!-- Card: Registros -->
+                <div class="card">
+                    <h3>Registros Lavrados</h3>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <label>Nascimentos:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Casamentos:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Óbitos:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Natimortos:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Certidões -->
+                <div class="card">
+                    <h3>Certidões Emitidas</h3>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <label>Nascimento:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Casamento:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Óbito:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Natimorto:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Outros Serviços -->
+                <div class="card">
+                    <h3>Outros Serviços</h3>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <label>Averbações:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Retificações:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Cancelamentos:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Requerimentos:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Certidões Gratuitas:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                        <div class="card-row">
+                            <label>Serviços Online:</label>
+                            <input type="text" min="0" readonly />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="action-buttons">
+                <button class="btn-save">Salvar Rascunho</button>
+                <button class="btn-send">📤 Enviar ao CNJ</button>
+                <button class="btn-send">Exportar PDF</button>
+                <button class="btn-send">Exportar Excel</button>
+            </div>
+
+
+            <!-- Gráfico e Filtros -->
+            <div class="chart-section">
+                <h2>Gráfico de Serviço dos últimos 6 meses</h2>
+                <div class="chart-filters">
+                    <label>Categoria:</label>
+                    <select id="categoria" onchange="atualizarGrafico()">
+                        <option value="registros">Registros Lavrados</option>
+                        <option value="certidoes">Certidões Emitidas</option>
+                        <option value="outros">Outros Serviços</option>
+                    </select>
+
+                    <label>Tipo:</label>
+                    <select id="tipo" onchange="atualizarGrafico()">
+                        <!-- Será populado dinamicamente conforme a categoria -->
+                    </select>
+                </div>
+
+                <!-- Mini Gráfico -->
+                <div class="mini-chart-container">
+                    <canvas id="miniChart" height="100" width="600"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function buscarDados() {
+            const mes = document.getElementById('mes').value;
+            const ano = document.getElementById('ano').value;
+
+            if (!mes || !ano) {
+                alert("Por favor, selecione o mês e o ano.");
+                return;
+            }
+
+            // Aqui você pode carregar os dados reais do sistema
+            alert(`Carregando dados de ${mes}/${ano}...`);
+        }
+    </script>
+
+
+
+
+
+
+    <!-- Carregue o Chart.js se ainda não estiver carregado -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
+
+    <script>
+        const ctx = document.getElementById('miniChart').getContext('2d');
+
+        // Dados simulados - últimos 6 meses
+        const dataSimulado = {
+            registros: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: {
+                    nascimentos: [120, 110, 130, 125, 140, 135],
+                    casamentos: [30, 28, 35, 32, 36, 34],
+                    obitos: [45, 42, 48, 46, 47, 44],
+                    natimortos: [5, 4, 6, 5, 7, 6]
+                }
+            },
+            certidoes: {
+                datasets: {
+                    nascimentos: [200, 190, 210, 205, 215, 210],
+                    casamentos: [80, 75, 85, 82, 88, 84],
+                    obitos: [120, 115, 125, 122, 127, 124],
+                    natimortos: [10, 9, 11, 10, 12, 11]
+                }
+            },
+            outros: {
+                datasets: {
+                    averbacoes: [15, 14, 16, 15, 17, 16],
+                    retificacoes: [8, 7, 9, 8, 10, 9],
+                    cancelamentos: [5, 4, 6, 5, 7, 6],
+                    requerimentos: [20, 19, 21, 20, 22, 21]
+                }
+            }
+        };
+
+        let chartInstance;
+
+        function atualizarGrafico() {
+            const categoria = document.getElementById('categoria').value;
+            const tipoSelect = document.getElementById('tipo');
+            const dataset = dataSimulado[categoria];
+
+            // Limpa opções atuais
+            tipoSelect.innerHTML = '';
+
+            // Preenche opções com base na categoria
+            Object.keys(dataset.datasets).forEach(key => {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = formatarNome(key);
+                tipoSelect.appendChild(option);
+            });
+
+            // Inicializa com primeiro tipo
+            if (Object.keys(dataset.datasets).length > 0) {
+                renderizarGrafico(categoria, Object.keys(dataset.datasets)[0]);
+            }
+        }
+
+        function formatarNome(nome) {
+            return nome
+                .replace(/([A-Z])/g, ' $1')
+                .replace(/^./, str => str.toUpperCase());
+        }
+
+        function renderizarGrafico(categoria, tipo) {
+            const dataset = dataSimulado[categoria].datasets[tipo];
+            const labels = dataSimulado[categoria].labels || ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: formatarNome(tipo),
+                        data: dataset,
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0,123,255,0.1)',
+                        tension: 0.3,
+                        fill: true,
+                        pointRadius: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: true }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { stepSize: 20 }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Popula tipos ao carregar
+        window.onload = () => {
+            atualizarGrafico();
+        };
+    </script>
+
+</body>
+
+</html>

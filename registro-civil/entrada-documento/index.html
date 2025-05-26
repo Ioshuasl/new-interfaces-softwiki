@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento de Documentos Anexados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+
+        .filtros {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        .filtros select,
+        .filtros input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            width: calc(25% - 10px);
+            min-width: 180px;
+        }
+
+        .filtros button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .card h4 {
+            margin: 0 0 10px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+
+        .card button {
+            margin-top: 10px;
+            background-color: #2d98da;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+        }
+
+        .modal-content iframe,
+        .modal-content img {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Gerenciamento de Documentos Anexados</h2>
+    </header>
+
+    <div class="filtros">
+        <select id="tipoRegistro">
+            <option value="">Tipo de Registro</option>
+            <option>Nascimento</option>
+            <option>Casamento</option>
+            <option>Óbito</option>
+            <option>Natimorto</option>
+        </select>
+
+        <input type="date" id="dataRegistro" />
+
+        <input type="text" placeholder="Número do Livro" id="livro" />
+        <input type="text" placeholder="Número da Folha" id="folha" />
+        <input type="text" placeholder="Número do Termo" id="termo" />
+        <input type="text" placeholder="Número do Protocolo" id="protocolo" />
+
+        <select id="andamento">
+            <option value="">Andamento</option>
+            <option value="Montagem">Montagem</option>
+            <option value="Lavrado">Lavrado</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+
+        <select id="analise">
+            <option value="">Situação da Análise</option>
+            <option>Pendente</option>
+            <option>Em análise</option>
+            <option>Concluída</option>
+        </select>
+
+        <button onclick="buscarDocumentos()">Buscar</button>
+    </div>
+
+    <div class="cards-container" id="resultadoBusca">
+        <!-- Cards serão inseridos aqui -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="fecharModal()">×</span>
+            <h3>Documentos Anexados</h3>
+            <!-- Simulação -->
+            <iframe src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                height="400px"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function buscarDocumentos() {
+            const container = document.getElementById("resultadoBusca");
+            container.innerHTML = "";
+
+            // Simulação de resultados
+            const registros = [
+                {
+                    nome: "João da Silva",
+                    tipo: "Nascimento",
+                    termo: "1023",
+                    protocolo: "P-2025-001",
+                    livro: "A-12",
+                    andamento: "Lavrado",
+                    analise: "Concluída"
+                },
+                {
+                    nome: "Maria de Souza",
+                    tipo: "Óbito",
+                    termo: "548",
+                    protocolo: "P-2025-009",
+                    livro: "C-04",
+                    andamento: "Montagem",
+                    analise: "Em análise"
+                }
+            ];
+
+            registros.forEach((registro, index) => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+          <h4>${registro.tipo} - ${registro.nome}</h4>
+          <p><strong>Livro:</strong> ${registro.livro}</p>
+          <p><strong>Termo:</strong> ${registro.termo}</p>
+          <p><strong>Protocolo:</strong> ${registro.protocolo}</p>
+          <p><strong>Andamento:</strong> ${registro.andamento}</p>
+          <p><strong>Análise:</strong> <span class="status">${registro.analise}</span></p>
+          <button onclick="abrirModal()">Visualizar Documentos</button>
+        `;
+                container.appendChild(card);
+            });
+        }
+
+        function abrirModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function fecharModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Retificação de registro</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+
+    <div class="content">
+        <div class="container">
+            <header>
+                <h2>Retificação de Registro</h2> 
+            </header>
+
+            <h3>Busca do Registro</h3>
+            <div class="busca-horizontal">
+                <div class="campo">
+                    <label for="tipoRegistro">Tipo:</label>
+                    <select id="tipoRegistro">
+                        <option value="">Selecione</option>
+                        <option value="Nascimento">Nascimento</option>
+                        <option value="Casamento">Casamento</option>
+                        <option value="Óbito">Óbito</option>
+                        <option value="Natimorto">Natimorto</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="livro">Livro:</label>
+                    <input type="text" id="livro" placeholder="Ex: A123" />
+                </div>
+
+                <div class="campo">
+                    <label for="folha">Folha:</label>
+                    <input type="text" id="folha" placeholder="Ex: 22" />
+                </div>
+
+                <div class="campo">
+                    <label for="termo">Termo:</label>
+                    <input type="text" id="termo" placeholder="Ex: 4567" />
+                </div>
+            </div>
+
+            <button class="btn" onclick="buscarRegistro()">Buscar Registro</button>
+
+            <div id="dadosOriginais" class="section" style="display:none;">
+                <h3>Dados Originais</h3>
+                <p><strong>Nome:</strong> João da Silva</p>
+                <p><strong>Data de Nascimento:</strong> 01/01/2020</p>
+                <p><strong>Nome do Pai:</strong> José da Silva</p>
+                <p><strong>Tipo:</strong>Nascimento</p>
+            </div>
+
+            <div id="retificacoes" class="section" style="display:none;">
+                <div>
+                    <h3>Campos a Serem Retificados</h3>
+                    <div id="retificacaoContainer"></div>
+                    <button class="btn" onclick="addCampo()">+ Adicionar Campo de Retificação</button>
+                    <button class="btn" onclick="salvarTodos()">Salvar Todas as Retificações</button>
+                </div>
+
+                <div class="retificacao-justificativa">
+                    <label>Justificativa:</label>
+                    <textarea rows="4" placeholder="Descreva o motivo da retificação..."></textarea>
+                    <label>Anexar Documento (opcional):</label>
+                    <input type="file" />
+                </div>
+            </div>
+
+            <div id="historico" style="display:none;">
+                <h3>Histórico de Alterações</h3>
+                <div class="log" id="logAlteracoes">Nenhuma alteração registrada ainda.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        let contador = 0;
+
+        function buscarRegistro() {
+            const tipo = document.getElementById("tipoRegistro").value;
+            const livro = document.getElementById("livro").value.trim();
+            const folha = document.getElementById("folha").value.trim();
+            const termo = document.getElementById("termo").value.trim();
+
+            if (!tipo || !livro || !folha || !termo) {
+                alert("Preencha todos os campos de busca.");
+                return;
+            }
+
+            // Simulação de busca - aqui você pode substituir por requisição à API
+            console.log(`🔍 Buscando: ${tipo}, Livro ${livro}, Folha ${folha}, Termo ${termo}`);
+
+            // Mostrar se simulado como encontrado
+            document.getElementById("dadosOriginais").style.display = "block";
+            document.getElementById("retificacoes").style.display = "block";
+            document.getElementById("historico").style.display = "block";
+        }
+
+        function addCampo() {
+            contador++;
+            const container = document.getElementById("retificacaoContainer");
+            const div = document.createElement("div");
+            div.classList.add("retificacao-item");
+            div.setAttribute("id", `campo-${contador}`);
+            div.innerHTML = `
+            <label>Campo a ser retificado:</label>
+        <select>
+          <option>Nome</option>
+          <option>Data de Nascimento</option>
+          <option>Nome do Pai</option>
+          <option>Nome da Mãe</option>
+          <option>Naturalidade</option>
+        </select>
+        <label>Novo valor:</label>
+        <input type="text" placeholder="Novo valor"/>
+        <button class="remove-btn" onclick="removeCampo('campo-${contador}')">Excluir Campo</button>
+      `;
+            container.appendChild(div);
+        }
+
+        function removeCampo(id) {
+            document.getElementById(id).remove();
+        }
+
+        function salvarTodos() {
+            const campos = document.querySelectorAll('.retificacao-item');
+            if (campos.length === 0) {
+                alert("Adicione pelo menos um campo para retificação.");
+                return;
+            }
+
+            let log = "";
+            const data = new Date().toLocaleString();
+
+            campos.forEach((el, i) => {
+                const campo = el.querySelector('select').value;
+                const novoValor = el.querySelector('input[type="text"]').value;
+                const justificativa = el.querySelector('textarea').value;
+
+                if (!novoValor || !justificativa) {
+                    alert(`Preencha todos os dados do campo ${i + 1}`);
+                    return;
+                }
+
+                log += `📝 ${data}\nCampo: ${campo}\nNovo Valor: ${novoValor}\nJustificativa: ${justificativa}\n\n`;
+            });
+
+            document.getElementById("logAlteracoes").innerText += log;
+            alert("Todas as retificações foram salvas com sucesso!");
+        }
+    </script>
+
+</body>
+
+</html>
