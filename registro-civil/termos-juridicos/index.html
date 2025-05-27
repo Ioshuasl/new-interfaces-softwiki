@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Termos Jurídicos</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <header>
+                <h2>Gerar Termo Jurídico</h2>
+            </header>
+
+            <label for="tipoTermo">Tipo de Termo</label>
+            <select id="tipoTermo">
+                <option value="responsabilidade">Termo de Responsabilidade</option>
+                <option value="ciencia">Termo de Ciência</option>
+                <option value="compromisso">Termo de Compromisso</option>
+            </select>
+
+            <label for="nomeParte">Nome da Parte</label>
+            <input type="text" id="nomeParte" placeholder="Ex: João da Silva" />
+            <div>
+                <p>
+                    <input type="checkbox" id="assinarTexto">
+                    Incluir nome como assinatura digital simulada
+                </p>
+            </div>
+
+
+            <label for="cpfParte">CPF da Parte</label>
+            <input type="text" id="cpfParte" placeholder="000.000.000-00" />
+
+            <label for="descricao">Descrição ou motivo</label>
+            <textarea id="descricao"
+                placeholder="Descreva o contexto, por exemplo: Declaração verbal de dados do falecido."></textarea>
+
+            <div>
+                <button class="btn" onclick="gerarTermo()">Gerar Termo</button>
+            </div>
+
+            <div class="output" id="outputTermo" style="display:none;">
+                <h3>Prévia do Termo</h3>
+                <div id="termoTexto" style="white-space: pre-line;"></div>
+                <button class="btn" onclick="gerarPDF()" style="margin-top: 20px; background-color: #2ecc71;">Gerar
+                    PDF</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function gerarTermo() {
+            const tipo = document.getElementById("tipoTermo").value;
+            const nome = document.getElementById("nomeParte").value;
+            const cpf = document.getElementById("cpfParte").value;
+            const descricao = document.getElementById("descricao").value;
+
+            let titulo = "";
+            if (tipo === "responsabilidade") titulo = "Termo de Responsabilidade";
+            else if (tipo === "ciencia") titulo = "Termo de Ciência";
+            else if (tipo === "compromisso") titulo = "Termo de Compromisso";
+
+            const texto = `
+${titulo}
+
+Eu, ${nome}, inscrito(a) no CPF sob o nº ${cpf}, declaro que:
+
+${descricao}
+
+Declaro estar ciente de que esta informação será vinculada ao respectivo registro civil e que assumo total responsabilidade pelas informações aqui prestadas.
+
+Assinatura: ____________________________
+
+Data: ___/___/____
+`;
+
+            document.getElementById("outputTermo").style.display = "block";
+            document.getElementById("termoTexto").textContent = texto;
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        async function gerarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: "portrait",
+                unit: "mm",
+                format: "A4"
+            });
+
+            const nome = document.getElementById("nomeParte").value;
+            const cpf = document.getElementById("cpfParte").value;
+            const descricao = document.getElementById("descricao").value;
+            const tipo = document.getElementById("tipoTermo").value;
+
+            let titulo = "";
+            if (tipo === "responsabilidade") titulo = "TERMO DE RESPONSABILIDADE";
+            else if (tipo === "ciencia") titulo = "TERMO DE CIÊNCIA";
+            else if (tipo === "compromisso") titulo = "TERMO DE COMPROMISSO";
+
+            // Carrega a imagem do brasão/logo
+            const logoBase64 = await converterImagemParaBase64("../assets/logo-cartorio.png"); // use o caminho correto
+            doc.addImage(logoBase64, 'PNG', 15, 10, 20, 20); // x, y, largura, altura
+
+            // Cabeçalho com o nome do cartório centralizado
+            doc.setFont("Times", "bold");
+            doc.setFontSize(13);
+            doc.text("CARTÓRIO DE REGISTRO CIVIL DAS PESSOAS NATURAIS", 105, 20, { align: "center" });
+
+            // Título centralizado
+            doc.setFontSize(15);
+            doc.text(titulo, 105, 35, { align: "center" });
+
+            // Corpo do termo
+            doc.setFont("Times", "normal");
+            doc.setFontSize(12);
+            const texto = `
+Eu, ${nome}, inscrito(a) no CPF sob o nº ${cpf}, declaro para os devidos fins:
+
+${descricao}
+
+Declaro estar ciente de que as informações aqui prestadas são verdadeiras e que este termo será vinculado ao respectivo registro civil.
+
+Firmo o presente para que produza seus efeitos legais.`;
+
+            const linhas = doc.splitTextToSize(texto, 180);
+            doc.text(linhas, 15, 50);
+
+            // Rodapé com local, data e assinatura
+            const dataHoje = new Date().toLocaleDateString("pt-BR");
+            doc.text(`\n\nCidade, ${dataHoje}`, 15, 140);
+            doc.text("\n\n\n______________________________", 15, 190);
+            doc.text("Assinatura da Parte Interessada", 15, 200);
+
+            // Linha para assinatura
+            doc.setDrawColor(0);
+            doc.line(15, 190, 100, 190); // linha horizontal
+
+            // Se o usuário marcou a opção para simular assinatura
+            if (document.getElementById("assinarTexto").checked) {
+                doc.setFont("helvetica", "italic");
+                doc.setFontSize(14);
+                doc.setTextColor(70); // cinza escuro
+                doc.text(nome, 15, 188); // nome um pouco acima da linha
+                doc.setTextColor(0); // volta para preto
+            }
+
+            // Legenda
+            doc.setFont("Times", "normal");
+            doc.setFontSize(12);
+            doc.text("Assinatura da Parte Interessada", 15, 200);
+
+
+
+            // Rodapé institucional
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text("Documento gerado eletronicamente por sistema interno do cartório.", 105, 285, { align: "center" });
+
+            doc.save("termo-juridico.pdf");
+        }
+
+        // Função auxiliar: converte imagem local em Base64
+        function converterImagemParaBase64(url) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    const reader = new FileReader();
+                    reader.onloadend = function () {
+                        resolve(reader.result);
+                    };
+                    reader.readAsDataURL(xhr.response);
+                };
+                xhr.onerror = reject;
+                xhr.open("GET", url);
+                xhr.responseType = "blob";
+                xhr.send();
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Gerenciamento De Usuários</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2><a href="index.html">Menu</a></h2>
+        <ul>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Registros</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Nascimento</a></li>
+                    <li><a href="">Casamento</a></li>
+                    <li><a href="">Obito</a></li>
+                    <li><a href="">Natimorto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="submenu-toggle">
+                    <h3>Configuração de Cadastro</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Cartório</a></li>
+                    <li><a href="">Pessoas</a></li>
+                    <li><a href="">Minuta</a></li>
+                    <li><a href="">Livro</a></li>
+                    <li><a href="">Complemento Pessoas</a></li>
+                    <li><a href="">Outros Cartórios</a></li>
+                    <li><a href="">CID</a></li>
+                    <li><a href="">Tipo de Andamento</a></li>
+                    <li><a href="">Tipo de Serviço</a></li>
+                    <li><a href="">Livro E</a></li>
+                    <li><a href="">Emolumentos</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Integração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">CRC</a></li>
+                    <li><a href="">SIRC</a></li>
+                    <li><a href="">IBGE</a></li>
+                    <li><a href="">Relatório Justiça <br>Eleitoral/Exercito</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Impressão</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Impressão de Protocolo</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="submenu-toggle">
+                    <h3>Administração</h3>
+                </a>
+                <ul class="submenu">
+                    <li><a href="">Controle de Marcação</a></li>
+                </ul>
+            </li>
+            <li><a href="">
+                    <h3>Configuração do sistema</h3>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="historico-container">
+            <h2>Histórico de Alterações – Registro de Nascimento</h2>
+
+            <div class="filtro-container">
+                <label>Data Inicial:
+                    <input type="date" id="dataInicial">
+                </label>
+                <label>Data Final:
+                    <input type="date" id="dataFinal">
+                </label>
+                <select id="usuario-responsavel">
+                    <option>Selecione o Usuário Responsável</option>
+                    <option value="maria-oliveira">Maria Oliveira</option>
+                    <option value="carlos-mendes">Carlos Mendes</option>
+                    <option value="joana-reis">Joana Reis</option>
+                </select>
+                <button onclick="filtrarPorData()">Filtrar</button>
+                <button onclick="resetarFiltro()">Limpar</button>
+            </div>
+
+
+            <div class="cards-container" id="cardsContainer">
+                <!-- Cards aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previne o comportamento padrão do link
+                    const submenu = this.nextElementSibling; // Seleciona o submenu associado
+
+                    // Alterna a visibilidade do submenu
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const alteracoes = [
+            {
+                campo: "Nome do Pai",
+                antigo: "José da Silva",
+                novo: "João da Silva",
+                dataHora: "2025-05-26T14:22",
+                situacaoAto: "Lavrado",
+                usuario: "Maria Oliveira"
+            },
+            {
+                campo: "Data de Nascimento",
+                antigo: "10/01/2020",
+                novo: "11/01/2020",
+                dataHora: "2025-05-20T09:15",
+                situacaoAto: "Montagem",
+                usuario: "Carlos Mendes"
+            },
+            {
+                campo: "Naturalidade",
+                antigo: "Goiânia",
+                novo: "Anápolis",
+                dataHora: "2025-04-15T16:00",
+                situacaoAto: "Montagem",
+                usuario: "Joana Reis"
+            }
+        ];
+
+        const cardsContainer = document.getElementById("cardsContainer");
+
+        function renderizarCards(dados) {
+            cardsContainer.innerHTML = "";
+            dados.forEach(alt => {
+                const dataFormatada = new Date(alt.dataHora).toLocaleString("pt-BR");
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+          <h4>${alt.campo}</h4>
+          <p><span class="label">Valor antigo:</span> ${alt.antigo}</p>
+          <p><span class="label">Novo valor:</span> ${alt.novo}</p>
+          <p><span class="label">Data/Hora:</span> ${dataFormatada}</p>
+          <p><span class="label">Situação do Ato:</span> ${alt.situacaoAto}</p>
+          <p><span class="label">Usuário responsável:</span> ${alt.usuario}</p>
+        `;
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        function filtrarPorData() {
+            const inicio = document.getElementById("dataInicial").value;
+            const fim = document.getElementById("dataFinal").value;
+
+            const inicioDate = inicio ? new Date(inicio + "T00:00:00") : null;
+            const fimDate = fim ? new Date(fim + "T23:59:59") : null;
+
+            const filtrados = alteracoes.filter(alt => {
+                const dataAlt = new Date(alt.dataHora);
+                return (!inicioDate || dataAlt >= inicioDate) && (!fimDate || dataAlt <= fimDate);
+            });
+
+            renderizarCards(filtrados);
+        }
+
+        function resetarFiltro() {
+            document.getElementById("dataInicial").value = "";
+            document.getElementById("dataFinal").value = "";
+            renderizarCards(alteracoes);
+        }
+
+        // Inicializa com todos os dados
+        renderizarCards(alteracoes);
+    </script>
+</body>
+
+</html>
